@@ -16,13 +16,26 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",s
 .head h1{font-family:"Noto Serif JP",serif;font-size:25px;font-weight:700;margin:18px 0 8px;line-height:1.5;}
 .head p{color:var(--sub);font-size:14px;margin:0;}
 .wrap{max-width:760px;margin:0 auto;padding:24px 18px 70px;}
+#banner{display:none;background:linear-gradient(135deg,var(--accent),#a02a1c);color:#fff;text-align:center;padding:14px 16px;border-radius:13px;margin:0 0 20px;font-size:14px;line-height:1.6;box-shadow:0 6px 18px rgba(192,57,43,.25);}
+#banner b{font-weight:700;font-size:15px;}
+#banner .sub{font-size:12px;opacity:.92;display:block;margin-top:3px;}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s,box-shadow .15s;}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s,box-shadow .15s,opacity .25s,filter .25s;}
 .card:active{transform:scale(.98);}
+.thumb{position:relative;}
 .card img,.noimg{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}
 .cmeta{padding:13px 13px 16px;}
 .cmeta h3{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}
-.csub{font-size:11.5px;color:var(--sub);margin:0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.csub{font-size:11.5px;color:var(--sub);margin:0 0 8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.readtag{font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:700;color:var(--brand);}
+.lockbadge{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-size:30px;background:rgba(35,30,20,.42);color:#fff;}
+.lockbadge::after{content:"選択済み";font-size:11px;font-weight:700;letter-spacing:.05em;}
+.card.locked{opacity:.5;filter:grayscale(.7);}
+.card.locked .lockbadge{display:flex;}
+.card.locked .readtag{display:none;}
+.card.chosen{outline:3px solid var(--accent);outline-offset:-1px;box-shadow:0 10px 26px rgba(192,57,43,.3);}
+.card.chosen .readtag{color:var(--accent);}
+.card.chosen .readtag::before{content:"";}
 .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:46px;}
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr);}}
 </style>
@@ -31,58 +44,97 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",s
 <div class="head">
 <span class="badge">SPECIAL GIFT</span>
 <h1>お好きな1冊をプレゼント</h1>
-<p>ご登録ありがとうございます。気になる表紙をタップしてお読みください（全11冊）</p>
+<p id="lead">ご登録ありがとうございます。気になる1冊をタップしてお選びください（全11冊）</p>
 </div>
 <div class="wrap">
+<div id="banner"></div>
 <div class="grid">
-<a class="card" href="books/suimin/index.html">
-<img loading="lazy" src="books/suimin/images/cover_68e0e8bad7.jpg" alt="">
-<div class="cmeta"><h3>寝ても疲れる人へ</h3><p class="csub">科学が証明した最高の睡眠習慣</p></div>
+<a class="card" data-slug="suimin" data-title="寝ても疲れる人へ" href="books/suimin/index.html">
+<div class="thumb"><img loading="lazy" src="books/suimin/images/cover_68e0e8bad7.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>寝ても疲れる人へ</h3><p class="csub">科学が証明した最高の睡眠習慣</p><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/blood-sugar-sleepiness/index.html">
-<img loading="lazy" src="books/blood-sugar-sleepiness/images/cover_2352276d2b.jpg" alt="">
-<div class="cmeta"><h3>食後眠くならない最強の食事術</h3><p class="csub">ビジネスパーソンのための午後のパフォーマンス革命</p></div>
+<a class="card" data-slug="blood-sugar-sleepiness" data-title="食後眠くならない最強の食事術" href="books/blood-sugar-sleepiness/index.html">
+<div class="thumb"><img loading="lazy" src="books/blood-sugar-sleepiness/images/cover_2352276d2b.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>食後眠くならない最強の食事術</h3><p class="csub">ビジネスパーソンのための午後のパフォーマンス革命</p><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/chatgpt-fukugyou-5man/index.html">
-<img loading="lazy" src="books/chatgpt-fukugyou-5man/images/cover_e368de94db.jpg" alt="">
-<div class="cmeta"><h3>ChatGPTで副業月5万円を稼ぐ完全ガイド――初心者が3ヶ月で収益化する5つの方法</h3></div>
+<a class="card" data-slug="chatgpt-fukugyou-5man" data-title="ChatGPTで副業月5万円を稼ぐ完全ガイド――初心者が3ヶ月で収益化する5つの方法" href="books/chatgpt-fukugyou-5man/index.html">
+<div class="thumb"><img loading="lazy" src="books/chatgpt-fukugyou-5man/images/cover_e368de94db.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>ChatGPTで副業月5万円を稼ぐ完全ガイド――初心者が3ヶ月で収益化する5つの方法</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/claude-gemini-fukugyou/index.html">
-<img loading="lazy" src="books/claude-gemini-fukugyou/images/cover_0874e4a91c.jpg" alt="">
-<div class="cmeta"><h3>Claude・Geminiで差をつける副業戦略――ChatGPT一強時代を抜け出し、複数AI使い分けで月10万円を稼ぐ</h3></div>
+<a class="card" data-slug="claude-gemini-fukugyou" data-title="Claude・Geminiで差をつける副業戦略――ChatGPT一強時代を抜け出し、複数AI使い分けで月10万円を稼ぐ" href="books/claude-gemini-fukugyou/index.html">
+<div class="thumb"><img loading="lazy" src="books/claude-gemini-fukugyou/images/cover_0874e4a91c.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>Claude・Geminiで差をつける副業戦略――ChatGPT一強時代を抜け出し、複数AI使い分けで月10万円を稼ぐ</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/claude-obsidian-3x/index.html">
-<img loading="lazy" src="books/claude-obsidian-3x/images/cover_7e438f9467.jpg" alt="">
-<div class="cmeta"><h3>Claude Code × Obsidian 仕事3倍速メソッド</h3><p class="csub">技術知識ゼロから始めるAI時代の新・仕事術</p></div>
+<a class="card" data-slug="claude-obsidian-3x" data-title="Claude Code × Obsidian 仕事3倍速メソッド" href="books/claude-obsidian-3x/index.html">
+<div class="thumb"><img loading="lazy" src="books/claude-obsidian-3x/images/cover_7e438f9467.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>Claude Code × Obsidian 仕事3倍速メソッド</h3><p class="csub">技術知識ゼロから始めるAI時代の新・仕事術</p><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/hongyou-wa-fukugyou/index.html">
-<img loading="lazy" src="books/hongyou-wa-fukugyou/images/cover_5799856fb5.jpg" alt="">
+<a class="card" data-slug="hongyou-wa-fukugyou" data-title="あなたの本業は副業になる ～人生後半の武器を手に入れる働き方～" href="books/hongyou-wa-fukugyou/index.html">
+<div class="thumb"><img loading="lazy" src="books/hongyou-wa-fukugyou/images/cover_5799856fb5.jpg" alt=""><span class="lockbadge">🔒</span></div>
 <div class="cmeta"><h3>あなたの本業は副業になる
-～人生後半の武器を手に入れる働き方～</h3></div>
+～人生後半の武器を手に入れる働き方～</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/nisa-ideco-guide/index.html">
-<img loading="lazy" src="books/nisa-ideco-guide/images/cover_7e56f2f5b7.jpg" alt="">
+<a class="card" data-slug="nisa-ideco-guide" data-title="月5,000円～＋クレカで資産が増える！ 新NISA＆iDeCo はじめてガイド" href="books/nisa-ideco-guide/index.html">
+<div class="thumb"><img loading="lazy" src="books/nisa-ideco-guide/images/cover_7e56f2f5b7.jpg" alt=""><span class="lockbadge">🔒</span></div>
 <div class="cmeta"><h3>月5,000円～＋クレカで資産が増える！
-新NISA＆iDeCo はじめてガイド</h3></div>
+新NISA＆iDeCo はじめてガイド</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/obsidian-second-brain/index.html">
-<img loading="lazy" src="books/obsidian-second-brain/images/cover_9cd9725244.jpg" alt="">
-<div class="cmeta"><h3>第二の脳を作る——Obsidianで知識を資産に変える</h3></div>
+<a class="card" data-slug="obsidian-second-brain" data-title="第二の脳を作る——Obsidianで知識を資産に変える" href="books/obsidian-second-brain/index.html">
+<div class="thumb"><img loading="lazy" src="books/obsidian-second-brain/images/cover_9cd9725244.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>第二の脳を作る——Obsidianで知識を資産に変える</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/option-kamisama/index.html">
-<img loading="lazy" src="books/option-kamisama/images/cover_39ded1fe75.jpg" alt="">
-<div class="cmeta"><h3>オプションの神様は突然に</h3><p class="csub">——海外オプション取引で「怖い」が「わかった」に変わる日——</p></div>
+<a class="card" data-slug="option-kamisama" data-title="オプションの神様は突然に" href="books/option-kamisama/index.html">
+<div class="thumb"><img loading="lazy" src="books/option-kamisama/images/cover_39ded1fe75.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>オプションの神様は突然に</h3><p class="csub">——海外オプション取引で「怖い」が「わかった」に変わる日——</p><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/teinen-hataraki/index.html">
-<img loading="lazy" src="books/teinen-hataraki/images/cover_175125d348.jpg" alt="">
-<div class="cmeta"><h3>このまま定年まで働くだけでいいのか？</h3><p class="csub">40代・50代から考える人生後半の仕事とお金</p></div>
+<a class="card" data-slug="teinen-hataraki" data-title="このまま定年まで働くだけでいいのか？" href="books/teinen-hataraki/index.html">
+<div class="thumb"><img loading="lazy" src="books/teinen-hataraki/images/cover_175125d348.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>このまま定年まで働くだけでいいのか？</h3><p class="csub">40代・50代から考える人生後半の仕事とお金</p><span class="readtag">▶ この本を読む</span></div>
 </a>
-<a class="card" href="books/travel-life-impact/index.html">
-<img loading="lazy" src="books/travel-life-impact/images/cover_9069159138.jpg" alt="">
-<div class="cmeta"><h3>旅が変える、人生の優先順位</h3></div>
+<a class="card" data-slug="travel-life-impact" data-title="旅が変える、人生の優先順位" href="books/travel-life-impact/index.html">
+<div class="thumb"><img loading="lazy" src="books/travel-life-impact/images/cover_9069159138.jpg" alt=""><span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>旅が変える、人生の優先順位</h3><span class="readtag">▶ この本を読む</span></div>
 </a>
 </div>
 <p class="foot">© 竹谷知悦 / LINE登録特典</p>
 </div>
+<script>
+(function(){
+  var KEY='ebookgift_choice_v1';
+  var p=new URLSearchParams(location.search);
+  if(p.has('reset')){ try{localStorage.removeItem(KEY);}catch(e){} history.replaceState({},'',location.pathname); }
+  var chosen=null; try{chosen=localStorage.getItem(KEY);}catch(e){}
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var banner=document.getElementById('banner');
+  var lead=document.getElementById('lead');
+  function titleOf(slug){var t='';cards.forEach(function(c){if(c.getAttribute('data-slug')===slug)t=c.getAttribute('data-title');});return t;}
+  function applyLock(){
+    cards.forEach(function(c){
+      if(c.getAttribute('data-slug')===chosen){c.classList.add('chosen');}
+      else{c.classList.add('locked');}
+    });
+    if(banner){
+      banner.innerHTML='🎁 あなたが選んだ本<br><b>'+titleOf(chosen)+'</b><span class="sub">タップして続きを読む</span>';
+      banner.style.display='block';
+    }
+    if(lead){lead.textContent='プレゼントの1冊を選択済みです。下のあなたの本をお読みください。';}
+  }
+  cards.forEach(function(c){
+    c.addEventListener('click',function(e){
+      var slug=c.getAttribute('data-slug'), title=c.getAttribute('data-title');
+      if(chosen){
+        if(slug!==chosen){ e.preventDefault(); alert('すでに「'+titleOf(chosen)+'」をお選びいただいています。\nプレゼントは1冊だけです。'); }
+        return;
+      }
+      e.preventDefault();
+      if(confirm('「'+title+'」を受け取りますか？\n\n※プレゼントは1冊だけ。あとから選び直しはできません。')){
+        try{localStorage.setItem(KEY,slug);}catch(e){}
+        location.href=c.getAttribute('href');
+      }
+    });
+  });
+  if(chosen) applyLock();
+})();
+</script>
 </body>
 </html>

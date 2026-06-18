@@ -281,11 +281,13 @@ def build_index(books):
         cov = f'books/{b["slug"]}/images/{b["cover"]}' if b["cover"] else ""
         img = f'<img loading="lazy" src="{cov}" alt="">' if cov else '<div class="noimg"></div>'
         sub = f'<p class="csub">{html.escape(b["subtitle"])}</p>' if b["subtitle"] else ""
-        cards.append(f'''<a class="card" href="books/{b["slug"]}/index.html">
-{img}
-<div class="cmeta"><h3>{html.escape(b["title"])}</h3>{sub}</div>
+        title_disp = html.escape(b["title"])
+        title_attr = html.escape(b["title"].replace("\n", " "), quote=True)
+        cards.append(f'''<a class="card" data-slug="{b["slug"]}" data-title="{title_attr}" href="books/{b["slug"]}/index.html">
+<div class="thumb">{img}<span class="lockbadge">🔒</span></div>
+<div class="cmeta"><h3>{title_disp}</h3>{sub}<span class="readtag">▶ この本を読む</span></div>
 </a>''')
-    page = INDEX_TEMPLATE.format(cards="\n".join(cards), n=len(books))
+    page = INDEX_TEMPLATE.replace("__CARDS__", "\n".join(cards)).replace("__N__", str(len(books)))
     (OUT_ROOT / "index.html").write_text(page, encoding="utf-8")
     print(f"[OK] index.html ({len(books)}冊)")
 
@@ -299,37 +301,89 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}}
-*{{box-sizing:border-box;}}
-body{{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;}}
-.head{{text-align:center;padding:54px 22px 8px;}}
-.badge{{display:inline-block;font-size:12px;letter-spacing:.2em;color:#fff;background:var(--accent);padding:6px 16px;border-radius:30px;}}
-.head h1{{font-family:"Noto Serif JP",serif;font-size:25px;font-weight:700;margin:18px 0 8px;line-height:1.5;}}
-.head p{{color:var(--sub);font-size:14px;margin:0;}}
-.wrap{{max-width:760px;margin:0 auto;padding:24px 18px 70px;}}
-.grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}}
-.card{{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s,box-shadow .15s;}}
-.card:active{{transform:scale(.98);}}
-.card img,.noimg{{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}}
-.cmeta{{padding:13px 13px 16px;}}
-.cmeta h3{{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}}
-.csub{{font-size:11.5px;color:var(--sub);margin:0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}}
-.foot{{text-align:center;color:var(--sub);font-size:12px;margin-top:46px;}}
-@media(min-width:620px){{.grid{{grid-template-columns:repeat(3,1fr);}}}}
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;}
+.head{text-align:center;padding:54px 22px 8px;}
+.badge{display:inline-block;font-size:12px;letter-spacing:.2em;color:#fff;background:var(--accent);padding:6px 16px;border-radius:30px;}
+.head h1{font-family:"Noto Serif JP",serif;font-size:25px;font-weight:700;margin:18px 0 8px;line-height:1.5;}
+.head p{color:var(--sub);font-size:14px;margin:0;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 70px;}
+#banner{display:none;background:linear-gradient(135deg,var(--accent),#a02a1c);color:#fff;text-align:center;padding:14px 16px;border-radius:13px;margin:0 0 20px;font-size:14px;line-height:1.6;box-shadow:0 6px 18px rgba(192,57,43,.25);}
+#banner b{font-weight:700;font-size:15px;}
+#banner .sub{font-size:12px;opacity:.92;display:block;margin-top:3px;}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s,box-shadow .15s,opacity .25s,filter .25s;}
+.card:active{transform:scale(.98);}
+.thumb{position:relative;}
+.card img,.noimg{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}
+.cmeta{padding:13px 13px 16px;}
+.cmeta h3{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}
+.csub{font-size:11.5px;color:var(--sub);margin:0 0 8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.readtag{font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:700;color:var(--brand);}
+.lockbadge{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:4px;font-size:30px;background:rgba(35,30,20,.42);color:#fff;}
+.lockbadge::after{content:"選択済み";font-size:11px;font-weight:700;letter-spacing:.05em;}
+.card.locked{opacity:.5;filter:grayscale(.7);}
+.card.locked .lockbadge{display:flex;}
+.card.locked .readtag{display:none;}
+.card.chosen{outline:3px solid var(--accent);outline-offset:-1px;box-shadow:0 10px 26px rgba(192,57,43,.3);}
+.card.chosen .readtag{color:var(--accent);}
+.card.chosen .readtag::before{content:"";}
+.foot{text-align:center;color:var(--sub);font-size:12px;margin-top:46px;}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr);}}
 </style>
 </head>
 <body>
 <div class="head">
 <span class="badge">SPECIAL GIFT</span>
 <h1>お好きな1冊をプレゼント</h1>
-<p>ご登録ありがとうございます。気になる表紙をタップしてお読みください（全{n}冊）</p>
+<p id="lead">ご登録ありがとうございます。気になる1冊をタップしてお選びください（全__N__冊）</p>
 </div>
 <div class="wrap">
+<div id="banner"></div>
 <div class="grid">
-{cards}
+__CARDS__
 </div>
 <p class="foot">© 竹谷知悦 / LINE登録特典</p>
 </div>
+<script>
+(function(){
+  var KEY='ebookgift_choice_v1';
+  var p=new URLSearchParams(location.search);
+  if(p.has('reset')){ try{localStorage.removeItem(KEY);}catch(e){} history.replaceState({},'',location.pathname); }
+  var chosen=null; try{chosen=localStorage.getItem(KEY);}catch(e){}
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var banner=document.getElementById('banner');
+  var lead=document.getElementById('lead');
+  function titleOf(slug){var t='';cards.forEach(function(c){if(c.getAttribute('data-slug')===slug)t=c.getAttribute('data-title');});return t;}
+  function applyLock(){
+    cards.forEach(function(c){
+      if(c.getAttribute('data-slug')===chosen){c.classList.add('chosen');}
+      else{c.classList.add('locked');}
+    });
+    if(banner){
+      banner.innerHTML='🎁 あなたが選んだ本<br><b>'+titleOf(chosen)+'</b><span class="sub">タップして続きを読む</span>';
+      banner.style.display='block';
+    }
+    if(lead){lead.textContent='プレゼントの1冊を選択済みです。下のあなたの本をお読みください。';}
+  }
+  cards.forEach(function(c){
+    c.addEventListener('click',function(e){
+      var slug=c.getAttribute('data-slug'), title=c.getAttribute('data-title');
+      if(chosen){
+        if(slug!==chosen){ e.preventDefault(); alert('すでに「'+titleOf(chosen)+'」をお選びいただいています。\\nプレゼントは1冊だけです。'); }
+        return;
+      }
+      e.preventDefault();
+      if(confirm('「'+title+'」を受け取りますか？\\n\\n※プレゼントは1冊だけ。あとから選び直しはできません。')){
+        try{localStorage.setItem(KEY,slug);}catch(e){}
+        location.href=c.getAttribute('href');
+      }
+    });
+  });
+  if(chosen) applyLock();
+})();
+</script>
 </body>
 </html>"""
 
