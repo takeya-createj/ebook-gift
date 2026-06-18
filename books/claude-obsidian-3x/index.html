@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claude Code × Obsidian 仕事3倍速メソッド</title>
+<meta name="description" content="技術知識ゼロから始めるAI時代の新・仕事術">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP",serif;line-height:1.95;font-size:17px;-webkit-text-size-adjust:100%;}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:50;transition:width .1s;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px 80px;}
+header.hero{text-align:center;padding:46px 0 30px;}
+.cover{width:min(70%,300px);height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(60,40,10,.22);margin-bottom:26px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.5;margin:.2em 0;letter-spacing:.01em;}
+.subtitle{color:var(--sub);font-size:15px;font-family:"Noto Sans JP",sans-serif;margin:.4em auto 0;max-width:90%;}
+.divider{width:54px;height:3px;background:var(--accent);border:0;border-radius:3px;margin:26px auto 8px;}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px 16px;margin:8px 0 10px;box-shadow:0 6px 18px rgba(60,40,10,.07);}
+.toc-h{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--brand);text-align:center;margin:12px 0 14px;}
+.toc-row{display:flex;align-items:baseline;gap:13px;padding:11px 4px;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);font-family:"Noto Sans JP",sans-serif;line-height:1.5;}
+.toc-row:last-child{border-bottom:0;}
+.toc-row:active{background:#f1ebe0;}
+.toc-num{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--accent);min-width:1.6em;}
+.toc-ttl{font-size:14.5px;}
+.chapter{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:21px;line-height:1.45;margin:62px 0 22px;padding-top:26px;border-top:1px solid var(--line);color:var(--brand);scroll-margin-top:14px;}
+.chapter .cnum{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);margin-bottom:6px;}
+h3{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:18px;margin:40px 0 14px;padding-left:13px;border-left:5px solid var(--brand);line-height:1.5;}
+h4{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:16px;color:var(--sub);margin:28px 0 10px;}
+p{margin:0 0 1.25em;}
+.hl{color:var(--accent);font-weight:700;}
+strong{font-weight:700;}
+figure{margin:30px 0;text-align:center;}
+figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
+.caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+.backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
+.foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
+@media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+<header class="hero">
+<img class="cover" src="images/cover_7e438f9467.jpg" alt="表紙">
+<h1>Claude Code × Obsidian 仕事3倍速メソッド</h1>
+<p class="subtitle">技術知識ゼロから始めるAI時代の新・仕事術</p>
+<hr class="divider">
+</header>
+<nav class="toc"><p class="toc-h">目次</p><a class="toc-row" href="#ch01"><span class="toc-num">01</span><span class="toc-ttl">第1章　なぜClaude Code × Obsidianで仕事が3倍速になるのか</span></a>
+<a class="toc-row" href="#ch02"><span class="toc-num">02</span><span class="toc-ttl">第2章　Obsidianを「第二の脳」にする最速セットアップ</span></a>
+<a class="toc-row" href="#ch03"><span class="toc-num">03</span><span class="toc-ttl">第3章　Claude Codeで「考える仕事」を半自動化する</span></a>
+<a class="toc-row" href="#ch04"><span class="toc-num">04</span><span class="toc-ttl">第4章　二つを連携させる「最強ワークフロー」</span></a>
+<a class="toc-row" href="#ch05"><span class="toc-num">05</span><span class="toc-ttl">第5章　職種別・シーン別 実践活用事例集</span></a>
+<a class="toc-row" href="#ch06"><span class="toc-num">06</span><span class="toc-ttl">おわりに</span></a></nav>
+<main>
+<h3>知識ゼロから始める業務自動化！
+Claude Code × Obsidian 最強ワークフロー</h3>
+<h3>会社員・フリーランス・士業のための、
+コードを書かないAI業務効率化</h3>
+<p><strong>目次</strong></p>
+<p>はじめに</p>
+<p>第1章　なぜClaude Code × Obsidianで仕事が3倍速になるのか</p>
+<p>1-1　仕事が遅い本当の理由</p>
+<p>1-2　Claude Codeとは何か — 「AIアシスタント」の進化版</p>
+<p>1-3　Obsidianとは何か — 「第二の脳」を作るツール</p>
+<p>1-4　2つのツールが「組み合わさる」と何が起きるか</p>
+<p>1-5　「3倍速」の内訳を理解する</p>
+<p>第2章　Obsidianを「第二の脳」にする最速セットアップ</p>
+<p>2-1　Obsidianのインストール — 5分で完了する準備</p>
+<p>2-2　フォルダ構成 — シンプルが一番</p>
+<p>2-3　日次ノートを習慣化する — 最重要の1機能</p>
+<p>2-4　リンクの張り方 — Obsidianの最強機能</p>
+<p>2-5　必須プラグイン3選</p>
+<p>2-6　Web Clipperで情報収集を自動化する</p>
+<p>2-7　スマートフォンとの同期</p>
+<p>第3章　Claude Codeで「考える仕事」を半自動化する</p>
+<p>3-1　Claude Codeのインストール — 初心者でも15分で完了</p>
+<p>3-2　最初の3つの指示 — 「これだけで驚く」体験</p>
+<p>3-3　非エンジニアが陥りがちな3つの誤解</p>
+<p>3-4　仕事別・実践的な指示フレーズ集</p>
+<p>3-5　CLAUDE.mdで「自分専用アシスタント」を育てる</p>
+<p>3-6　自動化事例: 週次報告書を5分で完成させる</p>
+<p>第4章　二つを連携させる「最強ワークフロー」</p>
+<p>4-1　MCP連携とは何か — 「つなぐ橋」を架ける</p>
+<p>4-2　MCP設定手順 — 30分でできる初期設定</p>
+<p>4-3　日次ルーティンを自動化する</p>
+<p>4-4　週次レビューを15分で完成させる</p>
+<p>4-5　プロジェクト管理を自動化する</p>
+<p>4-6　情報収集から活用まで — 完全ワークフロー</p>
+<p>第5章　職種別・シーン別 実践活用事例集</p>
+<p>5-1　会社員の活用事例</p>
+<p>人事・採用担当者の場合</p>
+<p>営業担当者の場合</p>
+<p>企画・マーケティング担当者の場合</p>
+<p>5-2　フリーランスの活用事例</p>
+<p>Webライター・コンテンツクリエイターの場合</p>
+<p>コンサルタントの場合</p>
+<p>デザイナー・クリエイターの場合</p>
+<p>5-3　士業（弁護士・税理士・社労士）の活用事例</p>
+<p>税理士・公認会計士の場合</p>
+<p>社会保険労務士の場合</p>
+<p>5-4　「3倍速」を実現するための行動計画</p>
+<p>おわりに</p>
+<p>
+あなたは今、こんな状況に心当たりはありませんか。</p>
+<p>
+毎日同じような仕事の繰り返しで、気づけば夜<span class="hl">9</span><span class="hl">時</span>。</p>
+<p>
+やることリストは消えるどころか増え続け、「もっと効率よくできればいいのに」と思いながら、また翌日も同じ日常が始まる。</p>
+<p><span class="hl">
+AI</span>という言葉はもう何年も前から耳にしています。</p>
+<p>
+ChatGPTも試してみた。</p>
+<p>
+でも結局、「なんとなくすごそう」で止まって、日々の仕事には組み込めていない。</p>
+<p>
+Obsidianというメモアプリが話題だと聞いてインストールしてみたけれど、ノートが増えるだけで活用できている気がしない。</p>
+<p>
+そういう方に向けて、この本は書かれました。</p>
+<p>本書で紹介するのは、<span class="hl">Claude Code</span>と<span class="hl">Obsidian</span>という2つのツールの組み合わせです。</p>
+<p>
+この2つを連携させることで、日々の仕事が劇的に変わります。</p>
+<p>
+実際、この方法を実践した人からは「仕事にかかる時間が半分以下になった」「週<span class="hl">12</span><span class="hl">時間</span>以上の余裕が生まれた」「資料作成が怖くなくなった」という声が続々と届いています。</p>
+<p>
+「でも、Claude Codeってエンジニア向けじゃないの？」</p>
+<p>その心配は不要です。</p>
+<p>
+プログラミングの知識はゼロで構いません。
+</p>
+<p>本書では、コードを一行も書かずに使いこなせる方法だけを紹介します。</p>
+<p>
+ターミナルの操作も、専門的な設定も、最初の一歩だけクリアすれば、あとは自然言語で日本語を入力するだけです。</p>
+<p>
+本書の構成を簡単に紹介します。</p>
+<p>第1章では、Claude Code × Obsidianがなぜ仕事を<span class="hl">3</span><span class="hl">倍</span>速にするのかを、全体像とともに解説します。</p>
+<p>
+第2章では、Obsidianを「第二の脳」として機能させるための最速セットアップを説明します。</p>
+<p>
+第3章では、Claude Codeを非エンジニアが使うための実践的な方法を紹介します。</p>
+<p>
+第4章では、2つのツールを連携させて、日次・週次の業務を自動化する方法を解説します。</p>
+<p>
+第5章では、会社員・フリーランス・士業それぞれの職種別活用事例を紹介します。</p>
+<p>
+読みながら、自分の仕事に当てはめて考えてみてください。</p>
+<p>
+きっと「あ、これなら自分でもできる」という感覚を持てるはずです。</p>
+<p>
+では、一緒に始めましょう。</p>
+<figure><img loading="lazy" src="images/fig_6ffc728917.jpg" alt=""></figure>
+<p>はじめに</p>
+<h2 class="chapter" id="ch01"><span class="cnum">01</span>第1章　なぜClaude Code × Obsidianで仕事が3倍速になるのか</h2>
+<figure><img loading="lazy" src="images/fig_598bd80ffc.jpg" alt=""></figure>
+<p>第1章 なぜ仕事が3倍速になるのか
+</p>
+<h3>1-1　仕事が遅い本当の理由</h3>
+<p>
+「もっと効率よく仕事したい」と思わない人はいないでしょう。</p>
+<p>それなのに、なぜ多くのビジネスパーソンは仕事の効率化に苦しんでいるのでしょうか。</p>
+<p>答えは意外なところにあります。</p>
+<p>
+仕事が遅い原因は、能力や経験の問題ではありません。</p>
+<p>
+本当の問題は「情報の流れが断ち切られている」ことにあります。</p>
+<p>
+たとえば、あなたは会議で重要な決定事項をメモしました。</p>
+<p>
+でも、そのメモはスマートフォンのメモアプリに入ったまま、翌週の報告書作成時には「どこに書いたっけ？」と探し回ることになる。</p>
+<p>
+探している時間、実は何も仕事が進んでいません。</p>
+<p>
+あるいは、先週調べた情報が今日また必要になった。</p>
+<p>
+でも、あの資料はどのフォルダに保存したか思い出せず、また同じことを調べ直す。</p>
+<p>
+このような「情報の再探索コスト」が、仕事の時間の<span class="hl">30</span><span class="hl">〜</span><span class="hl">40%</span>を占めているという研究があります。</p>
+<figure><img loading="lazy" src="images/fig_0f22d26c07.jpg" alt=""></figure>
+<p>情報の流れが変わると仕事が変わる
+</p>
+<p>さらに、メールへの返信、定型的なレポート作成、データの転記作業。
+</p>
+<p>これらは「考える仕事」ではなく「こなす仕事」です。</p>
+<p>
+でも、一日の中でこういった作業に費やす時間は非常に多い。</p>
+<p><span class="hl">
+Anthropic</span><span class="hl">の調査</span>によれば、Claude Codeを活用したビジネスパーソンは週平均<span class="hl">12.3</span><span class="hl">時間</span>の時間削減を達成しています。</p>
+<p>週<span class="hl">5</span><span class="hl">日</span>で割ると、毎日約<span class="hl">2.5</span><span class="hl">時間</span>が手元に戻ってくる計算です。</p>
+<h3>1-2　Claude Codeとは何か — 「AIアシスタント」の進化版</h3>
+<p>
+Claude Codeについて、まず正確に理解しておきましょう。</p>
+<p>
+「ChatGPTと何が違うの？」という疑問をよく聞きます。</p>
+<p>
+ChatGPTをはじめとする一般的なAIチャットは、「質問→回答」の形式で使います。</p>
+<p>
+あなたが文章を打ち込み、AIが答えを返す。</p>
+<p>それだけです。</p>
+<p>
+Claude Codeは違います。
+</p>
+<p>Claude Codeは、あなたのパソコン内のファイルに直接アクセスし、操作することができます。
+</p>
+<p>つまり、「この書類をまとめて」「この情報を整理して報告書にして」という指示を受けたとき、実際にファイルを開き、読み込み、新しい文書を生成して保存するところまで、<span class="hl">一連の作業を自動で実行</span>してくれます。</p>
+<figure><img loading="lazy" src="images/fig_1f139f5a8d.jpg" alt=""></figure>
+<p>Claude Codeと一般AIチャットの違い</p>
+<p>エンジニアがコード開発に使うイメージが強いClaude Codeですが、実際には<span class="hl">文章・手順・ファイルをまたぐすべての仕事</span>に対応できます。
+</p>
+<p>具体的には：</p>
+<p>- 会議のメモから議事録を自動生成し、関係者へのメール文まで作成する</p>
+<p>- 複数のExcelファイルを読み込み、月次レポートを一発で生成する</p>
+<p>- 大量のメールを分析し、優先度と返信内容を提案する</p>
+<p>- 参考資料を読み込んで、プレゼンのスライド構成案を作る</p>
+<p>これらを、<span class="hl">日本語で話しかけるだけ</span>で実行してくれます。</p>
+<h3>1-3　Obsidianとは何か — 「第二の脳」を作るツール</h3>
+<p>
+Obsidianは、<span class="hl">ローカル型のノートアプリ</span>です。</p>
+<p>
+「ローカル型」というのは、データがあなたのパソコンの中に保存されるということです。</p>
+<p>
+クラウド上にデータが飛ばないため、機密情報も安心して保存できます。</p>
+<p>
+Obsidianの最大の特徴は、<span class="hl">ノート同士をリンクで結べる</span>ことです。</p>
+<p>
+普通のメモアプリは、ノートがバラバラに存在するだけです。</p>
+<p>
+Obsidianでは、「このノートはあのノートと関連している」というリンクを張れます。</p>
+<p>
+これにより、あるアイデアから関連する情報へ、芋づる式にたどっていける「知識のネットワーク」が生まれます。</p>
+<p>
+人間の脳も、記憶は孤立したものではなく、関連する記憶と結びついて存在しています。</p>
+<p>
+Obsidianはまさに、この脳の仕組みを模倣した「<span class="hl">第二の脳</span>」なのです。</p>
+<figure><img loading="lazy" src="images/fig_c0dc90d51f.jpg" alt=""></figure>
+<p>Obsidianで作る知識ネットワーク
+</p>
+<h3>1-4　2つのツールが「組み合わさる」と何が起きるか</h3>
+<p>
+Claude CodeとObsidianを<span class="hl">単独</span>で使っても、それぞれ便利なツールです。</p>
+<p>
+でも、この2つを<span class="hl">連携させる</span>と、全く別の次元の生産性が生まれます。</p>
+<p>
+仕組みはシンプルです。</p>
+<p>
+Obsidianに蓄積された「あなたの知識と情報のすべて」を、Claude Codeが参照できるようになる。</p>
+<p>
+つまり、あなたが過去1年間に書いたメモ、蓄積した情報、整理したプロジェクト情報を、すべてClaude Codeが「知っている」状態で仕事を手伝ってくれます。</p>
+<p>
+「先月の○○プロジェクトの議事録から、まだ未解決の課題を抽出して」</p>
+<p>「この2年間の顧客メモを分析して、共通する悩みのパターンを教えて」</p>
+<p>
+こういった指示が、実現できるようになります。</p>
+<figure><img loading="lazy" src="images/fig_3f30fb241d.jpg" alt=""></figure>
+<p>Claude Code × Obsidian 連携フロー</p>
+<h3>1-5　「3倍速」の内訳を理解する</h3>
+<p>
+「<span class="hl">3</span><span class="hl">倍</span>速」という言葉は大げさに聞こえるかもしれません。</p>
+<p>
+でも、実際の内訳を見ると、これは十分にリアルな数字です。</p>
+<p><span class="hl">
+① </span><span class="hl">情報の再探索がゼロになる（時間削減</span><span class="hl">: </span><span class="hl">約</span><span class="hl">30%</span><span class="hl">）</span></p>
+<p>Obsidianに情報を一元管理することで、「あの情報どこだっけ？」という時間がほぼゼロになります。</p>
+<p><span class="hl">
+</span><span class="hl">② </span><span class="hl">定型作業を</span><span class="hl">AI</span><span class="hl">が代行する（時間削減</span><span class="hl">: </span><span class="hl">約</span><span class="hl">40%</span><span class="hl">）</span></p>
+<p>議事録作成、メール返信の下書き、定型レポートの作成などをClaude Codeに任せることで、「こなす仕事」の時間が大幅に削減されます。</p>
+<p><span class="hl">
+③ </span><span class="hl">アイデアの質が上がり、手戻りが減る（時間削減</span><span class="hl">: </span><span class="hl">約</span><span class="hl">30%</span><span class="hl">）</span></p>
+<p>蓄積された知識を参照しながらClaude Codeが提案を作るため、「やり直し」が大幅に減ります。</p>
+<figure><img loading="lazy" src="images/fig_a5315bae1a.jpg" alt=""></figure>
+<p>仕事3倍速の3層構造
+</p>
+<p>この3つが重なることで、結果として仕事にかかる時間が<span class="hl">3</span><span class="hl">分の</span><span class="hl">1</span><span class="hl">以下</span>になっていくのです。</p>
+<p>次の章から、具体的なセットアップと使い方を説明します。</p>
+<p>難しいことは何もありません。</p>
+<p>
+一つひとつ、一緒に進めていきましょう。</p>
+<figure><img loading="lazy" src="images/fig_777569cc4a.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9ebec7faf3.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_99a300a760.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a1f7f8698d.jpg" alt=""></figure>
+<h2 class="chapter" id="ch02"><span class="cnum">02</span>第2章　Obsidianを「第二の脳」にする最速セットアップ</h2>
+<figure><img loading="lazy" src="images/fig_e38c5d25f4.jpg" alt=""></figure>
+<p>第2章 Obsidianセットアップ
+</p>
+<h3>2-1　Obsidianのインストール — 5分で完了する準備</h3>
+<p>Obsidianのインストールは驚くほど簡単です。</p>
+<p>公式サイト（obsidian.md）にアクセスして、「Get Obsidian for free」をクリック。</p>
+<p>
+あなたのOS（Windows・Mac・iOS・Android）に対応したバージョンをダウンロードして、インストールするだけです。</p>
+<p><span class="hl">
+</span><span class="hl">料金について</span>、基本機能は<span class="hl">完全無料</span>で使えます。</p>
+<p>
+個人利用であれば、無料版で本書のすべての内容を実践できます。</p>
+<p>
+インストールが完了したら、最初に「Vault（ヴォルト）」を作成します。</p>
+<p>
+Vaultとは、Obsidianにおけるノートの保存場所のことです。</p>
+<p>
+「仕事ノート」という名前でVaultを作り、パソコンの分かりやすい場所（例: デスクトップやDocumentsフォルダ）に保存してください。</p>
+<figure><img loading="lazy" src="images/fig_e75ecfcc1c.jpg" alt=""></figure>
+<p>Obsidianセットアップ5ステップ
+</p>
+<h3>2-2　フォルダ構成 — シンプルが一番</h3>
+<p>Obsidianを使い始めると、多くの人が「どうフォルダを整理しよう？」と考え込んでしまいます。</p>
+<p>
+最初はシンプルに始めることが鉄則です。
+</p>
+<p>推奨するフォルダ構成は以下のとおりです：</p>
+<p>
+このシンプルな5フォルダ構成から始めることをお勧めします。</p>
+<p>
+「00_インボックス」が特に重要です。</p>
+<p>
+「とりあえずここに入れる」場所を作ることで、「整理するのが面倒」という心理的ハードルが下がります。</p>
+<p>
+整理は後でいつでもできます。</p>
+<p>
+まず「捨てない」「残す」習慣を先につけることが重要です。</p>
+<figure><img loading="lazy" src="images/fig_dd35d72ef3.jpg" alt=""></figure>
+<p>推奨フォルダ構成
+</p>
+<h3>2-3　日次ノートを習慣化する — 最重要の1機能</h3>
+<p>
+Obsidianには多くの機能がありますが、まず<span class="hl">日次ノート</span>だけマスターしてください。</p>
+<p>
+日次ノートとは、毎日1枚作る「その日のログ」です。</p>
+<p>
+設定方法は簡単です。</p>
+<p>
+Obsidianの設定画面（左下の歯車アイコン）→「コアプラグイン」→「日次ノート」をオンにするだけです。</p>
+<p>
+毎朝、Obsidianを開いてその日の日次ノートを作成し、以下の内容を書く習慣をつけましょう：</p>
+<p>たったこれだけです。</p>
+<p>最初は「こんなシンプルで意味あるの？」と思うかもしれません。</p>
+<p>
+でも、<span class="hl">1</span><span class="hl">ヶ月後に振り返ったとき</span>、過去の自分が何をしていたか、何を考えていたかが一目でわかる「仕事の記録」が手元に残っています。</p>
+<p>
+これが後に、Claude Codeと連携したときに「知識の宝庫」として機能します。</p>
+<figure><img loading="lazy" src="images/fig_379bcfcf68.jpg" alt=""></figure>
+<p>日次ノートの習慣サイクル
+</p>
+<h3>2-4　リンクの張り方 — Obsidianの最強機能</h3>
+<p>
+日次ノートに慣れてきたら、次は<span class="hl">リンク</span>を使いましょう。</p>
+<p>
+Obsidianでリンクを張る方法は、`[[` を入力するだけです。</p>
+<p>
+例えば、日次ノートに「○○プロジェクトの件でA社と打ち合わせ」と書いたとき、</p>
+<p>`[[○○プロジェクト]]` と書くことで、そのプロジェクトのノートへのリンクが自動的に張られます。</p>
+<p>
+リンクを積極的に使うことで、情報の「孤島」がなくなります。</p>
+<p>「グラフビュー」機能を使うと、あなたのノートのつながりが視覚的に見えます。</p>
+<p>左サイドバーの「グラフビュー」アイコンをクリックしてみてください。</p>
+<p>ノートが点（ノード）として表示され、リンクが線（エッジ）として表示されます。</p>
+<p>これがあなたの「第二の脳」の全体像です。</p>
+<h3>2-5　必須プラグイン3選</h3>
+<p>
+Obsidianの真価は<span class="hl">プラグイン</span>にあります。</p>
+<p>無数のプラグインがありますが、最初は以下の3つだけ入れればOKです。</p>
+<p><span class="hl">
+① </span><span class="hl">Templater</span><span class="hl">（テンプレーター）</span></p>
+<p>ノートのテンプレートを自動挿入するプラグインです。</p>
+<p>「毎日同じ形式の日次ノートを作りたい」「打ち合わせメモはいつも同じ項目から始めたい」という場合に使います。</p>
+<p><span class="hl">
+② </span><span class="hl">Dataview</span><span class="hl">（データビュー）</span></p>
+<p>ノートの情報を「データベース」として検索・集計できるプラグインです。</p>
+<p>「今週の未完了タスクを全部表示して」という操作ができるようになります。</p>
+<p><span class="hl">
+③ Calendar</span><span class="hl">（カレンダー）</span></p>
+<p>右サイドバーにカレンダーが表示され、各日の日次ノートに直接アクセスできます。</p>
+<p>「3週間前の○曜日のメモ」を一瞬で開けるようになります。</p>
+<figure><img loading="lazy" src="images/fig_4654b653fb.jpg" alt=""></figure>
+<p>必須プラグイン3選</p>
+<p>
+プラグインの導入方法は：</p>
+<p>
+設定 → コミュニティプラグイン → 「コミュニティプラグインを有効にする」→ プラグイン名を検索 → インストール</p>
+<p>これだけです。</p>
+<p>数分で完了します。</p>
+<h3>2-6　Web Clipperで情報収集を自動化する</h3>
+<p>
+Obsidianの公式拡張機能「<span class="hl">Obsidian Web Clipper</span>」をブラウザに導入すると、Webサイトの記事を一クリックでObsidianに保存できます。</p>
+<p>
+Chrome・Firefox・Safariに対応しており、ブラウザの拡張機能ストアから無料でインストールできます。</p>
+<p>
+使い方は、気になる記事を読んでいるときに拡張機能のアイコンをクリックするだけ。</p>
+<p>
+記事のタイトル・URL・本文が、指定したObsidianのフォルダに自動保存されます。</p>
+<p>
+これにより「あとで読もうと思ってブックマークしたまま忘れた」という問題が解消されます。
+</p>
+<p>保存した記事は「03_知識・参考資料」フォルダに蓄積され、後でClaude Codeが参照できる「知識のストック」となります。</p>
+<figure><img loading="lazy" src="images/fig_0e2b20e384.jpg" alt=""></figure>
+<p>Web Clipperによる情報収集フロー
+</p>
+<h3>2-7　スマートフォンとの同期</h3>
+<p>
+「パソコンでしか使えないの？」という心配は不要です。</p>
+<p>
+iCloud（Mac/iPhone）またはDropbox/OneDriveを経由することで、スマートフォンのObsidianアプリと同期できます。</p>
+<p>
+電車の中でスマートフォンで思いついたアイデアをObsidianに書いておけば、デスクに戻ったときにはそのメモがパソコンでも確認できます。</p>
+<p>
+情報が一カ所に集まる仕組みが完成します。</p>
+<figure><img loading="lazy" src="images/fig_35fe241f0f.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_42bfa679b2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7ea8df452a.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_00708f5c3f.jpg" alt=""></figure>
+<h2 class="chapter" id="ch03"><span class="cnum">03</span>第3章　Claude Codeで「考える仕事」を半自動化する</h2>
+<figure><img loading="lazy" src="images/fig_311e87c91d.jpg" alt=""></figure>
+<p>第3章 Claude Codeで仕事を半自動化
+</p>
+<h3>3-1　Claude Codeのインストール — 初心者でも15分で完了</h3>
+<p>
+「ターミナル」や「コマンドライン」という言葉に、アレルギー反応を感じる方は多いと思います。</p>
+<p>でも、Claude Codeのインストールは実は非常にシンプルです。</p>
+<p><span class="hl">
+</span><span class="hl">必要なもの</span></p>
+<p>- Claude Pro または Maxプラン（月額約<span class="hl">3,000</span><span class="hl">円</span>〜）への加入</p>
+<p>- Node.js（無料のプログラム実行環境）のインストール</p>
+<p><span class="hl">
+</span><span class="hl">手順</span></p>
+<p>まず、Node.jsの公式サイト（nodejs.org）から最新版をダウンロード・インストールします。</p>
+<p>これは「普通のソフトのインストール」と全く同じ手順です。</p>
+<p>次に、ターミナル（Macの場合）またはコマンドプロンプト（Windowsの場合）を開き、以下のコマンドを1行だけ実行します：</p>
+<p>「コマンドを実行する」というのは、この1行をコピーして貼り付けて、Enterキーを押すだけです。</p>
+<p>これでインストール完了です。</p>
+<p>
+以降は、作業したいフォルダをターミナルで開き、`claude` と入力するだけで起動します。
+</p>
+<figure><img loading="lazy" src="images/fig_a417259964.jpg" alt=""></figure>
+<p>Claude Codeインストール3ステップ
+</p>
+<h3>3-2　最初の3つの指示 — 「これだけで驚く」体験</h3>
+<p>
+インストールしたら、最初にぜひ試してほしい3つの指示があります。</p>
+<p><span class="hl">
+</span><span class="hl">指示</span><span class="hl">1: </span><span class="hl">文章の要約・整理</span></p>
+<p>Claude Codeはファイルを開いて読み込み、整理された結果を出力してくれます。</p>
+<p><span class="hl">
+</span><span class="hl">指示</span><span class="hl">2: </span><span class="hl">文書の自動生成</span></p>
+<p>会議メモから議事録メールの文案が、自動生成されます。</p>
+<p><span class="hl">
+</span><span class="hl">指示</span><span class="hl">3: </span><span class="hl">複数ファイルの横断処理</span></p>
+<p>1ヶ月分のノートを一気に分析し、パターンを見つけてくれます。
+</p>
+<figure><img loading="lazy" src="images/fig_00647969b9.jpg" alt=""></figure>
+<p>Claude Codeへの指示パターン3選</p>
+<h3>3-3　非エンジニアが陥りがちな3つの誤解</h3>
+<p>
+Claude Codeを使い始めた非エンジニアの方がよく陥る誤解があります。</p>
+<p>
+あらかじめ知っておくと、つまずかずに使いこなせます。</p>
+<p><span class="hl">
+</span><span class="hl">誤解</span><span class="hl">1:</span><span class="hl">「プログラミングの知識が必要だ」</span></p>
+<p>不要です。</p>
+<p>Claude Codeへの指示はすべて日本語で構いません。</p>
+<p>「このファイルを分析して」「こういう文書を作って」という自然な言葉で伝えるだけです。</p>
+<p><span class="hl">
+</span><span class="hl">誤解</span><span class="hl">2:</span><span class="hl">「ミスをしたら取り返しがつかない」</span></p>
+<p>Claude Codeはファイルを削除する操作は、明示的に指示しない限り行いません。</p>
+<p>基本的に「読む」「新しく作る」「修正する」の操作がメインです。</p>
+<p>また、Windowsなら「元に戻す（Ctrl+Z）」、Macなら「Command+Z」でいつでも取り消せます。</p>
+<p><span class="hl">誤解</span><span class="hl">3:</span><span class="hl">「一回の指示で完璧な結果が出るはず」</span></p>
+<p>Claude Codeとの作業は、<span class="hl">会話のキャッチボール</span>です。</p>
+<p>最初の出力に「もう少しこうして」「この部分をもっと詳しく」と追加指示することで、どんどん良くなっていきます。</p>
+<p>最初から100点を求めず、60点の出力から対話で100点に近づけていくイメージを持ちましょう。
+</p>
+<figure><img loading="lazy" src="images/fig_d513045a7f.jpg" alt=""></figure>
+<p>Claude Codeへの正しい使い方
+</p>
+<h3>3-4　仕事別・実践的な指示フレーズ集</h3>
+<p>
+Claude Codeに指示するときは、以下のような「フレーズのパターン」を使うと効果的です。</p>
+<p><span class="hl">
+</span><span class="hl">情報整理・分析系</span></p>
+<p>- 「〇〇のファイルを読んで、重要なポイントを3〜5点にまとめてください」</p>
+<p>- 「この資料の中から、□□に関連する部分だけ抜き出してください」</p>
+<p>- 「先月の日次ノートを分析して、時間をとられているタスクのパターンを教えてください」</p>
+<p><span class="hl">
+</span><span class="hl">文書作成・加工系</span></p>
+<p>- 「この箇条書きメモを、ビジネスメールの文体に整えてください」</p>
+<p>- 「この報告書の下書きを、上司が読みやすいように構成を整理してください」</p>
+<p>- 「以下の素材から、1000字程度の提案書の冒頭文を書いてください」</p>
+<p><span class="hl">
+</span><span class="hl">ファイル操作・自動化系</span></p>
+<p>- 「このフォルダにある全てのテキストファイルを読んで、タイトルと概要の一覧を作成してください」</p>
+<p>- 「これらの情報を整理した表形式のファイルを新規作成してください」
+</p>
+<figure><img loading="lazy" src="images/fig_664b4a5b92.jpg" alt=""></figure>
+<p>Claude Code指示フレーズマトリクス
+</p>
+<h3>3-5　CLAUDE.mdで「自分専用アシスタント」を育てる</h3>
+<p>
+Claude Codeには、<span class="hl">CLAUDE.md</span>という設定ファイルを使って「自分専用の指示」をあらかじめ設定しておく機能があります。</p>
+<p>
+これはとても強力な機能です。</p>
+<p>
+例えば、仕事ノートのフォルダに「CLAUDE.md」というファイルを作り、以下のように書いておきます：</p>
+<p>
+これを設定しておくと、次回からClaude Codeはこの情報を「知っている状態」でスタートします。</p>
+<p>
+毎回同じ説明をする必要がなくなり、より的確なアシストを受けられます。</p>
+<p>
+CLAUDE.mdは、あなた専用のAIアシスタントを「育てる」ためのツールです。
+</p>
+<h3>3-6　自動化事例: 週次報告書を5分で完成させる</h3>
+<p>
+具体的な自動化事例を見てみましょう。</p>
+<p>
+従来の週次報告書作成の流れ：</p>
+<p>1. 先週の日次ノートを読み返す（<span class="hl">15</span><span class="hl">分</span>）</p>
+<p>2. 重要事項を拾い出す（<span class="hl">10</span><span class="hl">分</span>）</p>
+<p>3. 報告書フォーマットに書き写す（<span class="hl">20</span><span class="hl">分</span>）</p>
+<p>4. 文章を整える（<span class="hl">15</span><span class="hl">分</span>）</p>
+<p>→ <span class="hl">合計</span><span class="hl">60</span><span class="hl">分</span></p>
+<p>Claude Code活用後の流れ：</p>
+<p>→ <span class="hl">5</span><span class="hl">分で完成</span></p>
+<p>
+最初の数回は「もう少しこうして」という微調整が必要かもしれませんが、</p>
+<p>
+CLAUDE.mdでパターンを学習させると、どんどん精度が上がっていきます。
+</p>
+<figure><img loading="lazy" src="images/fig_8fed69b74a.jpg" alt=""></figure>
+<p>週次報告書作成の変化</p>
+<figure><img loading="lazy" src="images/fig_dd59456562.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c65c3252a9.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_fb65ec594e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_702074412c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch04"><span class="cnum">04</span>第4章　二つを連携させる「最強ワークフロー」</h2>
+<figure><img loading="lazy" src="images/fig_8fc3fdfdf3.jpg" alt=""></figure>
+<p>第4章 最強ワークフロー
+</p>
+<h3>4-1　MCP連携とは何か — 「つなぐ橋」を架ける</h3>
+<p><span class="hl">
+</span><span class="hl">MCP</span><span class="hl">（</span><span class="hl">Model Context Protocol</span><span class="hl">）</span>は、Claude CodeとObsidianを直接つなぐための「橋」です。</p>
+<p>難しそうな名前ですが、要はObsidianのデータをClaude Codeがリアルタイムで読み書きできるようにする仕組みです。</p>
+<p>
+MCPを設定すると、こんなことが可能になります：</p>
+<p>- Obsidianに新しいノートを自動で追加する</p>
+<p>- Claude Codeとの会話内容を自動的にObsidianに保存する</p>
+<p>- 「今日の日次ノートに〇〇を追記して」という指示が使えるようになる
+</p>
+<figure><img loading="lazy" src="images/fig_fb2a6f61ad.jpg" alt=""></figure>
+<p>MCP連携の仕組み</p>
+<h3>4-2　MCP設定手順 — 30分でできる初期設定</h3>
+<p>
+MCP連携の設定は、以下の手順で行います。</p>
+<p><span class="hl">
+</span><span class="hl">ステップ</span><span class="hl">1: Obsidian</span><span class="hl">に</span><span class="hl">Local REST API</span><span class="hl">プラグインをインストール</span></p>
+<p>Obsidianの「コミュニティプラグイン」から「Local REST API」を検索してインストール。</p>
+<p>設定画面でAPIキー（長い英数字の文字列）が表示されるので、コピーして保存しておきます。</p>
+<p><span class="hl">
+</span><span class="hl">ステップ</span><span class="hl">2: MCP</span><span class="hl">設定ファイルを作成</span></p>
+<p>ホームフォルダ（`C:\Users\ユーザー名\`）に `.claude.json` というファイルを作成し、以下を記述します：</p>
+<p><span class="hl">
+</span><span class="hl">ステップ</span><span class="hl">3: Claude Code</span><span class="hl">を再起動</span></p>
+<p>ターミナルでClaude Codeを再起動すると、ObsidianのMCPサーバーが自動的に接続されます。</p>
+<p>設定完了後、「今日の日次ノートを開いて」と指示してみてください。</p>
+<p>Claude CodeがObsidianのノートを読み込めることを確認できます。</p>
+<figure><img loading="lazy" src="images/fig_c93f860912.jpg" alt=""></figure>
+<p>MCP設定3ステップ
+</p>
+<h3>4-3　日次ルーティンを自動化する</h3>
+<p>
+MCP連携が完成したら、<span class="hl">日次ルーティンの自動化</span>を始めましょう。</p>
+<p>
+毎朝実行する「デイリースタートアップ」の自動化手順です。</p>
+<p><span class="hl">
+</span><span class="hl">朝の指示例</span>：</p>
+<p><span class="hl">これにより</span>：</p>
+<p>- 昨日の未完了タスクが自動で今日のノートに転記される</p>
+<p>- 日次ノートの作成が30秒以内で完了する</p>
+<p>- 「昨日何を積み残したっけ？」という確認作業が不要になる</p>
+<p><span class="hl">
+</span><span class="hl">夕方の指示例</span>：</p>
+<figure><img loading="lazy" src="images/fig_3c3c51f377.jpg" alt=""></figure>
+<p>日次ルーティン自動化サイクル
+</p>
+<h3>4-4　週次レビューを15分で完成させる</h3>
+<p><span class="hl">
+</span><span class="hl">週次レビュー</span>は、多くの人が「やりたいけどできていない」習慣のひとつです。</p>
+<p>
+Claude Code × Obsidianの連携を使えば、<span class="hl">15</span><span class="hl">分</span>で高品質な週次レビューができるようになります。</p>
+<p><span class="hl">
+</span><span class="hl">週次レビューの指示例</span>：</p>
+<p><span class="hl">1</span><span class="hl">分</span>もかからずClaude Codeが分析を始め、<span class="hl">5</span><span class="hl">〜</span><span class="hl">10</span><span class="hl">分で週次レビューノートが完成</span>します。</p>
+<p>あとはあなたが確認して、「このポイントをもっと詳しく」と追加指示するだけです。</p>
+<p><span class="hl">
+</span><span class="hl">従来</span><span class="hl">: </span><span class="hl">週次レビューに</span><span class="hl">1</span><span class="hl">〜</span><span class="hl">2</span><span class="hl">時間かかり、ついサボってしまう</span></p>
+<p><span class="hl">
+</span><span class="hl">連携後</span><span class="hl">: 15</span><span class="hl">分で高品質なレビューが完成、習慣化しやすい</span></p>
+<figure><img loading="lazy" src="images/fig_247598ddc2.jpg" alt=""></figure>
+<p>週次レビューの変化
+</p>
+<h3>4-5　プロジェクト管理を自動化する</h3>
+<p>
+仕事の中心は「プロジェクト管理」です。</p>
+<p>
+Claude Code × Obsidian連携で、プロジェクト管理を半自動化できます。</p>
+<p><span class="hl">
+</span><span class="hl">プロジェクト開始時の指示</span>：</p>
+<p><span class="hl">プロジェクト中の指示</span>：</p>
+<p><span class="hl">プロジェクト終了時の指示</span>：</p>
+<figure><img loading="lazy" src="images/fig_1d55e809f3.jpg" alt=""></figure>
+<p>プロジェクト管理自動化フロー
+</p>
+<h3>4-6　情報収集から活用まで — 完全ワークフロー</h3>
+<p>
+最終的な「完全ワークフロー」を整理しましょう。</p>
+<p><span class="hl">
+</span><span class="hl">STEP1: </span><span class="hl">情報収集（</span><span class="hl">Obsidian</span><span class="hl"> Web Clipper</span><span class="hl">）</span></p>
+<p>- 興味ある記事をWeb Clipperで一クリック保存</p>
+<p>- 03_知識・参考資料フォルダに自動蓄積</p>
+<p><span class="hl">STEP2: </span><span class="hl">仕事中のメモ（日次ノート）</span></p>
+<p>- 会議・打ち合わせのメモは日次ノートにリアルタイム記録</p>
+<p>- 重要な内容には `[[プロジェクト名]]` でリンクを張る</p>
+<p><span class="hl">
+</span><span class="hl">STEP3: </span><span class="hl">整理・活用（</span><span class="hl">Claude</span><span class="hl"> Code</span><span class="hl">）</span></p>
+<p>- 蓄積した情報を元に文書・報告書・企画書を自動生成</p>
+<p>- 複数ノートを横断分析して、パターンや課題を抽出</p>
+<p><span class="hl">
+</span><span class="hl">STEP4: </span><span class="hl">振り返り（週次・月次レビュー）</span></p>
+<p>- Claude Codeが自動で週次・月次のレビューノートを生成</p>
+<p>- 振り返りの習慣が「ラク」に続けられる</p>
+<figure><img loading="lazy" src="images/fig_139c49485b.jpg" alt=""></figure>
+<p>完全ワークフローサイクル</p>
+<figure><img loading="lazy" src="images/fig_85709f47a5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_ad7bc23846.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_68dc905743.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_054a5165db.jpg" alt=""></figure>
+<h2 class="chapter" id="ch05"><span class="cnum">05</span>第5章　職種別・シーン別 実践活用事例集</h2>
+<figure><img loading="lazy" src="images/fig_c16f56d3fb.jpg" alt=""></figure>
+<p>第5章 職種別実践活用事例集
+</p>
+<h3>5-1　会社員の活用事例</h3>
+<h4>人事・採用担当者の場合</h4>
+<p><span class="hl">課題</span>: 採用面接のメモが散らばり、候補者ごとの評価をまとめるのに時間がかかる
+</p>
+<p><span class="hl">活用法</span>:</p>
+<p>1. 面接後、Obsidianの「04_採用候補者」フォルダに候補者名でノートを作成</p>
+<p>2. 面接中に気づいた点・強み・懸念点を箇条書きでメモ</p>
+<p>3. 面接後、Claude Codeに指示：
+</p>
+<p><span class="hl">結果</span>: 面接後の評価シート作成が<span class="hl">30</span><span class="hl">分</span><span class="hl">→5</span><span class="hl">分</span>に短縮。</p>
+<p>複数候補者の比較も「全候補者のノートを読んで、評価スコア順にランキングして」で一瞬で完成。</p>
+<h4>営業担当者の場合</h4>
+<p><span class="hl">
+</span><span class="hl">課題</span>: 商談メモが蓄積されるが、次回訪問前の「前回の振り返り」に時間がかかる</p>
+<p><span class="hl">活用法</span>:</p>
+<p>1. 商談後、Obsidianの「04_クライアント情報」フォルダに商談ノートを作成</p>
+<p>2. `[[会社名]]` でリンクし、その会社の全商談履歴が一覧で見える状態を作る</p>
+<p>3. 訪問前日に：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 訪問前の準備時間が<span class="hl">1</span><span class="hl">時間</span><span class="hl">→15</span><span class="hl">分</span>に短縮。</p>
+<p>顧客の細かいニーズや過去の会話を正確に覚えているため、顧客満足度が向上。</p>
+<figure><img loading="lazy" src="images/fig_f172856731.jpg" alt=""></figure>
+<p>会社員の業務別時間削減効果</p>
+<h4>企画・マーケティング担当者の場合</h4>
+<p><span class="hl">
+</span><span class="hl">課題</span>: 市場調査の情報が多すぎて整理しきれず、企画書に活かしきれない</p>
+<p><span class="hl">
+</span><span class="hl">活用法</span>:</p>
+<p>1. Web Clipperで競合情報・市場トレンド・業界ニュースをObsidianに収集</p>
+<p>2. `#競合情報` `#市場トレンド` などのタグで分類</p>
+<p>3. 企画書作成時：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 競合分析作業が<span class="hl">半日</span><span class="hl">→2</span><span class="hl">時間</span>に短縮。</p>
+<p>日頃から情報収集しているため、急な企画依頼にも即座に対応できるようになる。
+</p>
+<h3>5-2　フリーランスの活用事例</h3>
+<h4>Webライター・コンテンツクリエイターの場合</h4>
+<p>フリーランスのライターにとって、<span class="hl">ネタ切れ</span>と<span class="hl">リサーチ時間</span>は永遠の課題です。</p>
+<p><span class="hl">活用法</span>:</p>
+<p>1. 普段から気になった記事・情報をWeb Clipperで収集し、Obsidianにストック</p>
+<p>2. 「○○」について記事を書くとき：</p>
+<p>3. 構成案が出たら：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 記事<span class="hl">1</span><span class="hl">本</span>あたりのリサーチ・執筆時間が<span class="hl">4</span><span class="hl">時間</span><span class="hl">→1.5</span><span class="hl">時間</span>に短縮。</p>
+<p>毎日の情報収集が「将来の記事の素材集め」として機能するため、無駄な作業がなくなる。
+</p>
+<figure><img loading="lazy" src="images/fig_5a104a5e49.jpg" alt=""></figure>
+<p>ライターのコンテンツ制作フロー</p>
+<h4>コンサルタントの場合</h4>
+<p><span class="hl">
+</span><span class="hl">課題</span>: 複数クライアントのプロジェクトが同時進行し、情報管理が複雑になる</p>
+<p><span class="hl">
+</span><span class="hl">活用法</span>:</p>
+<p>1. クライアントごとにObsidianのフォルダを作成</p>
+<p>2. 全ての打ち合わせ・調査・提案内容をObsidianに記録</p>
+<p>3. 提案書作成時：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 提案書作成時間が大幅削減。</p>
+<p>複数クライアントの情報が混乱なく管理でき、ミスやダブルブッキングが減少。
+</p>
+<h4>デザイナー・クリエイターの場合</h4>
+<p><span class="hl">
+</span><span class="hl">課題</span>: クライアントのフィードバックと修正履歴の管理が煩雑</p>
+<p><span class="hl">活用法</span>:</p>
+<p>1. プロジェクトごとにObsidianで「フィードバックノート」を作成</p>
+<p>2. 修正指示を受けるたびにノートに記録</p>
+<p>3. 納品時：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 「以前の修正の理由が分からない」という問題が解消。</p>
+<p>変更履歴を体系的に管理することで、クライアントとのコミュニケーションの質が向上。
+</p>
+<h3>5-3　士業（弁護士・税理士・社労士）の活用事例</h3>
+<p>
+士業の方にとって、<span class="hl">個人情報・守秘義務</span>は最重要の関心事です。</p>
+<p>Claude Code × Obsidianはローカル完結型のため、クラウドにデータが飛びません。</p>
+<p>これが、士業の方がこの組み合わせを選ぶ最大の理由のひとつです。</p>
+<figure><img loading="lazy" src="images/fig_6342064434.jpg" alt=""></figure>
+<p>士業の安心ポイント
+</p>
+<h4>税理士・公認会計士の場合</h4>
+<p><span class="hl">課題</span>: 顧客ごとの財務状況や税務情報を整理し、申告シーズンに素早く対応したい</p>
+<p><span class="hl">
+</span><span class="hl">活用法</span>:</p>
+<p>1. クライアントごとにObsidianノートを作成し、財務の概況・特記事項を記録</p>
+<p>2. 決算期に：</p>
+<p>3. 顧問先への説明資料：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 顧問先への説明資料作成が大幅に効率化。</p>
+<p>顧客ごとの「記憶」がObsidianに蓄積されるため、ベテランの「暗黙知」を形式知として管理できる。
+</p>
+<h4>社会保険労務士の場合</h4>
+<p><span class="hl">
+</span><span class="hl">課題</span>: 法改正情報の追跡と、顧問先への適切なアドバイスの提供</p>
+<p><span class="hl">活用法</span>:</p>
+<p>1. 法改正情報をWeb Clipperで収集し、「法改正情報」タグでObsidianに保存</p>
+<p>2. 顧問先への案内作成時：</p>
+<p>3. 年に一度の一斉案内：</p>
+<p><span class="hl">
+</span><span class="hl">結果</span>: 法改正対応の情報収集・整理・発信が大幅に効率化。</p>
+<p>顧問先への付加価値が高まり、顧客満足度と継続率が向上。</p>
+<h3>5-4　「3倍速」を実現するための行動計画</h3>
+<p>
+ここまで様々な活用事例を見てきました。</p>
+<p>
+最後に、あなたが実際に「仕事<span class="hl">3</span><span class="hl">倍</span>速」を実現するための具体的な行動計画を提示します。</p>
+<p><span class="hl">
+</span><span class="hl">Week 1</span><span class="hl">（最初の</span><span class="hl">1</span><span class="hl">週間）：</span><span class="hl">Obsidian</span><span class="hl">の基盤を作る</span></p>
+<p>- Day 1: Obsidianをインストールし、Vaultを作成する</p>
+<p>- Day 2-3: フォルダ構成を設定し、初めての日次ノートを書く</p>
+<p>- Day 4-5: Web Clipperをインストールし、記事を<span class="hl">5</span><span class="hl">本</span>保存する</p>
+<p>- Day 6-7: 過去のメモ・文書を<span class="hl">10</span><span class="hl">件</span>程度移行する</p>
+<p><span class="hl">
+</span><span class="hl">Week 2</span><span class="hl">（</span><span class="hl">2</span><span class="hl">週目）：</span><span class="hl">Claude </span><span class="hl">Code</span><span class="hl">を使い始める</span></p>
+<p>- Day 8-9: Claude Codeをインストールし、初めての指示を試す</p>
+<p>- Day 10-11: CLAUDE.mdを作成し、自分の仕事環境を設定する</p>
+<p>- Day 12-14: 週次報告書や議事録の自動化を1つ試してみる</p>
+<p><span class="hl">
+</span><span class="hl">Week 3-4</span><span class="hl">（</span><span class="hl">3</span><span class="hl">〜</span><span class="hl">4</span><span class="hl">週目）：</span><span class="hl">MCP</span><span class="hl">連携を設定する</span></p>
+<p>- MCP連携の設定を完了させる</p>
+<p>- 日次ルーティンの自動化を始める</p>
+<p>- 週次レビューの自動化を導入する</p>
+<p><span class="hl">
+</span><span class="hl">Month 2</span><span class="hl">以降（</span><span class="hl">2</span><span class="hl">ヶ月目〜）：習慣として定着させる</span></p>
+<p>- 毎朝の日次ノート作成をルーティン化</p>
+<p>- Claude Codeへの指示パターンを自分の仕事に合わせて最適化</p>
+<p>- ObsidianのVaultに情報が蓄積されていくにつれ、Claude Codeの提案精度が向上</p>
+<figure><img loading="lazy" src="images/fig_3170479dae.jpg" alt=""></figure>
+<p>仕事3倍速ロードマップ
+</p>
+<p>「今すぐ完璧に使いこなそう」とは考えないでください。</p>
+<p>最初の1週間でObsidianを使い始めるだけで、すでに変化が始まります。
+</p>
+<p>焦らず、一つひとつ積み上げていきましょう。</p>
+<h2 class="chapter" id="ch06"><span class="cnum">06</span>おわりに</h2>
+<p>
+本書の最後に、改めて伝えたいことがあります。</p>
+<p>
+テクノロジーは、使いこなせた人だけが恩恵を受けます。</p>
+<p>
+Claude CodeもObsidianも、「知っている」だけでは何も変わりません。</p>
+<p>
+「実際に使ってみる」ことで、初めて変化が始まります。
+</p>
+<p>本書を読んでいただいたあなたには、今すぐ以下の3つだけ実行してみてください。</p>
+<p><span class="hl">
+</span><span class="hl">今日できること（</span><span class="hl">30</span><span class="hl">分）</span>：</p>
+<p>1. Obsidianをダウンロードしてインストールする</p>
+<p>2. 「仕事ノート」という名前でVaultを作成する</p>
+<p>3. 今日の日次ノートを1枚作り、今日やることを3つ書く</p>
+<p>たったこれだけです。</p>
+<p>明日は、昨日書いた日次ノートを見ながら仕事を始めてみてください。</p>
+<p>
+それだけで、「情報の一元管理」が始まります。</p>
+<p>
+1週間後には、Claude Codeをインストールして、最初の指示を試してみてください。</p>
+<p>
+1ヶ月後、あなたの仕事の仕方は確実に変わっています。
+</p>
+<p>3ヶ月後には、「あの頃はなんであんなに時間がかかっていたんだろう」と思えるようになるはずです。</p>
+<p>
+AI時代は、すでに始まっています。</p>
+<p>
+でも、本当の意味でAIを「活用している」人は、まだ少数派です。</p>
+<p>
+本書を手に取ったあなたは、すでにその一歩を踏み出しています。</p>
+<p>あとは、小さく始めて、少しずつ育てていくだけです。</p>
+<p>Claude Code × Obsidianで、あなたの仕事が変わりますように。
+</p>
+<p>*本書の内容は2026年5月時点の情報に基づいています。</p>
+<p>各ツールのバージョンアップにより、具体的な操作方法が変わる場合があります。
+</p>
+<p>最新情報は各公式サイトをご確認ください。</p>
+<figure><img loading="lazy" src="images/fig_5f5d8c1140.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_406a0a3a6d.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_3894e730bf.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7baf5b2172.jpg" alt=""></figure>
+<a class="backtop" href="../../index.html">&#9664; 他の書籍を見る</a>
+<p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
+</main>
+</div>
+<script>
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){
+ var h=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>寝ても疲れる人へ</title>
+<meta name="description" content="科学が証明した最高の睡眠習慣">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP",serif;line-height:1.95;font-size:17px;-webkit-text-size-adjust:100%;}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:50;transition:width .1s;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px 80px;}
+header.hero{text-align:center;padding:46px 0 30px;}
+.cover{width:min(70%,300px);height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(60,40,10,.22);margin-bottom:26px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.5;margin:.2em 0;letter-spacing:.01em;}
+.subtitle{color:var(--sub);font-size:15px;font-family:"Noto Sans JP",sans-serif;margin:.4em auto 0;max-width:90%;}
+.divider{width:54px;height:3px;background:var(--accent);border:0;border-radius:3px;margin:26px auto 8px;}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px 16px;margin:8px 0 10px;box-shadow:0 6px 18px rgba(60,40,10,.07);}
+.toc-h{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--brand);text-align:center;margin:12px 0 14px;}
+.toc-row{display:flex;align-items:baseline;gap:13px;padding:11px 4px;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);font-family:"Noto Sans JP",sans-serif;line-height:1.5;}
+.toc-row:last-child{border-bottom:0;}
+.toc-row:active{background:#f1ebe0;}
+.toc-num{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--accent);min-width:1.6em;}
+.toc-ttl{font-size:14.5px;}
+.chapter{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:21px;line-height:1.45;margin:62px 0 22px;padding-top:26px;border-top:1px solid var(--line);color:var(--brand);scroll-margin-top:14px;}
+.chapter .cnum{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);margin-bottom:6px;}
+h3{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:18px;margin:40px 0 14px;padding-left:13px;border-left:5px solid var(--brand);line-height:1.5;}
+h4{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:16px;color:var(--sub);margin:28px 0 10px;}
+p{margin:0 0 1.25em;}
+.hl{color:var(--accent);font-weight:700;}
+strong{font-weight:700;}
+figure{margin:30px 0;text-align:center;}
+figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
+.caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+.backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
+.foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
+@media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+<header class="hero">
+<img class="cover" src="images/cover_68e0e8bad7.jpg" alt="表紙">
+<h1>寝ても疲れる人へ</h1>
+<p class="subtitle">科学が証明した最高の睡眠習慣</p>
+<hr class="divider">
+</header>
+<nav class="toc"><p class="toc-h">目次</p><a class="toc-row" href="#ch01"><span class="toc-num">01</span><span class="toc-ttl">はじめに</span></a>
+<a class="toc-row" href="#ch02"><span class="toc-num">02</span><span class="toc-ttl">第1章　睡眠の科学：なぜ「質」が「量」より重要なのか</span></a>
+<a class="toc-row" href="#ch03"><span class="toc-num">03</span><span class="toc-ttl">第2章　睡眠を壊す「悪習慣」の正体</span></a>
+<a class="toc-row" href="#ch04"><span class="toc-num">04</span><span class="toc-ttl">第3章　眠れる部屋をつくる——睡眠環境の最適化</span></a>
+<a class="toc-row" href="#ch05"><span class="toc-num">05</span><span class="toc-ttl">第4章　食事・運動・体温——睡眠を深める三大アプローチ</span></a>
+<a class="toc-row" href="#ch06"><span class="toc-num">06</span><span class="toc-ttl">第5章　朝の習慣が眠りを変える——逆算型睡眠戦略</span></a>
+<a class="toc-row" href="#ch07"><span class="toc-num">07</span><span class="toc-ttl">おわりに</span></a></nav>
+<main>
+<h2 class="chapter" id="ch01"><span class="cnum">01</span>はじめに</h2>
+<p>
+あなたは今朝、スッキリと目が覚めましたか。</p>
+<p>
+布団から出た瞬間に「よく眠れた」と感じた日が、最近何日あったでしょうか。</p>
+<p>
+多くの人が「なんとなく眠れている」と思いながら、実はずっと睡眠負債を積み重ねています。</p>
+<p>
+日本人の<span class="hl">8</span><span class="hl">割以上が睡眠に何らかの悩みを抱えている</span>というデータがあります。</p>
+<p>
+世界の中でも日本は「睡眠不足大国」として知られており、その状況は年々深刻化しています。</p>
+<p>
+では、なぜこれほど多くの人が眠れないのでしょうか。</p>
+<p>
+答えは単純です。</p>
+<p>
+睡眠のことを「正しく知らない」からです。</p>
+<p>「早く寝ればいい」「運動すれば眠れる」「お酒を飲めばすぐ寝られる」——こうした思い込みが、むしろ睡眠の質を下げているケースは少なくありません。</p>
+<p>
+本書では、最新の睡眠科学をベースに、今日から実践できる具体的な方法を5つの章に分けて解説します。</p>
+<p>第1章では睡眠の科学的な仕組みを理解します。</p>
+<p>第2章では睡眠を壊している悪習慣を見直します。</p>
+<p>第3章では睡眠環境を最適化する方法を学びます。</p>
+<p>第4章では食事・運動・体温調節という三大アプローチを紹介します。</p>
+<p>第5章では朝の目覚めから睡眠の質を上げる逆算戦略を解説します。</p>
+<p>
+本書を読み終えたとき、あなたはきっと「眠り方を変えれば、人生が変わる」という確信を持てるはずです。</p>
+<p>
+毎朝スッキリと目覚め、日中に最高のパフォーマンスを発揮する——そんな日常を手に入れましょう。</p>
+<figure><img loading="lazy" src="images/fig_6f37edda11.jpg" alt=""></figure>
+<p>はじめに：眠れない日本人の現実</p>
+<h2 class="chapter" id="ch02"><span class="cnum">02</span>第1章　睡眠の科学：なぜ「質」が「量」より重要なのか</h2>
+<figure><img loading="lazy" src="images/fig_bcaba8e306.jpg" alt=""></figure>
+<p>第1章：睡眠の科学</p>
+<h3>睡眠とは何か——脳と身体の「最強メンテナンス」</h3>
+<p>
+睡眠は、ただ横になって目を閉じている時間ではありません。</p>
+<p>睡眠中、脳と身体は一日の活動で受けたダメージを修復し、記憶を整理し、免疫系を強化しています。</p>
+<p>言わば、人間にとって最強のメンテナンスタイムです。</p>
+<p>
+私たちが眠っている間、脳内では驚くべきことが起きています。</p>
+<p>老廃物を洗い流す「グリンパティック・システム」が活発に働き、アルツハイマー型認知症の原因物質とされるアミロイドβを除去します。</p>
+<p>
+成長ホルモンが大量に分泌され、筋肉・皮膚・骨の修復が進みます。</p>
+<p>
+免疫細胞が増殖し、病原菌への抵抗力が高まります。</p>
+<p>これらはすべて、十分な「質の高い睡眠」があってこそ機能します。</p>
+<p>
+睡眠時間が<span class="hl">6</span><span class="hl">時間</span>未満の人は、7〜<span class="hl">9</span><span class="hl">時間</span>眠る人に比べてかぜをひきやすくなることが研究で明らかになっています。</p>
+<figure><img loading="lazy" src="images/fig_3f1aa1f150.jpg" alt=""></figure>
+<p>睡眠中に起きていること
+</p>
+<h3>睡眠の2種類——ノンレムとレムの役割</h3>
+<p>
+睡眠には大きく2種類あります。</p>
+<p><span class="hl">
+</span><span class="hl">ノンレム睡眠</span>と<span class="hl">レム睡眠</span>です。</p>
+<p>
+ノンレム睡眠は「深い眠り」で、さらに3段階（N1・N2・N3）に分かれます。</p>
+<p>最も深いN3（徐波睡眠）のとき、成長ホルモンが最も多く分泌されます。</p>
+<p>
+身体の物理的な修復・再生はこの段階で集中的に行われます。</p>
+<p>
+レム睡眠は「浅い眠り」で、脳が夢を見ている状態です。</p>
+<p>
+レム睡眠中は前日の記憶が整理・統合され、感情的な処理が行われます。</p>
+<p>
+「一晩寝たら悩みが軽くなった」という経験があるとすれば、それはレム睡眠の働きによるものです。</p>
+<figure><img loading="lazy" src="images/fig_ddc782bf55.jpg" alt=""></figure>
+<p>ノンレム・レム睡眠の役割分担</p>
+<h3>黄金の90分——最初のサイクルがすべてを決める</h3>
+<p>
+睡眠は約<span class="hl">90</span><span class="hl">分</span>を1サイクルとして、ノンレムとレムが交互に繰り返されます。</p>
+<p>
+一晩で4〜5サイクル繰り返されますが、中でも最も重要なのが<span class="hl">最初の</span><span class="hl">90</span><span class="hl">分間</span>です。</p>
+<p>
+入眠後の最初の<span class="hl">90</span><span class="hl">分</span>には、最も深いノンレム睡眠（N3）が出現します。</p>
+<p>
+ここで成長ホルモンの分泌量の約70〜<span class="hl">80%</span>が集中します。</p>
+<p>
+つまり「最初の<span class="hl">90</span><span class="hl">分</span>の質」が、一晩の睡眠の質全体を左右するのです。</p>
+<p>
+スタンフォード大学の西野精治教授はこれを<span class="hl">「黄金の</span><span class="hl">90</span><span class="hl">分」</span>と名付けました。</p>
+<p>
+この最初のノンレム睡眠を深くするために、入浴・室温・就寝前の行動をコントロールすることが、睡眠の質を上げる最重要戦略となります。
+</p>
+<figure><img loading="lazy" src="images/fig_04f9c08e70.jpg" alt=""></figure>
+<p>90分睡眠サイクル
+</p>
+<h3>体内時計とメラトニン——眠りを司る2大システム</h3>
+<p>
+質の高い眠りを理解するには、<span class="hl">体内時計（サーカディアンリズム）</span>と<span class="hl">メラトニン</span>の仕組みを知ることが欠かせません。</p>
+<p>
+人間の体内時計は約<span class="hl">24</span><span class="hl">時間</span>周期で動いており、朝の光を浴びることでリセットされます。</p>
+<p>朝<span class="hl">7</span><span class="hl">時</span>に起床して日光を浴びると、<span class="hl">約</span><span class="hl">14</span><span class="hl">〜</span><span class="hl">16</span><span class="hl">時間後</span>（夜21〜<span class="hl">23</span><span class="hl">時</span>頃）に自然な眠気が訪れます。</p>
+<p>
+これが睡眠科学の基本原則です。</p>
+<p>
+一方、<span class="hl">メラトニン</span>は「眠りのホルモン」と呼ばれ、暗くなると松果体から分泌されます。</p>
+<p>
+夜の光（特にスマートフォンやPCの青色光）を浴びると、メラトニンの分泌が<span class="hl">最大</span><span class="hl">2</span><span class="hl">時間分</span>抑制されることが研究で明らかになっています。</p>
+<p>
+就寝前のスマホがなぜいけないのか、これで理由が明確になりました。</p>
+<p><span class="hl">
+</span><span class="hl">深部体温</span>も眠りに深く関わります。</p>
+<p>
+人間は深部体温が下がるときに眠くなり、上がるときに覚醒します。</p>
+<p>
+この仕組みを意図的に利用する方法については、第4章で詳しく解説します。</p>
+<figure><img loading="lazy" src="images/fig_b06ed06ff3.jpg" alt=""></figure>
+<p>体内時計・メラトニン・深部体温の連動</p>
+<h3>睡眠負債——じわじわ蓄積する「見えない借金」</h3>
+<p>
+「週末にまとめて寝れば大丈夫」と思っていませんか。</p>
+<p>
+残念ながら、睡眠負債（Sleep Debt）はそう簡単には返せません。</p>
+<p>毎日<span class="hl">1</span><span class="hl">時間</span>の睡眠不足が続くと、3週間後には一晩丸ごと眠れなかった状態と同じ認知機能の低下が生じるという研究結果があります。</p>
+<p>
+睡眠負債が蓄積すると以下のような影響が出ます。</p>
+<p>
+集中力・判断力・記憶力の著しい低下。</p>
+<p>
+免疫機能の低下。</p>
+<p>
+肥満・高血圧・糖尿病リスクの上昇。</p>
+<p>
+うつ病・不安障害のリスク増加。</p>
+<p>
+さらに恐ろしいのは、慢性的な睡眠不足になると「眠れていない自覚がなくなる」ことです。</p>
+<p>
+「自分は<span class="hl">6</span><span class="hl">時間</span>で大丈夫」と感じていても、客観的なテストでは能力が大幅に低下しています。</p>
+<p>
+睡眠負債をなくすことが、すべての始まりです。</p>
+<figure><img loading="lazy" src="images/fig_5c1f174ce7.jpg" alt=""></figure>
+<p>睡眠負債が引き起こす悪影響</p>
+<figure><img loading="lazy" src="images/fig_89ae66edc9.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a6af3d0529.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_3b4e90ecd5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_92c5c677e8.jpg" alt=""></figure>
+<h2 class="chapter" id="ch03"><span class="cnum">03</span>第2章　睡眠を壊す「悪習慣」の正体</h2>
+<figure><img loading="lazy" src="images/fig_cf6ba3f5c2.jpg" alt=""></figure>
+<p>第2章：睡眠を壊す悪習慣
+</p>
+<h3>スマートフォンが睡眠を破壊するメカニズム</h3>
+<p>
+現代人の睡眠を最も脅かしている存在——それが<span class="hl">スマートフォン</span>です。</p>
+<p>
+スマホが睡眠に悪い理由は、ブルーライトだけではありません。</p>
+<p><span class="hl">ブルーライト問題</span>: スマホ・PCの画面が発する青色光（ブルーライト）は、メラトニンの分泌を抑制します。</p>
+<p>
+就寝<span class="hl">1</span><span class="hl">時間</span>前にスマホを使うと、メラトニンの分泌が約<span class="hl">90</span><span class="hl">分</span>遅延します。</p>
+<p>
+これは「寝ようとしているのに脳が覚醒している」状態を作り出します。</p>
+<p><span class="hl">
+</span><span class="hl">精神的覚醒問題</span>: SNSのチェック、ニュースの閲覧、ゲームなど——スマホの操作は脳に刺激を与え続けます。</p>
+<p>
+面白いコンテンツを見ると、ドーパミンが分泌され、「もっと見たい」という衝動が起きます。</p>
+<p>
+これが脳を覚醒状態に保ち、自然な眠気をかき消してしまいます。</p>
+<p>
+解決策は明確です。</p>
+<p>
+就寝<span class="hl">1</span><span class="hl">時間</span>前にスマホを手の届かない場所に置く。</p>
+<p>これだけで多くの人の睡眠は劇的に改善します。
+</p>
+<figure><img loading="lazy" src="images/fig_a97a15b037.jpg" alt=""></figure>
+<p>スマホと睡眠：Before/After
+</p>
+<h3>カフェインの「半減期」を知らないと損をする</h3>
+<p>
+「夕方にコーヒーを飲んでも眠れる」という人は多いですが、それは睡眠の質が低下しているだけかもしれません。</p>
+<p>
+カフェインには重要な特性があります——<span class="hl">半減期が約</span><span class="hl">5</span><span class="hl">〜</span><span class="hl">7</span><span class="hl">時間</span>です。</p>
+<p>午後<span class="hl">3</span><span class="hl">時</span>に飲んだコーヒー1杯のカフェインは、夜<span class="hl">10</span><span class="hl">時</span>になっても半分の量が体内に残っています。</p>
+<p>カフェインは眠気物質「アデノシン」の受容体をブロックします。</p>
+<p>アデノシンは一日の活動を通じて脳に蓄積し、夜になると自然な眠気を作り出す物質です。</p>
+<p>カフェインがそれをブロックすると、「疲れているのに眠れない」という状態が生まれます。</p>
+<p>推奨: カフェインの摂取は午後<span class="hl">2</span><span class="hl">時</span>（できれば正午）までに止める。</p>
+<p>これが睡眠科学の世界標準です。
+</p>
+<p>コーヒーだけでなく、紅茶、緑茶、コーラ、エナジードリンクにもカフェインが含まれています。</p>
+<p>
+特に<span class="hl">カフェインへの感受性は個人差が大きく</span>、加齢とともに代謝が遅くなる傾向があります。</p>
+<figure><img loading="lazy" src="images/fig_f086d0b5f2.jpg" alt=""></figure>
+<p>カフェインの体内時計</p>
+<h3>アルコールは睡眠薬ではない</h3>
+<p>
+「お酒を飲むとよく眠れる」という人は多いです。</p>
+<p>
+しかしこれは、睡眠科学的に見ると<span class="hl">大きな誤解</span>です。</p>
+<p>
+アルコールが眠りに与える影響を正確に理解しましょう。</p>
+<p>
+確かにアルコールには鎮静作用があり、入眠を早める効果があります。</p>
+<p>
+しかし問題は睡眠の後半です。</p>
+<p>アルコールが分解される過程でアセトアルデヒドという物質が生成され、これが眠りを浅くします。</p>
+<p>
+飲酒後の眠りはノンレム睡眠（特に深い睡眠）が減少し、レム睡眠が抑制されます。</p>
+<p>
+つまり、身体の修復も、記憶の整理も、感情の処理も、すべてが不十分になるのです。</p>
+<p>さらにアルコールには利尿作用があるため、深夜にトイレで目が覚めることも増えます。</p>
+<p>
+「飲んで寝たのになんか疲れが取れない」という経験に心当たりがあれば、それがアルコールの影響です。</p>
+<p>
+就寝<span class="hl">3</span><span class="hl">時間</span>前以降のアルコールは睡眠の質を著しく下げます。</p>
+<figure><img loading="lazy" src="images/fig_052c6e9db7.jpg" alt=""></figure>
+<p>アルコールの睡眠への真の影響
+</p>
+<h3>不規則な就寝時刻が体内時計を狂わせる</h3>
+<p>
+「今日は仕事が遅くなったから、いつもより<span class="hl">2</span><span class="hl">時間</span>遅く寝よう」という判断は、翌日以降に影響を与えます。</p>
+<p>
+人間の体内時計は、毎日同じ時刻に起床・就寝することで精度が保たれます。</p>
+<p>不規則な睡眠スケジュールは「ソーシャルジェットラグ（社会的時差ボケ）」と呼ばれ、まるで毎週末に時差<span class="hl">2</span><span class="hl">時間</span>の旅行をしているような状態が体に生じます。</p>
+<p>
+2025年の西川睡眠白書では、このソーシャルジェットラグが若年層・働き世代に深刻であることが報告されました。</p>
+<p>
+週末の「寝だめ」も同様で、月曜日の朝に眠れない「月曜ブルー」の主因の一つです。</p>
+<p>
+解決策は<span class="hl">固定の起床時刻を守ること</span>です。</p>
+<p>
+就寝時刻は多少ずれてもいいですが、起床時刻は休日も含めて固定する——これが最も効果的な体内時計のリセット方法です。</p>
+<figure><img loading="lazy" src="images/fig_b9b5ac0d75.jpg" alt=""></figure>
+<p>睡眠スケジュールの良し悪し
+</p>
+<h3>寝る直前の「熱いお風呂」は逆効果</h3>
+<p>
+「疲れたから熱いお風呂でさっぱりして寝よう」は多くの人がやっている行動です。</p>
+<p>
+しかし就寝直前（<span class="hl">30</span><span class="hl">分</span>以内）の熱い入浴は、実は睡眠の質を下げます。</p>
+<p>
+その理由は「深部体温」の仕組みにあります。</p>
+<p>
+私たちは深部体温が下がるタイミングで眠くなります。</p>
+<p>
+熱いお風呂で急激に体温を上げると、体温が下がりきるまでに<span class="hl">1</span><span class="hl">〜</span><span class="hl">2</span><span class="hl">時間</span>かかります。</p>
+<p>
+結果として、寝ようとしても体温が高い状態が続き、寝つきが悪くなるのです。</p>
+<p>
+正しい入浴法は<span class="hl">就寝</span><span class="hl">1</span><span class="hl">〜</span><span class="hl">2</span><span class="hl">時間前に</span><span class="hl">38</span><span class="hl">〜</span><span class="hl">40℃</span><span class="hl">のぬるめのお湯に</span><span class="hl">10</span><span class="hl">〜</span><span class="hl">15</span><span class="hl">分入る</span>ことです。</p>
+<p>
+これにより深部体温が一度上昇し、その後の急激な低下（放熱）が眠気を自然に誘います。</p>
+<p>
+詳しいメカニズムと活用法は第4章で解説します。</p>
+<figure><img loading="lazy" src="images/fig_4b286149e3.jpg" alt=""></figure>
+<p>入浴タイミングと深部体温の関係</p>
+<figure><img loading="lazy" src="images/fig_daa0f1b568.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_39deba5ff5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_b85d398202.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a67cdd8d01.jpg" alt=""></figure>
+<h2 class="chapter" id="ch04"><span class="cnum">04</span>第3章　眠れる部屋をつくる——睡眠環境の最適化</h2>
+<figure><img loading="lazy" src="images/fig_4b32cf2203.jpg" alt=""></figure>
+<p>第3章：睡眠環境の最適化
+</p>
+<h3>睡眠環境は「三大要素」で決まる</h3>
+<p>
+どんなに正しい生活習慣を実践しても、寝室の環境が悪ければ質の高い睡眠は得られません。</p>
+<p>
+睡眠環境を最適化する三大要素は<span class="hl">「温度」「光」「音」</span>です。</p>
+<p>この3つを整えるだけで、多くの人が劇的な睡眠改善を体験しています。</p>
+<figure><img loading="lazy" src="images/fig_80d67e24bb.jpg" alt=""></figure>
+<p>睡眠環境の三大要素
+</p>
+<h3>室温——18〜20℃が「黄金温度」</h3>
+<p>
+睡眠研究が一致して示す最適な寝室温度は<span class="hl">18</span><span class="hl">〜</span><span class="hl">20℃</span>です。</p>
+<p>
+なぜこの温度が最適なのでしょうか。</p>
+<p>
+深部体温が下がるほど眠りは深くなります。</p>
+<p>室温が低めに保たれると、放熱が促進されて深部体温が下がりやすくなります。</p>
+<p>
+夏場に暑い部屋では眠れないのは当然で、体温が下がりにくいからです。</p>
+<p>
+逆に寒すぎる部屋も眠りを妨げます——寒さへの防御反応で筋肉が緊張するからです。</p>
+<p><span class="hl">
+</span><span class="hl">実践法</span><span class="hl">:</span></p>
+<p>- エアコンの設定温度: 夏は26〜28℃（室温18〜20℃になるよう調整）</p>
+<p>- 冬は暖めすぎず、20℃前後を維持</p>
+<p>- 手足が冷える場合は靴下の着用よりも、毛布で末端を覆うほうが深部体温調整に有利</p>
+<p>
+また足の裏や手のひらから放熱することで深部体温が下がるため、靴下を脱ぐことで眠りが深まることもあります。</p>
+<figure><img loading="lazy" src="images/fig_efc5efc2ae.jpg" alt=""></figure>
+<p>室温と睡眠の質の関係
+</p>
+<h3>光——「完全な暗さ」が最高の眠りをつくる</h3>
+<p>
+人間の目は非常に敏感で、わずかな光でもメラトニンの分泌が抑制されます。</p>
+<p>理想の寝室は「ぐっすり眠れる暗さ」——つまり手が見えないほどの暗さです。</p>
+<p>
+街灯・電子機器のランプ・カーテンの隙間から入る光も、睡眠を浅くする原因になります。</p>
+<p><span class="hl">光対策のポイント</span><span class="hl">:</span></p>
+<p>- <span class="hl">遮光カーテン</span>を使用する（最も費用対効果が高い投資）</p>
+<p>- スタンバイランプ（家電のLED）はテープで塞ぐかコンセントから抜く</p>
+<p>- 起床<span class="hl">30</span><span class="hl">分</span>前からの光目覚まし時計（漸増光）の利用は逆に効果的</p>
+<p>- 廊下の電球をLED（暖色系）に変えることで、夜のトイレ時の覚醒を防ぐ</p>
+<p>一方で、<span class="hl">朝の光は最大の武器</span>です。</p>
+<p>起床後すぐに明るい光（自然光が理想）を浴びることで体内時計がリセットされ、<span class="hl">16</span><span class="hl">〜</span><span class="hl">17</span><span class="hl">時間後の眠気の精度</span>が高まります。
+</p>
+<figure><img loading="lazy" src="images/fig_17f0fc3a82.jpg" alt=""></figure>
+<p>光環境：Before/After
+</p>
+<h3>音——「静けさ」か「ホワイトノイズ」か</h3>
+<p>
+睡眠に最適な環境は「無音」ではなく、「一定の音」です。</p>
+<p>
+突発的な音（車の音、物音）は覚醒反応を引き起こします。</p>
+<p>
+これは完全な無音の環境で小さな音でも覚醒しやすくなるためです。</p>
+<p>
+近年注目されているのが<span class="hl">ホワイトノイズ（白色雑音）</span>の活用です。</p>
+<p>
+ホワイトノイズとは、全周波数の音が均等に混ざった「ザーッ」という音で、突発的な音の変化を遮断し、睡眠を安定させる効果があります。</p>
+<p>
+扇風機の音・雨音・海の波音なども同様の効果があります。</p>
+<p><span class="hl">
+</span><span class="hl">音対策のポイント</span><span class="hl">:</span></p>
+<p>- 騒音が気になる環境: ホワイトノイズアプリや扇風機を活用</p>
+<p>- パートナーのいびきが悩み: 耳栓 + ホワイトノイズの組み合わせが効果的</p>
+<p>- 急な物音が気になる: ホワイトノイズで「マスキング」する</p>
+<figure><img loading="lazy" src="images/fig_e4251637a2.jpg" alt=""></figure>
+<p>睡眠と音の関係
+</p>
+<h3>寝具の選び方——枕・マットレスが睡眠の基盤を作る</h3>
+<p>
+「どんな枕でも寝られる」という人はいますが、最適な寝具は睡眠の深さと疲労回復を根本から変えます。</p>
+<p><span class="hl">
+</span><span class="hl">枕の選び方</span><span class="hl">:</span></p>
+<p>
+枕の高さは<span class="hl">首の自然なカーブを保つ高さ</span>が最適です。</p>
+<p>
+高すぎる枕は首・肩のこりを生み、低すぎる枕は顎が浮いて気道を圧迫します。</p>
+<p>
+仰向けで寝る人は低め、横向きで寝る人は高めの枕が適しています。</p>
+<p><span class="hl">
+</span><span class="hl">マットレスの選び方</span><span class="hl">:</span></p>
+<p>マットレスの役割は「体圧を均等に分散し、脊椎の自然なカーブを維持すること」です。</p>
+<p>
+柔らかすぎるマットレスは腰が沈みすぎて腰痛の原因になり、硬すぎると圧迫点に血行障害が生じます。</p>
+<p><span class="hl">
+</span><span class="hl">「中程度の硬さ」（ミディアムファーム）</span>が多くの人に適していますが、体重・体型・寝姿勢によって異なります。</p>
+<p>
+枕やマットレスへの投資は「毎晩<span class="hl">8</span><span class="hl">時間</span>使うもの」への投資です。</p>
+<p>
+睡眠の質が改善されれば、日中のパフォーマンスと健康に多大なリターンをもたらします。
+</p>
+<figure><img loading="lazy" src="images/fig_2fdc004790.jpg" alt=""></figure>
+<p>快眠寝具の選び方チェックリスト
+</p>
+<h3>デジタルデトックスゾーンとしての寝室</h3>
+<p>
+前章でスマートフォンの害について述べましたが、最も効果的な対策は<span class="hl">「寝室にスマホを持ち込まない」</span>ことです。</p>
+<p>
+スマホを寝室に置くと、眠れないときについ手が伸び、余計に目が覚めてしまいます。</p>
+<p>
+寝室を「眠るためだけの空間」として定義することは、睡眠科学の世界では「刺激制御法（Stimulus Control）」と呼ばれ、不眠治療にも使われる有効なアプローチです。</p>
+<p><span class="hl">
+</span><span class="hl">寝室のデジタルデトックス化</span><span class="hl">:</span></p>
+<p>- スマホは別の部屋で充電する（目覚まし代わりの場合は専用アラーム時計を使用）</p>
+<p>- テレビを寝室に置かない</p>
+<p>- 仕事のノートPC・書類を寝室に持ち込まない</p>
+<p>「寝室に入る＝眠る時間」というシグナルを脳に植え付けることで、条件反射的に眠気が起きるようになります。</p>
+<figure><img loading="lazy" src="images/fig_ae61955512.jpg" alt=""></figure>
+<p>寝室環境の理想と現実</p>
+<figure><img loading="lazy" src="images/fig_f297550e1e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4f2cac8f4b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4e5c1d3ff5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_28c87c14df.jpg" alt=""></figure>
+<h2 class="chapter" id="ch05"><span class="cnum">05</span>第4章　食事・運動・体温——睡眠を深める三大アプローチ</h2>
+<figure><img loading="lazy" src="images/fig_26aa07aaf6.jpg" alt=""></figure>
+<p>第4章：睡眠を深める三大アプローチ
+</p>
+<h3>食事で眠りを深める——「メラトニン前駆体」を意識する</h3>
+<p>
+眠りの質は食べるものでも大きく変わります。</p>
+<p>
+特に重要なのが<span class="hl">トリプトファン</span>というアミノ酸です。</p>
+<p>
+トリプトファンは体内でセロトニンに変換され、さらにメラトニンへと変換されます。</p>
+<p>
+つまり<span class="hl">「トリプトファン</span><span class="hl"> → </span><span class="hl">セロトニン</span><span class="hl"> → </span><span class="hl">メラトニン」</span>という経路で、食事が眠りを準備するのです。</p>
+<p><span class="hl">
+</span><span class="hl">トリプトファンを多く含む食品</span><span class="hl">:</span></p>
+<p>
+牛乳・乳製品（ホットミルクが伝統的に睡眠に良いとされる理由）。</p>
+<p>
+大豆製品（豆腐・納豆・豆乳）。</p>
+<p>
+バナナ（トリプトファン＋炭水化物＋マグネシウムの三重効果）。</p>
+<p>
+七面鳥・鶏肉。</p>
+<p>
+ナッツ類（くるみ・アーモンド）。</p>
+<p>また、<span class="hl">マグネシウム</span>は筋肉を弛緩させ、神経系を落ち着かせる効果があります。</p>
+<p>
+アーモンド・ほうれん草・ひまわりの種などに豊富に含まれています。</p>
+<p><span class="hl">
+</span><span class="hl">夕食のタイミング</span><span class="hl">:</span></p>
+<p>
+就寝<span class="hl">3</span><span class="hl">時間</span>前までに夕食を終えることが理想です。</p>
+<p>
+消化活動が活発な状態で眠ると、深い睡眠が妨げられます。
+</p>
+<figure><img loading="lazy" src="images/fig_4af1474166.jpg" alt=""></figure>
+<p>睡眠を助ける食品と栄養素</p>
+<h3>避けるべき食べ物・飲み物</h3>
+<p>
+睡眠を助ける食品がある一方、睡眠を妨げる食品にも注意が必要です。</p>
+<p><span class="hl">
+</span><span class="hl">就寝前に避けるもの</span><span class="hl">:</span></p>
+<p>- カフェイン（前章参照）</p>
+<p>- アルコール（前章参照）</p>
+<p>- 高脂肪・高タンパクの重い食事（消化に時間がかかる）</p>
+<p>- 辛い食べ物（体温上昇・胃腸への刺激）</p>
+<p>- 砂糖を多く含む甘いお菓子（血糖値の急上昇・急降下）</p>
+<p>
+特に<span class="hl">砂糖の急激な摂取</span>は注意が必要です。</p>
+<p>
+就寝前に甘いものを食べると血糖値が急上昇し、インスリンが分泌されます。</p>
+<p>
+その後の血糖値の急降下が、深夜2〜<span class="hl">3</span><span class="hl">時</span>頃に「覚醒反応」を引き起こすことがあります。</p>
+<figure><img loading="lazy" src="images/fig_e569345380.jpg" alt=""></figure>
+<p>睡眠前の食べ物OK/NG一覧
+</p>
+<h3>運動で睡眠の質を上げる——タイミングと種類</h3>
+<p>
+定期的な運動が睡眠の質を上げることは、多くの研究で証明されています。</p>
+<p>しかし「いつ」「どんな」運動をするかで、効果は大きく変わります。</p>
+<p><span class="hl">
+</span><span class="hl">有酸素運動（最も効果的）</span><span class="hl">:</span></p>
+<p>ウォーキング・ジョギング・水泳・サイクリングなどの有酸素運動は、体温を上げてその後の放熱を促し、深い睡眠を増やす効果があります。</p>
+<p>
+また、日光を浴びながら行う朝・昼のウォーキングはセロトニンの分泌を促し、体内時計のリセットにも役立ちます。</p>
+<p><span class="hl">
+</span><span class="hl">推奨タイミング</span><span class="hl">:</span></p>
+<p>最も理想的な運動時間は<span class="hl">午後</span><span class="hl">2</span><span class="hl">時〜夕方</span><span class="hl">6</span><span class="hl">時頃</span>です。</p>
+<p>この時間帯に運動すると、就寝時に深部体温が低下しやすくなり、入眠がスムーズになります。</p>
+<p>就寝<span class="hl">3</span><span class="hl">時間</span>前以降の激しい運動は避けましょう。</p>
+<p>心拍数・体温・アドレナリンが高まった状態では、なかなか眠れなくなります。</p>
+<p><span class="hl">
+</span><span class="hl">ストレッチ・ヨガ</span><span class="hl">:</span></p>
+<p>就寝前のゆっくりしたストレッチは、副交感神経を優位にしてリラックス効果をもたらします。</p>
+<p>
+特に深呼吸を組み合わせたヨガ（陰ヨガ・リストラティブヨガ）は睡眠の質向上に有効なことが研究で示されています。</p>
+<figure><img loading="lazy" src="images/fig_b1df01ebe0.jpg" alt=""></figure>
+<p>運動・食事・入浴の最適タイムライン
+</p>
+<h3>深部体温コントロール——入浴の「科学的活用法」</h3>
+<p>
+睡眠の質を上げる最も手軽で効果的な方法の一つが、入浴のタイミングと温度の最適化です。</p>
+<p>体温の仕組みをもう一度確認します。</p>
+<p>
+人間の「深部体温」は、日中高く夜に向かって低下します。</p>
+<p>
+この深部体温の低下が、自然な眠気の信号です。</p>
+<p>入浴を睡眠改善に活用するポイントは<span class="hl">「体温のパラドクス」</span>にあります。</p>
+<p>
+ぬるめのお湯（38〜40℃）に入浴すると、皮膚の血管が広がり、深部の熱が皮膚を通じて外気に放出されます。</p>
+<p>
+これにより入浴後1〜<span class="hl">2</span><span class="hl">時間</span>で深部体温が急激に下がり、自然な眠気が訪れます。</p>
+<p><span class="hl">
+</span><span class="hl">実践的な入浴プロトコル</span><span class="hl">:</span></p>
+<p>- 温度: 38〜40℃のぬるめのお湯</p>
+<p>- 時間: 10〜<span class="hl">15</span><span class="hl">分</span>（全身浴が最も効果的・難しければ足湯でも可）</p>
+<p>- タイミング: 就寝1〜<span class="hl">2</span><span class="hl">時間</span>前</p>
+<p>
+足湯でも効果があります。</p>
+<p>
+42℃のお湯に<span class="hl">20</span><span class="hl">分間</span>足を浸けるだけで、深部体温の低下を助ける効果が研究で確認されています。</p>
+<figure><img loading="lazy" src="images/fig_aa9a13d48a.jpg" alt=""></figure>
+<p>入浴と深部体温のサイクル
+</p>
+<h3>パワーナップ——昼寝の正しい使い方</h3>
+<p>
+昼寝は眠気を払拭するだけでなく、<span class="hl">認知機能・集中力・記憶力を向上させる</span>強力なツールです。</p>
+<p>
+NASAのパイロット対象研究では、<span class="hl">26</span><span class="hl">分間</span>の昼寝がその後<span class="hl">2</span><span class="hl">時間</span>の集中力を<span class="hl">34%</span>向上させることが示されました。</p>
+<p>
+Google・Nike・Samsung等の大手企業が社内に昼寝スペースを設ける理由もここにあります。</p>
+<p><span class="hl">
+</span><span class="hl">正しいパワーナップの方法</span><span class="hl">:</span></p>
+<p>- 時間: <span class="hl">15</span><span class="hl">〜</span><span class="hl">20</span><span class="hl">分</span>（それ以上は深いノンレム睡眠に入り、起きたときに強い眠気「睡眠惰性」が残る）</p>
+<p>- タイミング: <span class="hl">午後</span><span class="hl">1</span><span class="hl">〜</span><span class="hl">3</span><span class="hl">時頃</span>（午後の自然な眠気のタイミング）</p>
+<p>- 方法: 椅子でも机でも可。</p>
+<p>アラームをかけて安心して眠る</p>
+<p><span class="hl">
+</span><span class="hl">「コーヒーナップ」という裏技</span><span class="hl">:</span></p>
+<p>昼寝直前にコーヒーを飲み、<span class="hl">20</span><span class="hl">分</span>後に自然に覚醒する方法です。</p>
+<p>
+カフェインが効き始めるのが摂取後約20〜<span class="hl">30</span><span class="hl">分</span>なので、ちょうど起きる頃に覚醒効果が現れます。</p>
+<p>
+これにより目覚めがスッキリし、午後のパフォーマンスが大幅に向上します。</p>
+<p><span class="hl">
+</span><span class="hl">注意点</span><span class="hl">:</span> 午後<span class="hl">3</span><span class="hl">時</span>以降の昼寝は夜の睡眠を妨げます。</p>
+<figure><img loading="lazy" src="images/fig_fd71238292.jpg" alt=""></figure>
+<p>パワーナップの正しいやり方</p>
+<figure><img loading="lazy" src="images/fig_e99112872f.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_d7fdbfdeed.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9cabff0b78.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6b23315d9a.jpg" alt=""></figure>
+<h2 class="chapter" id="ch06"><span class="cnum">06</span>第5章　朝の習慣が眠りを変える——逆算型睡眠戦略</h2>
+<figure><img loading="lazy" src="images/fig_37cfea74f4.jpg" alt=""></figure>
+<p>第5章：朝の習慣が眠りを変える
+</p>
+<h3>睡眠は「夜ではなく朝から始まる」</h3>
+<p>
+多くの人が睡眠を「夜の問題」と捉えています。</p>
+<p>
+しかし睡眠の質は、その日の<span class="hl">朝から</span>決まっています。</p>
+<p>
+朝の光を浴びた時刻が、夜の眠気の到来時刻を決めます。</p>
+<p>
+朝の運動が、夜の深部体温の低下を助けます。</p>
+<p>
+朝食のトリプトファンが、夜のメラトニンを準備します。</p>
+<p>
+「良い眠りは良い朝から」——これが逆算型睡眠戦略の核心です。</p>
+<p>これから紹介する朝の習慣を取り入れることで、夜になれば自然と眠くなり、深く眠れる身体に変わっていきます。</p>
+<figure><img loading="lazy" src="images/fig_baf8e74430.jpg" alt=""></figure>
+<p>朝から始まる睡眠の連鎖</p>
+<h3>起床後30分の「光浴び習慣」</h3>
+<p>
+目が覚めたらまず最初にやるべきことがあります——<span class="hl">カーテンを開ける</span>こと（または外に出ること）です。</p>
+<p>
+朝の光を浴びることで、脳の視交叉上核という体内時計の司令塔がリセットされます。</p>
+<p>
+このリセットから<span class="hl">約</span><span class="hl">14</span><span class="hl">〜</span><span class="hl">16</span><span class="hl">時間後</span>に、自然な眠気が訪れます。</p>
+<p><span class="hl">
+</span><span class="hl">光の強さと効果</span><span class="hl">:</span></p>
+<p>- 屋外の自然光（晴天）: <span class="hl">50,000</span>〜<span class="hl">100,000</span>ルクス（最強・10〜<span class="hl">15</span><span class="hl">分</span>で十分）</p>
+<p>- 室内の窓際: <span class="hl">1,000</span>〜<span class="hl">5,000</span>ルクス（効果あり・<span class="hl">30</span><span class="hl">分</span>程度が目安）</p>
+<p>- 室内の一般照明: 200〜500ルクス（効果薄・最低でも<span class="hl">1</span><span class="hl">時間</span>以上必要）</p>
+<p>- 光療法ライト: <span class="hl">10,000</span>ルクス（曇り・冬の室内向けの代替手段）</p>
+<p>
+雨の日や冬でも、屋外に出るか窓を開けて光を取り込むことが大切です。</p>
+<p>
+スマートフォンのゲームをしながら窓辺でぼんやりしているだけでも、光の効果は得られます。
+</p>
+<figure><img loading="lazy" src="images/fig_6c9c77d503.jpg" alt=""></figure>
+<p>光の強さと体内時計リセット効果
+</p>
+<h3>朝食——睡眠ホルモンの「種まき」</h3>
+<p>
+「朝食を食べない」ことは、睡眠の質にも悪影響を与えます。</p>
+<p>朝食でトリプトファンを摂取し、日中に太陽光を浴びることでセロトニンが合成されます。</p>
+<p>このセロトニンが夕方以降に変換されて<span class="hl">メラトニン</span>となり、夜の眠りを準備します。</p>
+<p>
+朝食にトリプトファンを含む食品を意識して取り入れましょう。</p>
+<p>- バナナ + ヨーグルト（トリプトファン＋炭水化物＋乳製品）</p>
+<p>- ご飯 + 納豆 + 味噌汁（和食の定番がトリプトファン豊富）</p>
+<p>- 全粒粉パン + チーズ + 牛乳</p>
+<p>
+また<span class="hl">朝食のタイミング</span>も重要です。</p>
+<p>
+起床後<span class="hl">1</span><span class="hl">時間</span>以内に朝食を摂ると体内時計のリセットが強化されます。</p>
+<p>
+「光」と「食事」の二重のリセットが体内時計を整え、夜の良質な眠りに繋がります。</p>
+<figure><img loading="lazy" src="images/fig_2e3ab6ed9d.jpg" alt=""></figure>
+<p>朝食で睡眠を準備する
+</p>
+<h3>睡眠記録——「測ること」で睡眠が改善する</h3>
+<p>
+現代では<span class="hl">スマートウォッチや睡眠トラッキングアプリ</span>を使って、睡眠の質を客観的に把握することができます。</p>
+<p>
+主な計測指標:</p>
+<p>- 総睡眠時間</p>
+<p>- 深い睡眠（ノンレム）とレム睡眠の割合</p>
+<p>- 睡眠の分断回数（中途覚醒）</p>
+<p>- 安静時心拍数</p>
+<p>
+データで睡眠を「見える化」することで、どの習慣が効果的かを科学的に検証できます。</p>
+<p>
+「お酒を飲んだ翌日は深い睡眠が〇〇%減少する」</p>
+<p>
+「入浴をした夜は深い睡眠が〇〇分多い」——こうした個人データが蓄積されると、自分専用の最適な睡眠プロトコルが作れます。</p>
+<p><span class="hl">
+</span><span class="hl">おすすめの睡眠トラッキングデバイス</span><span class="hl">:</span></p>
+<p>Apple Watch・Garmin・Oura Ring・Fitbitなど多数の選択肢があります。</p>
+<p>
+高価なデバイスでなくても、無料のスマートフォンアプリ（Sleep Cycle等）でも十分なデータが取れます。</p>
+<figure><img loading="lazy" src="images/fig_3ecfdafb28.jpg" alt=""></figure>
+<p>睡眠記録の始め方
+</p>
+<h3>7日間で試せる「睡眠改革プログラム」</h3>
+<p>
+最後に、今日から始められる<span class="hl">7</span><span class="hl">日間の睡眠改革プログラム</span>をご紹介します。</p>
+<p><span class="hl">
+</span><span class="hl">Day 1</span><span class="hl">（環境整備）</span></p>
+<p>寝室の遮光カーテンを確認・設置する。</p>
+<p>スタンバイランプをすべて塞ぐ。</p>
+<p>室温を18〜20℃に設定する。</p>
+<p><span class="hl">Day 2</span><span class="hl">（スマホ排除）</span></p>
+<p>スマホの充電場所を寝室の外に移す。</p>
+<p>就寝<span class="hl">1</span><span class="hl">時間</span>前からスマホを触らない習慣を始める。</p>
+<p><span class="hl">
+</span><span class="hl">Day 3</span><span class="hl">（カフェイン管理）</span></p>
+<p>午後<span class="hl">2</span><span class="hl">時</span>以降のカフェイン摂取を止める。</p>
+<p>水・ハーブティー・ルイボスティーに切り替える。</p>
+<p><span class="hl">
+</span><span class="hl">Day 4</span><span class="hl">（入浴最適化）</span></p>
+<p>就寝1〜<span class="hl">2</span><span class="hl">時間</span>前に38〜40℃のお湯で入浴する。</p>
+<p>入浴時間を10〜<span class="hl">15</span><span class="hl">分</span>に設定する。</p>
+<p><span class="hl">
+</span><span class="hl">Day 5</span><span class="hl">（朝のルーティン）</span></p>
+<p>起床後すぐにカーテンを全開にして光を浴びる。</p>
+<p>できれば5〜<span class="hl">10</span><span class="hl">分</span>外に出る。</p>
+<p><span class="hl">
+</span><span class="hl">Day 6</span><span class="hl">（食事見直し）</span></p>
+<p>夕食は就寝<span class="hl">3</span><span class="hl">時間</span>前までに終わらせる。</p>
+<p>就寝前はホットミルクかカモミールティーにする。</p>
+<p><span class="hl">
+</span><span class="hl">Day 7</span><span class="hl">（記録開始）</span></p>
+<p>睡眠記録アプリをダウンロードして記録を開始する。</p>
+<p>1週間後のデータを比較する。</p>
+<p><span class="hl">
+</span><span class="hl">7</span><span class="hl">日間</span>実践すれば、あなたの睡眠は確実に変わっています。</p>
+<figure><img loading="lazy" src="images/fig_cc1a55fd8b.jpg" alt=""></figure>
+<p>7日間睡眠改革プログラム
+</p>
+<h3>睡眠の「ゴールデンルール」</h3>
+<p>
+本書のまとめとして、すべての実践の根底にある<span class="hl">睡眠のゴールデンルール</span>を示します。</p>
+<p><span class="hl">
+</span><span class="hl">ルール</span><span class="hl">1: </span><span class="hl">毎日同じ時刻に起床する</span></p>
+<p>体内時計の安定がすべての基盤。</p>
+<p>休日も±<span class="hl">30</span><span class="hl">分</span>以内に抑える。</p>
+<p><span class="hl">
+</span><span class="hl">ルール</span><span class="hl">2: </span><span class="hl">朝日を浴びる</span></p>
+<p>起床後<span class="hl">30</span><span class="hl">分</span>以内に自然光を浴びて体内時計をリセットする。</p>
+<p><span class="hl">
+</span><span class="hl">ルール</span><span class="hl">3: </span><span class="hl">就寝</span><span class="hl">1</span><span class="hl">時間前にスマホをしまう</span></p>
+<p>メラトニンの分泌を守ることが、入眠の質を決定的に改善する。</p>
+<p><span class="hl">
+</span><span class="hl">ルール</span><span class="hl">4: </span><span class="hl">就寝</span><span class="hl">1</span><span class="hl">〜</span><span class="hl">2</span><span class="hl">時間前に入浴する</span></p>
+<p>深部体温の急降下を利用した自然な眠気を作る。</p>
+<p><span class="hl">
+</span><span class="hl">ルール</span><span class="hl">5: </span><span class="hl">寝室を「眠るための聖域」にする</span></p>
+<p>光・音・温度を最適化し、デジタルデバイスを排除する。
+</p>
+<p>この5つのルールを守るだけで、あなたの睡眠の質は別次元に変わります。</p>
+<p>
+「眠れる人になる技術」は、難しい技術ではありません。</p>
+<p>
+正しい知識と習慣の積み重ねです。</p>
+<p>今夜から始めてみましょう。</p>
+<figure><img loading="lazy" src="images/fig_3a84faae1e.jpg" alt=""></figure>
+<p>睡眠のゴールデンルール5</p>
+<h2 class="chapter" id="ch07"><span class="cnum">07</span>おわりに</h2>
+<p>
+あなたはこの本を通じて、睡眠についての「正しい知識」を手に入れました。</p>
+<p>
+睡眠の質を上げることは、特別なことではありません。</p>
+<p><span class="hl">
+</span><span class="hl">科学的に証明された方法を、毎日少しずつ実践すること</span>——それだけです。</p>
+<p>
+最初から全部を変える必要はありません。</p>
+<p>
+まず一つだけ試してみてください。</p>
+<p>
+スマホを寝室の外に出す。</p>
+<p>
+就寝<span class="hl">1</span><span class="hl">時間</span>前に入浴する。</p>
+<p>
+朝、カーテンを開けて光を浴びる。</p>
+<p>
+たった一つの変化が、睡眠を変え、翌朝の気分を変え、日中のパフォーマンスを変え、やがて人生全体を変えます。</p>
+<p>
+「よく眠れた朝」は、最高の朝です。</p>
+<p>その最高の朝を、毎日迎えることができるようになったとき、あなたはきっと気づくでしょう——「眠れる人になる技術」を学んでよかったと。</p>
+<p>
+今夜から、新しい眠りが始まります。</p>
+<p>
+おやすみなさい。
+</p>
+<figure><img loading="lazy" src="images/fig_dd182ca069.jpg" alt=""></figure>
+<p>おわりに</p>
+<figure><img loading="lazy" src="images/fig_518c61f2b9.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_e90528c435.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_de01d37668.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_55ba084e13.jpg" alt=""></figure>
+<a class="backtop" href="../../index.html">&#9664; 他の書籍を見る</a>
+<p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
+</main>
+</div>
+<script>
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){
+ var h=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+</script>
+</body>
+</html>

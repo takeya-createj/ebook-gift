@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>オプションの神様は突然に</title>
+<meta name="description" content="——海外オプション取引で「怖い」が「わかった」に変わる日——">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP",serif;line-height:1.95;font-size:17px;-webkit-text-size-adjust:100%;}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:50;transition:width .1s;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px 80px;}
+header.hero{text-align:center;padding:46px 0 30px;}
+.cover{width:min(70%,300px);height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(60,40,10,.22);margin-bottom:26px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.5;margin:.2em 0;letter-spacing:.01em;}
+.subtitle{color:var(--sub);font-size:15px;font-family:"Noto Sans JP",sans-serif;margin:.4em auto 0;max-width:90%;}
+.divider{width:54px;height:3px;background:var(--accent);border:0;border-radius:3px;margin:26px auto 8px;}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px 16px;margin:8px 0 10px;box-shadow:0 6px 18px rgba(60,40,10,.07);}
+.toc-h{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--brand);text-align:center;margin:12px 0 14px;}
+.toc-row{display:flex;align-items:baseline;gap:13px;padding:11px 4px;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);font-family:"Noto Sans JP",sans-serif;line-height:1.5;}
+.toc-row:last-child{border-bottom:0;}
+.toc-row:active{background:#f1ebe0;}
+.toc-num{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--accent);min-width:1.6em;}
+.toc-ttl{font-size:14.5px;}
+.chapter{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:21px;line-height:1.45;margin:62px 0 22px;padding-top:26px;border-top:1px solid var(--line);color:var(--brand);scroll-margin-top:14px;}
+.chapter .cnum{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);margin-bottom:6px;}
+h3{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:18px;margin:40px 0 14px;padding-left:13px;border-left:5px solid var(--brand);line-height:1.5;}
+h4{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:16px;color:var(--sub);margin:28px 0 10px;}
+p{margin:0 0 1.25em;}
+.hl{color:var(--accent);font-weight:700;}
+strong{font-weight:700;}
+figure{margin:30px 0;text-align:center;}
+figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
+.caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+.backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
+.foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
+@media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+<header class="hero">
+<img class="cover" src="images/cover_39ded1fe75.jpg" alt="表紙">
+<h1>オプションの神様は突然に</h1>
+<p class="subtitle">——海外オプション取引で「怖い」が「わかった」に変わる日——</p>
+<hr class="divider">
+</header>
+<nav class="toc"><p class="toc-h">目次</p><a class="toc-row" href="#ch01"><span class="toc-num">01</span><span class="toc-ttl">はじめに</span></a>
+<a class="toc-row" href="#ch02"><span class="toc-num">02</span><span class="toc-ttl">第1章　オプションって何だ？——権利の取引、はじめの一歩</span></a>
+<a class="toc-row" href="#ch03"><span class="toc-num">03</span><span class="toc-ttl">第2章　オプション取引のメリット——「少額・下落耐性・戦略自由」</span></a>
+<a class="toc-row" href="#ch04"><span class="toc-num">04</span><span class="toc-ttl">第3章　オプション取引のデメリット——「時間・損失・為替・税金」の壁</span></a>
+<a class="toc-row" href="#ch05"><span class="toc-num">05</span><span class="toc-ttl">第4章　安全に始めるための5つの鉄則——「守る」から「増やす」へ</span></a>
+<a class="toc-row" href="#ch06"><span class="toc-num">06</span><span class="toc-ttl">第5章　カバードコール——「持っている資産が働き始める」</span></a>
+<a class="toc-row" href="#ch07"><span class="toc-num">07</span><span class="toc-ttl">おわりに</span></a></nav>
+<main>
+<p>オプションの神様は突然に</p>
+<p>——海外オプション取引で「怖い」が「わかった」に変わる日——</p>
+<p>はじめに</p>
+<p>第1章　オプションって何だ？——権利の取引、はじめの一歩</p>
+<p>1-1　ある日の会議室で</p>
+<p>1-2　オプションとは「権利」を売買する仕組み</p>
+<p>1-3　4つの基本ポジション</p>
+<p>第2章　オプション取引のメリット——「少額・下落耐性・戦略自由」</p>
+<p>2-1　試算してみた</p>
+<p>2-2　メリット①——少額から始められる</p>
+<p>2-3　メリット②——下落局面でも稼げる</p>
+<p>2-4　メリット③——損失を限定できる（買いの場合）</p>
+<p>2-5　メリット④——戦略の自由度が高い</p>
+<p>第3章　オプション取引のデメリット——「時間・損失・為替・税金」の壁</p>
+<p>3-1　時間が価値を溶かす</p>
+<p>3-2　「売り」は損失無限大のリスク</p>
+<p>3-3　掛け金ゼロに見える戦略のワナ</p>
+<p>3-4　海外特有のリスク——為替・税金・業者</p>
+<p>第4章　安全に始めるための5つの鉄則——「守る」から「増やす」へ</p>
+<p>4-1　鉄則１——「買い」から始める</p>
+<p>4-2　鉄則２——余剰資金で少額から</p>
+<p>4-3　鉄則３——デモトレードで練習する</p>
+<p>4-4　鉄則４——満期日に余裕を持たせる</p>
+<p>4-5　鉄則５——事前にルールを決める</p>
+<p>第5章　カバードコール——「持っている資産が働き始める」</p>
+<p>5-1　家賃収入と同じ発想</p>
+<p>5-2　カバードコールの具体的な仕組み</p>
+<p>5-3　リスクとトレードオフ——株価急騰時の損失</p>
+<p>5-4　暴落時の3つの対処法</p>
+<p>おわりに</p>
+<h2 class="chapter" id="ch01"><span class="cnum">01</span>はじめに</h2>
+<p>
+「貯金をしているのに、なぜか将来が不安——。」</p>
+<p>
+そんな気持ちを抱えながら、今日も会社に向かう人がいる。</p>
+<p>
+主人公の竹田たける、28歳。</p>
+<p>
+都内のIT企業に勤める普通の会社員だ。</p>
+<p>
+毎月コツコツ貯金をして、つみたてNISAも少しだけ始めた。</p>
+<p>
+でも、なんとなく物足りない。</p>
+<p>
+「もっと資産を増やしたいけど、リスクが怖い。」</p>
+<p>
+「株は上がるだけじゃなく、下がることもある。」</p>
+<p>
+「自分には難しすぎる投資は無理だ。」</p>
+<p>
+そんなたけるが出会ったのが、<span class="hl">オプション取引</span>という世界だった。</p>
+<p>
+最初は「オプション？なんか難しそう」と思っていた。</p>
+<p>
+コールだのプットだの、専門用語が飛び交って、近づきがたい印象があった。</p>
+<p>
+それでも、少しずつ学んでいくうちに気づいた。</p>
+<p>
+「あ、これって保険と同じ考え方じゃないか。」</p>
+<p>
+「損失をあらかじめ限定できるなら、そんなに怖くないかも。」</p>
+<p>
+この本は、たけると一緒にオプション取引の世界を冒険する物語だ。</p>
+<p>
+難しい数式は出てこない。</p>
+<p>
+代わりに、誰もが知っているたとえ話でやさしく解説する。</p>
+<p><span class="hl">
+</span><span class="hl">「学ぶ</span><span class="hl"> → </span><span class="hl">守る</span><span class="hl"> → </span><span class="hl">増やす」</span>——この3ステップを歩めば、誰でもオプション取引を自分の武器にできる。</p>
+<p>
+さあ、たけると一緒に、新しい扉を開けよう。
+</p>
+<figure><img loading="lazy" src="images/fig_f9e8926b19.jpg" alt=""></figure>
+<p>はじめに・主人公たけるの紹介
+</p>
+<h2 class="chapter" id="ch02"><span class="cnum">02</span>第1章　オプションって何だ？——権利の取引、はじめの一歩</h2>
+<h3>1-1　ある日の会議室で</h3>
+<figure><img loading="lazy" src="images/fig_a82db62fca.jpg" alt=""></figure>
+<p>第1章・オプションとの出会い
+</p>
+<p>「たけるくん、最近なにか投資してる？」</p>
+<p>
+昼休みの会議室。</p>
+<p>
+窓から差し込む陽光の中、ひとみ先生——本名は城島ひとみ、
+社内随一の投資通——がコーヒーカップを傾けながら聞いた。</p>
+<p>
+「えっ、つみたてNISAは少しやってます。</p>
+<p>でも、それ以上はちょっと……」</p>
+<p>
+たけるは正直に答えた。</p>
+<p>
+「もっと増やしたいと思ってる？」</p>
+<p>
+「そりゃあ思ってますけど、リスクが怖くて。</p>
+<p>株は下がることもあるし、FXは難しそうだし。」</p>
+<p>
+ひとみ先生は少し微笑んだ。</p>
+<p>
+「じゃあ、<span class="hl">オプション取引</span>を知ってる？」</p>
+<p>
+「オプション……？なんか、プロがやるやつですよね。</p>
+<p>自分には難しそうで」</p>
+<p>
+「そんなことないよ。</p>
+<p>コールとプットの2種類を理解するだけで、基本は掴める。</p>
+<p>むしろ、うまく使えば損失を限定しながら稼げる、とても合理的な仕組みなんだよ。」</p>
+<p>
+たけるは少し前のめりになった。</p>
+<p>
+「損失を限定しながら稼げる……？どういうことですか？」</p>
+<p>
+その問いが、たけるのオプション人生の始まりだった。
+</p>
+<figure><img loading="lazy" src="images/fig_bc0d0de5a1.jpg" alt=""></figure>
+<p>オプション取引の誤解と真実
+</p>
+<h3>1-2　オプションとは「権利」を売買する仕組み</h3>
+<p>
+「まず基本から話すね。</p>
+<p>オプション取引とは、『将来、ある決められた値段で売買する権利』をお金で売り買いする仕組みなの。」</p>
+<p>
+ひとみ先生は手元のメモに書き始めた。</p>
+<p>
+「権利……って、具体的にどういうことですか？」</p>
+<p>
+「たとえば——コンサートのチケットを想像してみて。</p>
+<p>人気アーティストの来年のライブチケット、今は<span class="hl">5000</span><span class="hl">円</span>。</p>
+<p>でも本番になったらきっと値上がりして、<span class="hl">10000</span><span class="hl">円</span>になるかもしれない。</p>
+<p>だから今のうちに、&quot;<span class="hl">5000</span><span class="hl">円</span>で買える権利&quot;を<span class="hl">1000</span><span class="hl">円</span>で買っておく。</p>
+<p>それがコールオプションのイメージに近いの。」
+</p>
+<figure><img loading="lazy" src="images/fig_21210a0361.jpg" alt=""></figure>
+<p>コールオプション＝前売り券の仕組み
+</p>
+<p>「なるほど！だから&quot;コール＝買う権利&quot;なんですね。</p>
+<p>じゃあプットは？」</p>
+<p>
+「プットは逆。</p>
+<p>&quot;売る権利&quot;。</p>
+<p>こっちは保険に近い。</p>
+<p>たとえば、今<span class="hl">100</span><span class="hl">万円</span>の車を持っているとする。</p>
+<p>でも将来、価値が半分になるかもしれない。</p>
+<p>そこで保険（プット）を掛けておけば、実際に半値になっても<span class="hl">70</span><span class="hl">万円</span>で売れる権利を確保できるの。」</p>
+<p>
+「保険！確かにそれなら怖くないですね。」</p>
+<p>
+「そう。</p>
+<p><span class="hl">プット＝下落への保険</span>というイメージで覚えると入りやすい。」
+</p>
+<figure><img loading="lazy" src="images/fig_7d91c678da.jpg" alt=""></figure>
+<p>コールとプットの違い
+</p>
+<h3>1-3　4つの基本ポジション</h3>
+<p>
+「コールとプットには、それぞれ&quot;買い&quot;と&quot;売り&quot;があって、合計4つのポジションがあるの。」
+</p>
+<p>ひとみ先生は4つの箱を描いた。</p>
+<p>
+「<span class="hl">コールの買い</span>——価格が上がると思うとき。</p>
+<p>損失はプレミアム（権利料）だけ。</p>
+<p><span class="hl">プットの買い</span>——価格が下がると思うとき。</p>
+<p>これも損失はプレミアムだけ。</p>
+<p><span class="hl">コールの売り</span>——価格が上がらないと思うとき。</p>
+<p>プレミアムをもらえるが損失は大きくなりうる。</p>
+<p><span class="hl">プットの売り</span>——価格が下がらないと思うとき。</p>
+<p>同じくプレミアムをもらうが損失リスクもある。」
+</p>
+<figure><img loading="lazy" src="images/fig_0f906a00b4.jpg" alt=""></figure>
+<p>4つの基本ポジション一覧
+</p>
+<p>「初心者は買いから始めましょう。</p>
+<p>損失が限定されるから安心して学べる。</p>
+<p>売りは仕組みをきちんと理解してから、ステップアップで挑戦すればいいわ。」</p>
+<p>
+たけるはメモを取りながらうなずいた。</p>
+<p>
+「まずはコールとプットの買いを理解する。</p>
+<p>それだけでも世界が広がりそうです！」</p>
+<p>
+「そうそう、その感覚が大事。</p>
+<p>まず理解してから動く——それが一番のリスク管理だよ。」
+</p>
+<figure><img loading="lazy" src="images/fig_52627bdfc5.jpg" alt=""></figure>
+<p>初心者の学習ステップ</p>
+<figure><img loading="lazy" src="images/fig_1ed9fd4746.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9f82da919c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_0453af3970.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_adb6dfdde2.jpg" alt=""></figure>
+<h2 class="chapter" id="ch03"><span class="cnum">03</span>第2章　オプション取引のメリット——「少額・下落耐性・戦略自由」</h2>
+<h3>2-1　試算してみた</h3>
+<figure><img loading="lazy" src="images/fig_541467b7fa.jpg" alt=""></figure>
+<p>第2章・オプションのメリットに目覚めるたける
+</p>
+<p>翌日の昼休み。</p>
+<p>
+たけるはスマートフォンで「オプション取引 メリット」と検索しながら、ひとみ先生を待っていた。</p>
+<p>
+「お待たせ！昨日のことを調べてたの？」</p>
+<p>
+「はい、少し。</p>
+<p>でも正直、メリットとデメリットが混ざってよくわからなくて。</p>
+<p>改めて教えてもらえますか？」</p>
+<p>
+「もちろん。</p>
+<p>まずメリットから整理しよう。」
+</p>
+<h3>2-2　メリット①——少額から始められる</h3>
+<p>
+「普通に株を買おうとしたら、たとえばAppleの株なら今で1株<span class="hl">2</span><span class="hl">万円</span>以上する。</p>
+<p>でも、そのApple株のオプションなら数千円から買えることもあるわ。」</p>
+<figure><img loading="lazy" src="images/fig_87ffa3cdee.jpg" alt=""></figure>
+<p>株の直接購入とオプションの資金比較
+</p>
+<p>「えっ、それは大きな違いですね！</p>
+<p>少ない資金でも参加できる。」</p>
+<p>
+「そう。</p>
+<p>これが<span class="hl">レバレッジ効果</span>。</p>
+<p>少ない資金で大きな動きを取りに行ける。</p>
+<p>ただし、その分リスクも増幅するから注意は必要。</p>
+<p>初心者は小さなポジションから始めるのがベター。」
+</p>
+<h3>2-3　メリット②——下落局面でも稼げる</h3>
+<p>
+「株の難しいところは、&quot;下がると損しかしない&quot;イメージがあること。</p>
+<p>でもオプション——特にプットの買い——は、<span class="hl">下落相場でも利益が取れる</span>。」</p>
+<p>
+「下がっても稼げる……！それはインデックス投資じゃできないことですね。」</p>
+<p>
+「そう。</p>
+<p>相場がどちらに動いても戦える武器があると、精神的にもラクになるわ。</p>
+<p>持ち株が下がるときのヘッジ（保険）にも使えるしね。」
+</p>
+<figure><img loading="lazy" src="images/fig_02d8a4b7c1.jpg" alt=""></figure>
+<p>株だけの投資 vs オプション活用
+</p>
+<h3>2-4　メリット③——損失を限定できる（買いの場合）</h3>
+<p>
+「これが初心者にとって一番大切なポイント。</p>
+<p>オプションの買い手は、<span class="hl">最大損失がプレミアム（権利料）だけ</span>に限定されるの。」</p>
+<p>
+「株だと、買った値段からゼロになるまで下がったら全部損ですよね。</p>
+<p>でもオプションの買いなら、支払ったプレミアム以上の損はない？」</p>
+<p>
+「その通り。</p>
+<p>たとえば<span class="hl">1</span><span class="hl">万円</span>のプレミアムを払ってコールを買ったとする。</p>
+<p>最悪の場合でも損失は<span class="hl">1</span><span class="hl">万円</span>だけ。</p>
+<p>株が暴落しても、オプションの権利を行使しなければいい——それだけ。」
+</p>
+<figure><img loading="lazy" src="images/fig_5f6b641805.jpg" alt=""></figure>
+<p>オプション買いの損失限定構造
+</p>
+<p>「なるほど！これなら最悪のシナリオを事前に把握できる。」
+</p>
+<p>「そう、<span class="hl">リスクが見える投資</span>なんだ。</p>
+<p>これがオプション買いの最大の魅力だよ。」
+</p>
+<h3>2-5　メリット④——戦略の自由度が高い</h3>
+<p>
+「さらに、オプションは組み合わせ次第でいろんな戦略が作れる。</p>
+<p>上がる・下がる・横ばい——どんな相場でも合う戦略が存在するのよ。」
+</p>
+<figure><img loading="lazy" src="images/fig_a6ac9bc658.jpg" alt=""></figure>
+<p>オプション戦略の多様性
+</p>
+<p>「こんなに戦略があるんですね……。</p>
+<p>正直ちょっと圧倒されますけど、最初は買いだけ覚えればいいんですよね。」</p>
+<p>
+「そう！焦らなくていいわ。</p>
+<p>1つずつ武器を増やしていけばいい。</p>
+<p>今は<span class="hl">コールの買い・プットの買い</span>をマスターするだけで充分。」</p>
+<p>
+たけるは高揚した気持ちで、自分のスマホにメモを取り始めた。</p>
+<p>
+「少額で始められて、下落でも稼げて、損失が見える——。</p>
+<p>なんか、すごく合理的な仕組みですね。」</p>
+<p>
+「その感覚を大切にして。</p>
+<p>ただ——」とひとみ先生はコーヒーを一口飲んだ。</p>
+<p>
+「メリットと同じくらい、デメリットもちゃんと知っておく必要があるわね。」</p>
+<p>
+たけるの表情が少し曇った。</p>
+<p>
+「……そうですよね、もちろんリスクもありますよね。」</p>
+<p>
+「次回は、オプションの怖い部分を正直に話すね。</p>
+<p>それを知った上で戦略を立てれば、ずっと安全に使えるから。」</p>
+<figure><img loading="lazy" src="images/fig_02d8717eff.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_e43bc1c1cd.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c2308a0ec2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_743083f21f.jpg" alt=""></figure>
+<h2 class="chapter" id="ch04"><span class="cnum">04</span>第3章　オプション取引のデメリット——「時間・損失・為替・税金」の壁</h2>
+<h3>3-1　時間が価値を溶かす</h3>
+<figure><img loading="lazy" src="images/fig_4e5cd45f51.jpg" alt=""></figure>
+<p>第3章・デメリットの真実を知るたける
+</p>
+<p>「じゃあ、今日は怖い話をしましょう。」</p>
+<p>
+ひとも先生の言葉に、たけるは少し身構えた。</p>
+<p>
+「オプションには<span class="hl">タイムディケイ</span>——時間価値の減少——という概念があるの。</p>
+<p>買ったオプションは、<span class="hl">時間が経つだけで価値が目減りする</span>の。」</p>
+<p>
+「株みたいに&quot;持ち続けていれば回復する&quot;は通じないんですか？」</p>
+<p>
+「通じないの。</p>
+<p>オプションには<span class="hl">満期日</span>がある。</p>
+<p>満期になったら価値はゼロ。</p>
+<p>しかも、満期に近づくにつれて、時間価値の減少スピードが急加速する。</p>
+<p>これを専門用語で<span class="hl">シータ（</span><span class="hl">Theta</span><span class="hl">）</span>というのよ。」
+</p>
+<figure><img loading="lazy" src="images/fig_339941d969.jpg" alt=""></figure>
+<p>タイムディケイのしくみ
+</p>
+<p>「つまり、ただ待っているだけで損する可能性がある……。」</p>
+<p>
+「そう。</p>
+<p>だから<span class="hl">タイミングが重要</span>。</p>
+<p>「いつ買うか」「いつ売るか（権利を行使するか）」を考えることが必要。
+早めに利益確定するか、余裕を持った満期日のオプションを選ぶことが大切よ。」</p>
+<figure><img loading="lazy" src="images/fig_884311043d.jpg" alt=""></figure>
+<p>タイムディケイ対策の考え方
+</p>
+<h3>3-2　「売り」は損失無限大のリスク</h3>
+<p>
+「次に、これは<span class="hl">絶対に頭に入れておいてほしい</span>こと。</p>
+<p>オプションの<span class="hl">売り</span>——特に裸の売り——は、損失が理論上<span class="hl">無限大</span>になりうるのよ。」</p>
+<p>
+たけるは思わず声を上げた。</p>
+<p>
+「む、無限大……！？」</p>
+<p>
+「株価が急騰すると、コールの売り手は&quot;行使価格で株を渡す義務&quot;を負う。</p>
+<p>その差額が損失になる。</p>
+<p>株が<span class="hl">10</span><span class="hl">倍</span>になれば、損失も<span class="hl">10</span><span class="hl">倍</span>になる計算。」
+</p>
+<figure><img loading="lazy" src="images/fig_14fcc79edc.jpg" alt=""></figure>
+<p>オプション買いvs売りのリスク比較
+</p>
+<p>「だから初心者は、まず<span class="hl">買いしかやらない</span>と決めておくべき。</p>
+<p>売りは仕組みを完全に理解して、リスク管理ができるようになってからのステップアップすればいい。」
+</p>
+<p>「はい！買いだけから始めます。</p>
+<p>絶対に。」
+</p>
+<h3>3-3　掛け金ゼロに見える戦略のワナ</h3>
+<p>
+「&quot;ゼロコスト戦略&quot;というのがあるわ。</p>
+<p>コールを買って、同時にプットを売る——みたいな組み合わせで、一見タダに見える。</p>
+<p>でも実際はプットの売りリスクを背負っているから、タダじゃないんだけどね。」</p>
+<p>
+「&quot;ゼロコスト&quot;って聞いたらいいことしかないように聞こえますが……裏があるんですね。」</p>
+<p>
+「そう。</p>
+<p><span class="hl">見た目の複雑さに惑わされない</span>こと。</p>
+<p>シンプルな買い戦略から始めるのが、結局一番安全だわ。」
+</p>
+<h3>3-4　海外特有のリスク——為替・税金・業者</h3>
+<p>
+「次は、<span class="hl">海外のオプション取引ならではのリスク</span>。</p>
+<p>大きく3つあるわ。」</p>
+<figure><img loading="lazy" src="images/fig_bfa2b03b26.jpg" alt=""></figure>
+<p>海外オプション取引の3大リスク
+</p>
+<p>「まず<span class="hl">為替リスク</span>。</p>
+<p>米ドル建てで利益が出ても、円高が進むと円換算の手取りが減る。</p>
+<p>たとえば、1ドル<span class="hl">150</span><span class="hl">円</span>のときに1000ドルの利益を出した。</p>
+<p>でも決済時に1ドル<span class="hl">120</span><span class="hl">円</span>になっていたら……。」</p>
+<p>
+「<span class="hl">12</span><span class="hl">万円</span>じゃなくて、<span class="hl">15</span><span class="hl">万円</span>のはずが……計算が変わってきますね。」</p>
+<p>
+「そう。</p>
+<p>為替ヘッジを考えるか、あるいは為替変動も含めた計算でトレードすることが大切よ。」</p>
+<p>
+「次に<span class="hl">税金</span>。</p>
+<p>海外業者でのオプション取引の利益は、日本の税制では<span class="hl">総合課税の雑所得</span>になる。</p>
+<p>利益が大きければ、税率が<span class="hl">50%</span>を超えることもあるの。</p>
+<p>国内業者なら申告分離課税で<span class="hl">20.315%</span>なのに——。」</p>
+<p>
+たけるは驚いた。</p>
+<p>
+「えっ、利益の半分が税金に？それはキツい……。」</p>
+<p>
+「だから<span class="hl">利益計画を立てるとき、税金コストも必ず考慮する</span>。</p>
+<p>場合によっては国内業者経由のオプションも選択肢に入れる価値があるわ。」</p>
+<p>
+「最後に<span class="hl">業者リスク</span>。</p>
+<p>海外の証券会社は日本の金融庁の規制を受けないから、万が一のとき保護が薄い。</p>
+<p>信頼できる規制当局（SEC・FINRAなど）に登録されているかを確認すること。」</p>
+<figure><img loading="lazy" src="images/fig_b785dd6ed7.jpg" alt=""></figure>
+<p>海外業者選びのチェックポイント
+</p>
+<p>たけるは少し頭を抱えた。</p>
+<p>
+「デメリット、けっこう多いですね……。</p>
+<p>これを全部クリアしないといけないの？」</p>
+<p>
+「いや、<span class="hl">全部を一度に解決しなくていい</span>。</p>
+<p>次の章で、初心者がリスクを回避しながら始める方法を話すね。</p>
+<p>デメリットを知ることが、安全に始めるための第一歩だから。」</p>
+<p>
+その言葉に、たけるは少し安心した表情を見せた。</p>
+<figure><img loading="lazy" src="images/fig_feca3be1ba.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a99c6ec36d.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_5c24ecd80d.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_242a2ae5b2.jpg" alt=""></figure>
+<h2 class="chapter" id="ch05"><span class="cnum">05</span>第4章　安全に始めるための5つの鉄則——「守る」から「増やす」へ</h2>
+<h3>4-1　鉄則１——「買い」から始める</h3>
+<figure><img loading="lazy" src="images/fig_de87a2f263.jpg" alt=""></figure>
+<p>第4章・安全に始める方法を学ぶたける
+</p>
+<p>「前回はデメリットをたくさん話したね。</p>
+<p>怖くなった？」</p>
+<p>
+「少し……でも知れてよかったとも思います。」</p>
+<p>
+「それが正解の反応。</p>
+<p>じゃあ今日は、そのリスクをどう乗り越えるかを話しましょう。</p>
+<p>まず1つ目の鉄則——<span class="hl">絶対に買いから始める</span>。」</p>
+<p>
+「さっきも言ってましたね。</p>
+<p>損失がプレミアムだけだから。」</p>
+<p>
+「そう。</p>
+<p>最悪どうなるかが事前にわかる投資は、精神的に強いわ。</p>
+<p>コールの買い・プットの買いだけで、十分に戦える。</p>
+<p>売りは慣れてから。」
+</p>
+<figure><img loading="lazy" src="images/fig_63b5868b15.jpg" alt=""></figure>
+<p>オプション取引の安全なステップアップ順序
+</p>
+<h3>4-2　鉄則２——余剰資金で少額から</h3>
+<p>
+「2つ目——<span class="hl">絶対に余剰資金だけでやる</span>。</p>
+<p>生活費・緊急資金には絶対に手をつけない。</p>
+<p>失っても生活が変わらないお金だけで投資すること。」</p>
+<p>
+「それは株でも同じ原則ですね。」</p>
+<p>
+「そう。</p>
+<p>でもオプションは特に大切。</p>
+<p>タイムディケイがあるから、最悪ゼロになることも覚悟する。</p>
+<p>余剰資金だから、精神的にも冷静な判断ができる。」
+</p>
+<figure><img loading="lazy" src="images/fig_40ff9d1924.jpg" alt=""></figure>
+<p>投資に使っていいお金の優先順位</p>
+<p>
+「毎月の投資に使える余剰資金の10〜<span class="hl">20%</span>程度で始める。</p>
+<p>最初は小さく、学びながら徐々に増やす。</p>
+<p>これだけで多くのリスクが回避できるわ。」
+</p>
+<h3>4-3　鉄則３——デモトレードで練習する</h3>
+<p>
+「3つ目——<span class="hl">実際に資金を入れる前にデモトレードを経験する</span>。</p>
+<p>多くの海外証券会社はデモ口座を提供している。</p>
+<p>仮想資金で取引感覚を掴むことができるの。」
+</p>
+<p>「実際のお金を使わずに練習できるんですね！それは心強い。」</p>
+<p>
+「デモ期間中に覚えること:</p>
+<p>オーダーの入れ方、満期日の管理、タイムディケイを実感すること。</p>
+<p>3〜6ヶ月のデモ経験があれば、最初から実弾でやるより格段に安心して始められるわ。」
+</p>
+<figure><img loading="lazy" src="images/fig_78b1d7173d.jpg" alt=""></figure>
+<p>デモトレードから本番への移行フロー
+</p>
+<h3>4-4　鉄則４——満期日に余裕を持たせる</h3>
+<p>
+「4つ目——<span class="hl">満期日の設定は余裕を持つ</span>。</p>
+<p>タイムディケイは満期直前に急加速するから、直近の満期日のオプションは初心者には危険。」
+</p>
+<p>「どれくらい余裕があればいいですか？」</p>
+<p>
+「最低でも<span class="hl">30</span><span class="hl">日</span>以上、できれば60〜<span class="hl">90</span><span class="hl">日</span>先の満期日を選ぶ。</p>
+<p>長いほどタイムディケイの影響が小さく、相場が動く時間的余裕もあるわね。」
+</p>
+<figure><img loading="lazy" src="images/fig_97507250bd.jpg" alt=""></figure>
+<p>満期日の選び方
+</p>
+<h3>4-5　鉄則５——事前にルールを決める</h3>
+<p>
+「最後——これが全ての鉄則の中で<span class="hl">一番大切かもしれない</span>。</p>
+<p><span class="hl">トレードする前に、損切りラインと利確ラインを決める</span>。」</p>
+<p>
+「具体的には？」</p>
+<p>
+「たとえば——『プレミアムが<span class="hl">50%</span>減ったら迷わず損切り』。</p>
+<p>あるいは『プレミアムが<span class="hl">100%</span>増えたら必ず利確』。</p>
+<p>感情で動くのが一番危ないの。</p>
+<p>ルールを先に決めて、ルール通りに動く機械になること。」
+</p>
+<figure><img loading="lazy" src="images/fig_304e3e2e3f.jpg" alt=""></figure>
+<p>事前ルール設定の重要性
+</p>
+<p>たけるは深くうなずいた。</p>
+<p>
+「学ぶ・守る・増やす——の『守る』部分ですね。</p>
+<p>この5つの鉄則を守れば、初心者でも戦える気がしてきた。」</p>
+<p>
+「そう！安心して。</p>
+<p>次の章では、この5つの鉄則を踏まえた上で、</p>
+<p><span class="hl">カバードコール</span>という安定収入戦略を教えるよ。</p>
+<p>これが&quot;増やす&quot;のステージ。」
+</p>
+<p>たけるの目に、新しい光が宿った。</p>
+<figure><img loading="lazy" src="images/fig_895e1174bf.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_facc7a693c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_05ec22cb12.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_b2a53afcac.jpg" alt=""></figure>
+<h2 class="chapter" id="ch06"><span class="cnum">06</span>第5章　カバードコール——「持っている資産が働き始める」</h2>
+<h3>5-1　家賃収入と同じ発想</h3>
+<figure><img loading="lazy" src="images/fig_768cbf7429.jpg" alt=""></figure>
+<p>第5章・カバードコールでの成長と決意
+</p>
+<p>「今日が最後の章。</p>
+<p>今まで学んできたことを活かせる、最もシンプルで強力な戦略——<span class="hl">カバードコール</span>の話をしましょう。」</p>
+<p>
+たけるは姿勢を正した。</p>
+<p>
+「<span class="hl">カバードコール</span>とは、自分がすでに保有している株やETFを担保にして、コールオプションを売ること。</p>
+<p>こうすることで、毎月オプションプレミアムを受け取ることができるの。」</p>
+<p>
+「プレミアムを&quot;もらう&quot;側になる……！」</p>
+<p>
+「そう。</p>
+<p>一番わかりやすいたとえは、<span class="hl">マンション経営</span>。」
+</p>
+<figure><img loading="lazy" src="images/fig_50c6b4f239.jpg" alt=""></figure>
+<p>カバードコール＝マンション経営のたとえ
+</p>
+<p>「マンションオーナーは物件（株）を持っているよね。</p>
+<p>それを入居者（コール買い手）に貸す（コール売り）。</p>
+<p>毎月、家賃（プレミアム）が振り込まれてくる。</p>
+<p>株価が大きく上がらない限り、毎月安定した収入が入る仕組みよ。」
+</p>
+<p>「なるほど！資産を持っているだけじゃなく、その資産に稼いでもらう……。</p>
+<p><span class="hl">資産を働かせる</span>という感覚ですね。」</p>
+<p>
+「そのとおり。</p>
+<p>これが&quot;増やす&quot;ステージの最初のステップ。」
+</p>
+<h3>5-2　カバードコールの具体的な仕組み</h3>
+<figure><img loading="lazy" src="images/fig_2b1c15c822.jpg" alt=""></figure>
+<p>カバードコールの取引フロー
+</p>
+<p>「たとえば、1株1000ドルのETFを100株保有しているとする。</p>
+<p>そのETFに対してコールオプション（行使価格1050ドル）を売る。</p>
+<p>プレミアムとして1株あたり20ドル受け取れる。</p>
+<p>100株なら2000ドルの収入。」
+</p>
+<p>「それが毎月入ってくる……！」</p>
+<p>
+「毎月がんばれば、年間で保有資産の5〜<span class="hl">15%</span>程度の追加収益になることも。</p>
+<p>ETFの値上がり益に加えて、プレミアム収入も積み上がる。」
+</p>
+<p>「一つのパッシブインカムになるんですね。」
+</p>
+<h3>5-3　リスクとトレードオフ——株価急騰時の損失</h3>
+<p>
+「でも、デメリットも正直に話しておくね。</p>
+<p>株価が急騰したとき——行使価格を大きく超えて上がったとき——その上昇分の利益は取れないの。</p>
+<p>コールを売った相手に渡す義務があるから。」
+</p>
+<p>「いくら上がっても、行使価格の1050ドルで売らないといけない……。」</p>
+<p>
+「そう。</p>
+<p>これが<span class="hl">アップサイドを制限する</span>というデメリット。</p>
+<p>でも、それと引き換えに毎月プレミアムをもらえる。</p>
+<p>急上昇を狙うか、毎月安定収入を選ぶか——という選択ね。」
+</p>
+<figure><img loading="lazy" src="images/fig_927f08d965.jpg" alt=""></figure>
+<p>カバードコールのリターン比較
+</p>
+<h3>5-4　暴落時の3つの対処法</h3>
+<p>
+「最後に——暴落が起きたときのルールを話すわね。</p>
+<p>これを事前に決めておくことが、<span class="hl">最大のリスク管理</span>になるの。」</p>
+<p>
+たけるは真剣な表情でメモを取り始めた。</p>
+<p>
+「<span class="hl">軽い下落（</span><span class="hl">5%</span><span class="hl">以内）の場合</span>——</p>
+<p>保有継続。</p>
+<p>プレミアム収入が損失をある程度カバーしてくれる。</p>
+<p>焦って動く必要はない。」</p>
+<p>
+「<span class="hl">しっかりした下落（</span><span class="hl">10</span><span class="hl">〜</span><span class="hl">15%</span><span class="hl">程度）の場合</span>——</p>
+<p>コールをいったん買い戻し（損切り）、より低い行使価格で売り直す。</p>
+<p>これを<span class="hl">ロールダウン</span>と呼ぶの。</p>
+<p>保有コストを下げながら、新たなプレミアムも確保できるわ。」</p>
+<p>
+「<span class="hl">大暴落（</span><span class="hl">20%</span><span class="hl">超）の場合</span>——</p>
+<p>感情を切り捨てて<span class="hl">撤退</span>。</p>
+<p>プレミアム収入では補填できない損失になるから、損切りを徹底する。</p>
+<p>事前に『〇〇%下がったら撤退』のルールを決めておくこと。」
+</p>
+<figure><img loading="lazy" src="images/fig_dcb88ada08.jpg" alt=""></figure>
+<p>暴落時の3段階対処フロー</p>
+<p>「大切なのは——<span class="hl">恐怖で動くのではなく、ルールで動く</span>こと。</p>
+<p>暴落時に最も危険なのは、感情に振り回されて判断が遅れること。</p>
+<p>だから<span class="hl">平時に意思決定を済ませておく</span>。」
+</p>
+<p>たけるはしっかりとうなずいた。</p>
+<p>
+「ひとみ先生、最初に話してくれた言葉を思い出しました。</p>
+<p>&quot;学ぶ→守る→増やす&quot;——この3ステップ、ようやく全部見えてきた気がします。」
+</p>
+<p>「たける君、ここまでよく学んだね。</p>
+<p>コール・プットの基本から、タイムディケイ、リスク管理、カバードコール——</p>
+<p>これだけ知っていれば、自分だけの投資戦略が立てられるわ。」
+</p>
+<figure><img loading="lazy" src="images/fig_c7eaf267f7.jpg" alt=""></figure>
+<p>たけるの成長ロードマップ
+</p>
+<p>「自分にも——できる。」</p>
+<p>
+たけるは、静かにそう呟いた。</p>
+<p>
+その言葉には、もう恐怖も迷いもなかった。</p>
+<p>
+ひとみ先生は優しく微笑んだ。</p>
+<p>
+「そうよ。</p>
+<p>できる——いや、学べば必ずできるようになる。</p>
+<p>大切なのは、少しずつ丁寧に歩くこと。」
+</p>
+<p>窓の外には、夕暮れの東京が輝いていた。</p>
+<p>
+たけるには今、それがどこか違って見えた。</p>
+<p>
+街の一つひとつの明かりが、誰かが資産を育てる場所に見えてきた。
+</p>
+<p>「さあ、まずデモ口座を開いてみよう。」</p>
+<p>
+たけるは力強くうなずいた。</p>
+<p>
+「はい——やってみます！」</p>
+<h2 class="chapter" id="ch07"><span class="cnum">07</span>おわりに</h2>
+<p>
+「貯金だけでは不安」という感覚は、決して悪いことではない。</p>
+<p>
+それは、自分の未来に真剣に向き合っている証拠だ。</p>
+<p>
+この本でたけると一緒に学んできたことを、もう一度振り返ってほしい。
+</p>
+<p><span class="hl">第</span><span class="hl">1</span><span class="hl">章</span>——オプションは「権利」の取引。</p>
+<p>コールは買う権利、プットは売る権利。</p>
+<p>コンサートの前売り券と保険のたとえで、仕組みが見えてきた。</p>
+<p><span class="hl">
+</span><span class="hl">第</span><span class="hl">2</span><span class="hl">章</span>——メリットは「少額・下落耐性・損失限定・戦略自由」の4つ。</p>
+<p>初心者には「買い」から始めることが最善の選択だとわかった。</p>
+<p><span class="hl">
+</span><span class="hl">第</span><span class="hl">3</span><span class="hl">章</span>——タイムディケイ・売りのリスク・海外特有の壁（為替・税金・業者）。</p>
+<p>デメリットを知ることこそが、安全に進む第一歩だった。</p>
+<p><span class="hl">
+</span><span class="hl">第</span><span class="hl">4</span><span class="hl">章</span>——買いから始める・余剰資金で少額・デモ練習・満期余裕・事前ルール。</p>
+<p>「守る」5つの鉄則が、リスクを大幅に下げてくれる。</p>
+<p><span class="hl">
+</span><span class="hl">第</span><span class="hl">5</span><span class="hl">章</span>——カバードコールで持っている資産に稼いでもらう。</p>
+<p>暴落時の3段階対処法まで知れば、「怖い」が「準備できている」に変わる。</p>
+<p><span class="hl">
+</span><span class="hl">「学ぶ</span><span class="hl"> → </span><span class="hl">守る</span><span class="hl"> → </span><span class="hl">増やす」</span></p>
+<p>
+この3ステップは、オプション取引だけじゃない。</p>
+<p>
+どんな投資にも、どんな人生の挑戦にも通じる普遍的な知恵だ。</p>
+<p>
+たけるは言った。</p>
+<p>
+「自分にもできる」——と。</p>
+<p>
+それはあなたにも言える言葉だ。</p>
+<p>
+難しい専門用語は覚えなくていい。</p>
+<p>
+完璧なトレーダーになる必要もない。</p>
+<p>
+ただ、少しずつ学び、自分を守り、そして育てていけばいい。</p>
+<p><span class="hl">
+</span><span class="hl">今日、デモ口座を</span><span class="hl">1</span><span class="hl">つ開くこと</span>——それがあなたの第一歩になる。
+</p>
+<figure><img loading="lazy" src="images/fig_d6321d80a6.jpg" alt=""></figure>
+<p>おわりに・たけるの決意と未来</p>
+<p>*この本が、あなたの「怖い」を「わかった」に変えるきっかけになれば、それ以上の喜びはありません。</p>
+<figure><img loading="lazy" src="images/fig_9dc6fc7c91.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c548456cc1.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6587e9690e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_581abe76fc.jpg" alt=""></figure>
+<a class="backtop" href="../../index.html">&#9664; 他の書籍を見る</a>
+<p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
+</main>
+</div>
+<script>
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){
+ var h=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+</script>
+</body>
+</html>
