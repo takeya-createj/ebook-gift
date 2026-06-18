@@ -261,7 +261,7 @@ figure img{{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba
 {toc}
 <main>
 {body}
-<a class="backtop" href="../../index.html">&#9664; 他の書籍を見る</a>
+<a class="backtop" href="../../index.html" onclick="if(history.length>1){{history.back();return false;}}">&#9664; 他の書籍を見る</a>
 <p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
 </main>
 </div>
@@ -287,9 +287,15 @@ def build_index(books):
 <div class="thumb">{img}<span class="lockbadge">🔒</span></div>
 <div class="cmeta"><h3>{title_disp}</h3>{sub}<span class="readtag">▶ この本を読む</span></div>
 </a>''')
-    page = INDEX_TEMPLATE.replace("__CARDS__", "\n".join(cards)).replace("__N__", str(len(books)))
+    cards_html = "\n".join(cards)
+    n = str(len(books))
+    # ロック版（1冊だけ）
+    page = INDEX_TEMPLATE.replace("__CARDS__", cards_html).replace("__N__", n)
     (OUT_ROOT / "index.html").write_text(page, encoding="utf-8")
-    print(f"[OK] index.html ({len(books)}冊)")
+    # 全部読める版
+    free = FREE_INDEX_TEMPLATE.replace("__CARDS__", cards_html).replace("__N__", n)
+    (OUT_ROOT / "all.html").write_text(free, encoding="utf-8")
+    print(f"[OK] index.html（ロック版）+ all.html（全部読める版） ({len(books)}冊)")
 
 INDEX_TEMPLATE = """<!DOCTYPE html>
 <html lang="ja">
@@ -384,6 +390,53 @@ __CARDS__
   if(chosen) applyLock();
 })();
 </script>
+</body>
+</html>"""
+
+FREE_INDEX_TEMPLATE = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>電子書籍プレゼント｜全冊読み放題</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;}
+.head{text-align:center;padding:54px 22px 8px;}
+.badge{display:inline-block;font-size:12px;letter-spacing:.2em;color:#fff;background:var(--brand);padding:6px 16px;border-radius:30px;}
+.head h1{font-family:"Noto Serif JP",serif;font-size:25px;font-weight:700;margin:18px 0 8px;line-height:1.5;}
+.head p{color:var(--sub);font-size:14px;margin:0;}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px 70px;}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s;}
+.card:active{transform:scale(.98);}
+.thumb{position:relative;}
+.card img,.noimg{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}
+.lockbadge{display:none;}
+.cmeta{padding:13px 13px 16px;}
+.cmeta h3{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}
+.csub{font-size:11.5px;color:var(--sub);margin:0 0 8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.readtag{font-family:"Noto Sans JP",sans-serif;font-size:12px;font-weight:700;color:var(--brand);}
+.foot{text-align:center;color:var(--sub);font-size:12px;margin-top:46px;}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+<div class="head">
+<span class="badge">ALL ACCESS</span>
+<h1>電子書籍 読み放題プレゼント</h1>
+<p>ご登録ありがとうございます。全__N__冊、どれでも自由にお読みいただけます。</p>
+</div>
+<div class="wrap">
+<div class="grid">
+__CARDS__
+</div>
+<p class="foot">© 竹谷知悦 / LINE登録特典</p>
+</div>
 </body>
 </html>"""
 
