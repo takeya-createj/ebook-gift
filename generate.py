@@ -28,7 +28,7 @@ BOOKS = [
     ("travel-life-impact", SRC_ROOT),
     # 2026-06 追加分
     ("seven-habits", SRC_ROOT), ("luxury-hotel-life", SRC_ROOT),
-    ("mile-tabi-nyumon", SRC_ROOT2),
+    ("die-with-zero", SRC_ROOT), ("mile-tabi-nyumon", SRC_ROOT2),
 ]
 
 MAX_W = 1080  # 画像最大幅(px)
@@ -43,6 +43,8 @@ TITLE_OVERRIDE = {
                           "贅沢を自己投資に変える、上質なホテルステイの楽しみ方"),
     "mile-tabi-nyumon": ("マイルで人生はもっと自由になる",
                          "ゼロからはじめる、夢の旅行を叶える入門書"),
+    "die-with-zero": ("貯めるだけの人生になっていませんか？",
+                      "「ゼロで死ぬ」から学ぶ、後悔しないお金の使い方"),
 }
 
 # docx本文に残る「表紙のタイトル行」を本文から除外（ヒーロー側で表示するため）
@@ -51,6 +53,8 @@ FRONT_SKIP = {
     "luxury-hotel-life": ["ラグジュアリーホテルは", "幸福な人生への投資になる",
                           "贅沢を自己投資に変える、", "上質なホテルステイの楽しみ方"],
     "mile-tabi-nyumon": ["ゼロからはじめる、夢の旅行を叶える入門書"],
+    "die-with-zero": ["貯めるだけの", "人生になっていませんか？",
+                      "「ゼロで死ぬ」から学ぶ、後悔しないお金の使い方"],
 }
 TOC_LABELS = {"目次", "目 次", "目　次"}
 # サブタイトルとして扱ってはいけない一般的な見出し名
@@ -59,6 +63,15 @@ NOT_SUBTITLE = {"はじめに", "おわりに", "まえがき", "あとがき",
 
 # 見出しレベルが1段深い本の補正（Heading1=書名 / Heading2=章 / Heading3=節）
 HEADING_SHIFT = {"mile-tabi-nyumon": 1}
+# Heading2が無くHeading3が節になっている本の対応（docxの見出しレベル → 表示ランク）
+HEADING_LEVEL_MAP = {"die-with-zero": {1: 1, 3: 2}}
+
+def heading_rank(slug, lvl):
+    """docxの見出しレベルを表示ランク(1=章 2=節 3=小見出し)へ変換"""
+    m = HEADING_LEVEL_MAP.get(slug)
+    if m:
+        return m.get(lvl, lvl)
+    return lvl - HEADING_SHIFT.get(slug, 0)
 
 def find_cover(src_dir: Path):
     cands = ["表紙1.jpg", "表紙1.png", "表紙2.jpg", "表紙2.png"]
@@ -147,6 +160,11 @@ def build_book(slug, src_root=SRC_ROOT):
 
     doc = Document(str(docx_path))
     title, subtitle = None, None
+    # 補正指定がある本はタイトルを先に確定させる
+    # （docx内のタイトルが見出しでない本で、最初の見出し=「はじめに」が
+    #   タイトルとして消費されてしまうのを防ぐ）
+    if slug in TITLE_OVERRIDE:
+        title, subtitle = TITLE_OVERRIDE[slug]
     parts = []  # html片
 
     front_skip = set(FRONT_SKIP.get(slug, []))
@@ -186,7 +204,7 @@ def build_book(slug, src_root=SRC_ROOT):
         # 見出し判定（本ごとの見出しレベル補正を適用）
         hm = re.match(r'heading (\d+)', style)
         if hm:
-            lvl = int(hm.group(1)) - HEADING_SHIFT.get(slug, 0)
+            lvl = heading_rank(slug, int(hm.group(1)))
             if lvl <= 0:
                 if title is None:
                     title = text  # 書名 → ヒーローへ
@@ -391,7 +409,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",s
 .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s,box-shadow .15s,opacity .25s,filter .25s;}
 .card:active{transform:scale(.98);}
 .thumb{position:relative;}
-.card img,.noimg{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}
+.card img,.noimg{width:100%;aspect-ratio:1/1.6;object-fit:contain;display:block;background:#ece5d8;}
 .cmeta{padding:13px 13px 16px;}
 .cmeta h3{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}
 .csub{font-size:11.5px;color:var(--sub);margin:0 0 8px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -484,7 +502,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",s
 .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(60,40,10,.07);transition:transform .15s;}
 .card:active{transform:scale(.98);}
 .thumb{position:relative;}
-.card img,.noimg{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#ece5d8;}
+.card img,.noimg{width:100%;aspect-ratio:1/1.6;object-fit:contain;display:block;background:#ece5d8;}
 .lockbadge{display:none;}
 .cmeta{padding:13px 13px 16px;}
 .cmeta h3{font-size:14.5px;font-weight:700;margin:0 0 5px;line-height:1.45;}
