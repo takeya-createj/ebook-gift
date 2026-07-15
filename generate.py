@@ -33,6 +33,14 @@ BOOKS = [
 
 MAX_W = 1080  # 画像最大幅(px)
 
+# 使用する表紙ファイルの指定（未指定なら find_cover の既定順で自動選択）
+COVER_OVERRIDE = {
+    "seven-habits": "表紙2.jpg",
+    "luxury-hotel-life": "表紙2.jpg",
+    "die-with-zero": "表紙2.jpg",
+    "mile-tabi-nyumon": "表紙2.jpg",
+}
+
 # docx冒頭にタイトル見出しが無い等で自動検出できない本の補正
 TITLE_OVERRIDE = {
     "claude-obsidian-3x": ("Claude Code × Obsidian 仕事3倍速メソッド",
@@ -73,7 +81,14 @@ def heading_rank(slug, lvl):
         return m.get(lvl, lvl)
     return lvl - HEADING_SHIFT.get(slug, 0)
 
-def find_cover(src_dir: Path):
+def find_cover(src_dir: Path, slug=None):
+    # 指定があればそれを優先
+    ov = COVER_OVERRIDE.get(slug)
+    if ov:
+        p = src_dir / ov
+        if p.exists():
+            return p
+        print(f"[WARN] {slug}: 指定表紙 {ov} が見つからず自動選択にフォールバック")
     cands = ["表紙1.jpg", "表紙1.png", "表紙2.jpg", "表紙2.png"]
     for c in cands:
         p = src_dir / c
@@ -155,7 +170,7 @@ def build_book(slug, src_root=SRC_ROOT):
     img_dir.mkdir(parents=True, exist_ok=True)
 
     # 表紙
-    cover_src = find_cover(src_dir)
+    cover_src = find_cover(src_dir, slug)
     cover_name = save_image(cover_src, img_dir, "cover") if cover_src else None
 
     doc = Document(str(docx_path))
