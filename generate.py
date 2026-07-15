@@ -14,15 +14,21 @@ from docx import Document
 from docx.oxml.ns import qn
 
 SRC_ROOT = Path(r"G:\マイドライブ\AIコミック\最新版配布用コミクルNeo-GPT\output")
+SRC_ROOT2 = Path(r"C:\Users\takey\OneDrive\デスクトップ\育成型AI漫画生産ハーネス\output")
 OUT_ROOT = Path(r"C:\Users\takey\雑談\電子書籍プレゼント")
 BOOKS_OUT = OUT_ROOT / "books"
 
-# 制作対象スラッグ（hongyou-fukugyo は docx 未完成のため除外）
-SLUGS = [
-    "suimin", "blood-sugar-sleepiness", "chatgpt-fukugyou-5man",
-    "claude-gemini-fukugyou", "claude-obsidian-3x", "hongyou-wa-fukugyou",
-    "nisa-ideco-guide", "obsidian-second-brain", "option-kamisama",
-    "teinen-hataraki", "travel-life-impact",
+# 制作対象（slug, ソースフォルダ）※hongyou-fukugyo は docx 未完成のため除外
+BOOKS = [
+    ("suimin", SRC_ROOT), ("blood-sugar-sleepiness", SRC_ROOT),
+    ("chatgpt-fukugyou-5man", SRC_ROOT), ("claude-gemini-fukugyou", SRC_ROOT),
+    ("claude-obsidian-3x", SRC_ROOT), ("hongyou-wa-fukugyou", SRC_ROOT),
+    ("nisa-ideco-guide", SRC_ROOT), ("obsidian-second-brain", SRC_ROOT),
+    ("option-kamisama", SRC_ROOT), ("teinen-hataraki", SRC_ROOT),
+    ("travel-life-impact", SRC_ROOT),
+    # 2026-06 追加分
+    ("seven-habits", SRC_ROOT), ("luxury-hotel-life", SRC_ROOT),
+    ("mile-tabi-nyumon", SRC_ROOT2),
 ]
 
 MAX_W = 1080  # 画像最大幅(px)
@@ -31,7 +37,28 @@ MAX_W = 1080  # 画像最大幅(px)
 TITLE_OVERRIDE = {
     "claude-obsidian-3x": ("Claude Code × Obsidian 仕事3倍速メソッド",
                             "技術知識ゼロから始めるAI時代の新・仕事術"),
+    "seven-habits": ("マンガでわかる 7つの習慣",
+                     "明日から動ける、やさしい入門"),
+    "luxury-hotel-life": ("ラグジュアリーホテルは幸福な人生への投資になる",
+                          "贅沢を自己投資に変える、上質なホテルステイの楽しみ方"),
+    "mile-tabi-nyumon": ("マイルで人生はもっと自由になる",
+                         "ゼロからはじめる、夢の旅行を叶える入門書"),
 }
+
+# docx本文に残る「表紙のタイトル行」を本文から除外（ヒーロー側で表示するため）
+FRONT_SKIP = {
+    "seven-habits": ["マンガでわかる 7つの習慣", "明日から動ける、やさしい入門"],
+    "luxury-hotel-life": ["ラグジュアリーホテルは", "幸福な人生への投資になる",
+                          "贅沢を自己投資に変える、", "上質なホテルステイの楽しみ方"],
+    "mile-tabi-nyumon": ["ゼロからはじめる、夢の旅行を叶える入門書"],
+}
+TOC_LABELS = {"目次", "目 次", "目　次"}
+# サブタイトルとして扱ってはいけない一般的な見出し名
+NOT_SUBTITLE = {"はじめに", "おわりに", "まえがき", "あとがき",
+                "序章", "終章", "プロローグ", "エピローグ"}
+
+# 見出しレベルが1段深い本の補正（Heading1=書名 / Heading2=章 / Heading3=節）
+HEADING_SHIFT = {"mile-tabi-nyumon": 1}
 
 def find_cover(src_dir: Path):
     cands = ["表紙1.jpg", "表紙1.png", "表紙2.jpg", "表紙2.png"]
@@ -102,11 +129,11 @@ def para_images(para, img_dir):
             pass
     return names
 
-def build_book(slug):
-    src_dir = SRC_ROOT / slug
+def build_book(slug, src_root=SRC_ROOT):
+    src_dir = Path(src_root) / slug
     docx_path = src_dir / "final_book.docx"
     if not docx_path.exists():
-        print(f"[SKIP] {slug}: docxなし")
+        print(f"[SKIP] {slug}: docxなし ({docx_path})")
         return None
     out_dir = BOOKS_OUT / slug
     img_dir = out_dir / "images"
@@ -122,8 +149,27 @@ def build_book(slug):
     title, subtitle = None, None
     parts = []  # html片
 
+    front_skip = set(FRONT_SKIP.get(slug, []))
+    in_toc_block = False    # docx内の目次ブロックを読み飛ばし中か
+    after_title = False     # 直前がタイトル行か（サブタイトル判定用）
     for para in doc.paragraphs:
         style = (para.style.name or "").lower()
+        is_heading = bool(re.match(r'heading (\d+)', style))
+        # docx埋め込みの目次は除去（Web版は自動生成の目次を使う）
+        if style.startswith("toc"):
+            continue
+        if para.text.strip() in TOC_LABELS:
+            # 「目次」見出し以降、次の見出しが来るまでを目次ブロックとして除去
+            in_toc_block = True
+            after_title = False
+            continue
+        if in_toc_block:
+            if is_heading:
+                in_toc_block = False   # 見出しが来たら本文再開
+            else:
+                continue
+        if para.text.strip() in front_skip:
+            continue
         imgs = para_images(para, img_dir)
         if imgs:
             for nm in imgs:
@@ -132,26 +178,49 @@ def build_book(slug):
             cap = para.text.strip()
             if cap:
                 parts.append(('cap', html.escape(cap)))
+            after_title = False
             continue
         text = para.text.strip()
         if not text:
             continue
-        # 見出し判定
-        if "heading 1" in style:
-            if title is None:
-                title = text
-                continue  # タイトルはヒーローへ
-            parts.append(('h1', html.escape(text)))
-        elif "heading 2" in style:
-            if subtitle is None and title is not None and not any(p[0] in ('h1','p','img') for p in parts):
-                subtitle = text
-                continue  # サブタイトルはヒーローへ
-            parts.append(('h2', html.escape(text)))
-        elif "heading 3" in style:
-            parts.append(('h3', html.escape(text)))
+        # 見出し判定（本ごとの見出しレベル補正を適用）
+        hm = re.match(r'heading (\d+)', style)
+        if hm:
+            lvl = int(hm.group(1)) - HEADING_SHIFT.get(slug, 0)
+            if lvl <= 0:
+                if title is None:
+                    title = text  # 書名 → ヒーローへ
+                    after_title = True
+                continue
+            if lvl == 1:
+                if title is None:
+                    title = text
+                    after_title = True
+                    continue  # タイトルはヒーローへ
+                parts.append(('h1', html.escape(text)))
+                after_title = False
+            elif lvl == 2:
+                # サブタイトルはタイトル直後の見出しのみ（章内の見出しを誤検出しない）
+                if subtitle is None and after_title and text not in NOT_SUBTITLE:
+                    subtitle = text
+                    after_title = False
+                    continue  # サブタイトルはヒーローへ
+                parts.append(('h2', html.escape(text)))
+                after_title = False
+            else:
+                parts.append(('h3', html.escape(text)))
+                after_title = False
         else:
             inner = "".join(run_html(r) for r in para.runs) or html.escape(text)
+            # 元docxに残ったマークダウンの ** を整形（対になっていれば強調、単独なら除去）
+            inner = re.sub(r'\*\*(.+?)\*\*', r'<span class="hl">\1</span>', inner)
+            if "**" in inner:
+                inner = inner.replace("**", "")
+            inner = inner.strip()
+            if not inner:
+                continue
             parts.append(('p', inner))
+            after_title = False
 
     if slug in TITLE_OVERRIDE:
         ov_t, ov_s = TITLE_OVERRIDE[slug]
@@ -442,8 +511,8 @@ __CARDS__
 
 if __name__ == "__main__":
     books = []
-    for slug in SLUGS:
-        r = build_book(slug)
+    for slug, root in BOOKS:
+        r = build_book(slug, root)
         if r:
             books.append(r)
     build_index(books)
