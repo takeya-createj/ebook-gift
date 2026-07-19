@@ -29,6 +29,8 @@ BOOKS = [
     # 2026-06 追加分
     ("seven-habits", SRC_ROOT), ("luxury-hotel-life", SRC_ROOT),
     ("die-with-zero", SRC_ROOT), ("mile-tabi-nyumon", SRC_ROOT2),
+    # 2026-07 追加
+    ("habit-compound", SRC_ROOT2),
 ]
 
 MAX_W = 1080  # 画像最大幅(px)
@@ -39,6 +41,7 @@ COVER_OVERRIDE = {
     "luxury-hotel-life": "表紙2.jpg",
     "die-with-zero": "表紙2.jpg",
     "mile-tabi-nyumon": "表紙2.jpg",
+    "habit-compound": "表紙1.jpg",  # 実物確認済（階段を上る男性）
 }
 
 # docx冒頭にタイトル見出しが無い等で自動検出できない本の補正
@@ -53,6 +56,8 @@ TITLE_OVERRIDE = {
                          "ゼロからはじめる、夢の旅行を叶える入門書"),
     "die-with-zero": ("貯めるだけの人生になっていませんか？",
                       "「ゼロで死ぬ」から学ぶ、後悔しないお金の使い方"),
+    "habit-compound": ("習慣の複利",
+                       "毎日1ミリの積み重ねが10年後を変える"),
 }
 
 # docx本文に残る「表紙のタイトル行」を本文から除外（ヒーロー側で表示するため）
@@ -63,6 +68,7 @@ FRONT_SKIP = {
     "mile-tabi-nyumon": ["ゼロからはじめる、夢の旅行を叶える入門書"],
     "die-with-zero": ["貯めるだけの", "人生になっていませんか？",
                       "「ゼロで死ぬ」から学ぶ、後悔しないお金の使い方"],
+    "habit-compound": ["習慣の複利 ― 毎日1ミリの積み重ねが10年後を変える"],
 }
 TOC_LABELS = {"目次", "目 次", "目　次"}
 # サブタイトルとして扱ってはいけない一般的な見出し名
@@ -70,7 +76,7 @@ NOT_SUBTITLE = {"はじめに", "おわりに", "まえがき", "あとがき",
                 "序章", "終章", "プロローグ", "エピローグ"}
 
 # 見出しレベルが1段深い本の補正（Heading1=書名 / Heading2=章 / Heading3=節）
-HEADING_SHIFT = {"mile-tabi-nyumon": 1}
+HEADING_SHIFT = {"mile-tabi-nyumon": 1, "habit-compound": 1}
 # Heading2が無くHeading3が節になっている本の対応（docxの見出しレベル → 表示ランク）
 HEADING_LEVEL_MAP = {"die-with-zero": {1: 1, 3: 2}}
 

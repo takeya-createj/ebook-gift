@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>習慣の複利</title>
+<meta name="description" content="毎日1ミリの積み重ねが10年後を変える">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP",serif;line-height:1.95;font-size:17px;-webkit-text-size-adjust:100%;}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:50;transition:width .1s;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px 80px;}
+header.hero{text-align:center;padding:46px 0 30px;}
+.cover{width:min(70%,300px);height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(60,40,10,.22);margin-bottom:26px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.5;margin:.2em 0;letter-spacing:.01em;}
+.subtitle{color:var(--sub);font-size:15px;font-family:"Noto Sans JP",sans-serif;margin:.4em auto 0;max-width:90%;}
+.divider{width:54px;height:3px;background:var(--accent);border:0;border-radius:3px;margin:26px auto 8px;}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px 16px;margin:8px 0 10px;box-shadow:0 6px 18px rgba(60,40,10,.07);}
+.toc-h{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--brand);text-align:center;margin:12px 0 14px;}
+.toc-row{display:flex;align-items:baseline;gap:13px;padding:11px 4px;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);font-family:"Noto Sans JP",sans-serif;line-height:1.5;}
+.toc-row:last-child{border-bottom:0;}
+.toc-row:active{background:#f1ebe0;}
+.toc-num{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--accent);min-width:1.6em;}
+.toc-ttl{font-size:14.5px;}
+.chapter{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:21px;line-height:1.45;margin:62px 0 22px;padding-top:26px;border-top:1px solid var(--line);color:var(--brand);scroll-margin-top:14px;}
+.chapter .cnum{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);margin-bottom:6px;}
+h3{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:18px;margin:40px 0 14px;padding-left:13px;border-left:5px solid var(--brand);line-height:1.5;}
+h4{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:16px;color:var(--sub);margin:28px 0 10px;}
+p{margin:0 0 1.25em;}
+.hl{color:var(--accent);font-weight:700;}
+strong{font-weight:700;}
+figure{margin:30px 0;text-align:center;}
+figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
+.caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+.backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
+.foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
+@media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+<header class="hero">
+<img class="cover" src="images/cover_48f5c83ca6.jpg" alt="表紙">
+<h1>習慣の複利</h1>
+<p class="subtitle">毎日1ミリの積み重ねが10年後を変える</p>
+<hr class="divider">
+</header>
+<nav class="toc"><p class="toc-h">目次</p><a class="toc-row" href="#ch01"><span class="toc-num">01</span><span class="toc-ttl">はじめに ― 「今度こそ」を何度繰り返しましたか</span></a>
+<a class="toc-row" href="#ch02"><span class="toc-num">02</span><span class="toc-ttl">第1章 1ミリの正体 ― なぜ小さすぎる行動が10年後を変えるのか</span></a>
+<a class="toc-row" href="#ch03"><span class="toc-num">03</span><span class="toc-ttl">第2章 「意志が弱い」の誤解 ― 続かないのはあなたのせいではない</span></a>
+<a class="toc-row" href="#ch04"><span class="toc-num">04</span><span class="toc-ttl">第3章 1ミリの設計図 ― 小さすぎて失敗できない初動をつくる</span></a>
+<a class="toc-row" href="#ch05"><span class="toc-num">05</span><span class="toc-ttl">第4章 3週間の壁を越える ― 続く人が使っている外部装置</span></a>
+<a class="toc-row" href="#ch06"><span class="toc-num">06</span><span class="toc-ttl">第5章 10年後の自分から逆算する ― 積み上がった証拠が人を変える</span></a></nav>
+<main>
+<h2 class="chapter" id="ch01"><span class="cnum">01</span>はじめに ― 「今度こそ」を何度繰り返しましたか</h2>
+<figure><img loading="lazy" src="images/fig_9f2bf6a898.jpg" alt=""></figure>
+<p>はじめに 「今度こそ」を何度繰り返しましたか</p>
+<p>英語を勉強しよう、と決めた日のことを覚えているでしょうか。</p>
+<p>参考書を買い、アプリを入れ、最初の三日間は驚くほど順調でした。</p>
+<p>ところが一週間もすると、なぜか開かなくなる。</p>
+<p>そして数ヶ月後、今度は中国語に興味が湧きます。</p>
+<p>次こそはと思って始めるのですが、また同じことが起きる。</p>
+<p>しばらくすると韓国語のテキストが本棚に並んでいる。</p>
+<p>これは、ある質問サイトに投稿された実際の悩みです。</p>
+<p>読んでいて胸が痛くなるのは、この人が怠けているわけではないからです。</p>
+<p>むしろ<span class="hl">何度も挑戦している</span>。</p>
+<p>挑戦の回数だけを数えるなら、この人は人並み以上に行動を起こしているはずです。</p>
+<p>それなのに、手元には何も積み上がっていない。</p>
+<p>もし、いま少しでも心当たりがあったなら、まず知っておいてほしいことがあります。</p>
+<p><span class="hl">それは、あなただけに起きていることではありません。</span></p>
+<p>習慣化アプリを提供するエーテンラボが2023年10月に利用者<span class="hl">706</span><span class="hl">人</span>へ行った調査では、<span class="hl">85%</span><span class="hl">の人が三日坊主を経験している</span>と回答しました。</p>
+<p>習慣を身につけようと意識的にアプリまで入れている人たちの中で、です。</p>
+<p>つまり続かないというのは、意識の低い一部の人に起きる例外ではなく、圧倒的多数が通ってきた道だということになります。</p>
+<p>それでも私たちは、続かなかった理由を自分の性格に求めてしまいます。</p>
+<p>意志が弱い。</p>
+<p>飽きっぽい。</p>
+<p>要領が悪い。</p>
+<p>そうやって自分を責めているあいだに、次の「今度こそ」がやってきて、また同じ場所を回り続ける。</p>
+<p>この本は、その輪から降りるために書きました。</p>
+<h3>この本が約束しないこと</h3>
+<p>先に、はっきりさせておきたいことがあります。</p>
+<p>この本は、<span class="hl">あなたの意志力を鍛えません</span>。</p>
+<p>根性を出せとも、朝<span class="hl">5</span><span class="hl">時</span>に起きろとも、モチベーションを高く保てとも言いません。</p>
+<p>そういう本はすでにたくさんありますし、それで続いた人はもうこの本を読む必要がないはずです。</p>
+<p>読者の声を調べていて、繰り返し出てくる不満がありました。</p>
+<p>精神論で押し切ろうとする本を読むと、最初は高揚するけれど、続かなかったときに前より深く落ち込む、というものです。</p>
+<p>「意志が弱いからダメなんだ」という結論だけが手元に残り、次の挑戦のハードルがむしろ上がってしまう。</p>
+<p>だからこの本では、意志力の話をほとんどしません。</p>
+<p>代わりに扱うのは<span class="hl">設計</span>です。</p>
+<p>続く人と続かない人を分けているのは、性格の強さではありません。</p>
+<p>行動が起きる仕組みが、生活の中に組み込まれているかどうかです。</p>
+<p>そして仕組みは、性格と違って後から変えられます。</p>
+<h3>なぜ「1ミリ」で足りるのか</h3>
+<p>もうひとつ、この本の中心にある考えをお伝えしておきます。</p>
+<p>多くの人は、変化には大きな行動が必要だと思っています。</p>
+<p>だから腕立て伏せを50回に設定し、毎日<span class="hl">1</span><span class="hl">時間</span>の勉強を自分に課す。</p>
+<p>そして三日でやめる。</p>
+<p>ところが、続く人がやっているのは逆のことです。</p>
+<p><span class="hl">バカバカしいほど小さく始めている</span>のです。</p>
+<p>腕立て伏せ1回。</p>
+<p>日記1行。</p>
+<p>本を1ページ。</p>
+<p>それなら、疲れていてもできてしまう。</p>
+<p>「そんな小さなことに意味があるのか」と思われたかもしれません。</p>
+<p>その疑問はもっともです。</p>
+<p>1回の腕立て伏せで筋肉はつきませんし、1行の日記で人生は変わりません。</p>
+<p>意味が生まれるのは、それが積み重なったときです。</p>
+<p>しかも、ただ足し算で増えていくのではありません。</p>
+<p>お金の複利になぞらえるなら、<span class="hl">小さな変化も、時間を味方につけると加速していく</span>、と考えることができます。</p>
+<p>そして複利のいちばん厄介な性質は、<span class="hl">途中まで何も起きていないように見える</span>ことです。</p>
+<p>多くの人はここで降ります。</p>
+<p>効果が出る手前で、「やっぱり意味がなかった」と判断してしまう。</p>
+<p>この本の第1章は、まるごとその話に使います。</p>
+<p>なぜ1ミリで足りるのか。</p>
+<p>なぜ途中では見えないのか。</p>
+<p>それが腹に落ちれば、続けることの意味が変わります。</p>
+<h3>この本の歩き方</h3>
+<p>全体は5つの章でできています。</p>
+<p>第1章では、1ミリの行動がなぜ10年後を変えるのかを、数字で見ていきます。</p>
+<p>ここが本書の土台です。</p>
+<p>第2章では、「意志が弱い」という思い込みを解体します。</p>
+<p>習慣化に必要な日数の研究を知ると、<span class="hl">あなたが挫折したタイミングは、まったく異常ではなかった</span>とわかるはずです。</p>
+<p>第3章は、いちばん実践的な章です。</p>
+<p>小さすぎて失敗できない初動の作り方を、手順として書きました。</p>
+<p>読みながら手を動かせます。</p>
+<p>第4章では、多くの人が折れる時期の越え方を扱います。</p>
+<p>記録、可視化、そして人の目という外部の力の使い方です。</p>
+<p>第5章では、10年という時間軸に戻ります。</p>
+<p>続けた人が最終的に手にするものは、実はスキルそのものではありません。</p>
+<p>各章の終わりには漫画を置きました。</p>
+<p>理屈で理解したことを、物語で自分ごとにするためです。</p>
+<h3>読み終えたあと、やってほしいこと</h3>
+<p>最後に、この本の唯一のお願いを先に書いておきます。</p>
+<p>読み終えたら、<span class="hl">たった</span><span class="hl">1</span><span class="hl">つだけ、小さすぎる行動を決めてください</span>。</p>
+<p>2つはいりません。</p>
+<p>5つも10もいりません。</p>
+<p>1つです。</p>
+<p>しかも、笑ってしまうくらい小さいもの。</p>
+<p>なぜ1つなのかは第5章で説明しますが、複数の習慣を同時に始めることは、専門家が挙げる典型的な失敗パターンのひとつです。</p>
+<p>あれもこれもと欲張った瞬間に、全部が崩れやすくなります。</p>
+<p>ページをめくる前に、ひとつ思い出してみてください。</p>
+<p>あなたが最後に「今度こそ」と決めたのは、いつでしたか。</p>
+<p>そのとき決めた目標は、大きすぎませんでしたか。</p>
+<p><span class="hl">それは、あなたの意志が弱かったからではありません。</span></p>
+<p>始めましょう。</p>
+<p>今日の1ミリから。</p>
+<h2 class="chapter" id="ch02"><span class="cnum">02</span>第1章 1ミリの正体 ― なぜ小さすぎる行動が10年後を変えるのか</h2>
+<figure><img loading="lazy" src="images/fig_ade7c8a485.jpg" alt=""></figure>
+<p>第1章 1ミリの正体</p>
+<p>「たった1ミリ動いて、何になるのか」</p>
+<p>習慣の話をすると、多くの方がこの疑問にぶつかります。</p>
+<p>そして、その疑問はまったく正しいのです。</p>
+<p>1ミリは、今日という<span class="hl">1</span><span class="hl">日</span>の中では何の意味も持ちません。</p>
+<p>腕立て伏せ1回で体は変わらず、英単語3つで英語は話せません。</p>
+<p>だからこそ私たちは、1ミリではなく100メートルを走ろうとして、そして三日で止まります。</p>
+<p>習慣化アプリ「みんチャレ」を運営するエーテンラボが2023年10月に利用者<span class="hl">706</span><span class="hl">人</span>へ行った調査では、<span class="hl">85%</span>の人が三日坊主を経験していました。</p>
+<p>続かないのは、あなただけに起きている事故ではなさそうです。</p>
+<p>多くの人に共通して起きている現象だと考えることができます。</p>
+<p>この章でお伝えしたいのは、根性の話ではありません。</p>
+<p><span class="hl">1</span><span class="hl">ミリという単位が、時間という掛け算と組み合わさったときに何が起きるのか</span>。</p>
+<p>その正体を、数字と図で腹に落としていただきます。</p>
+<h3>1ミリの変化は、その日には見えない</h3>
+<figure><img loading="lazy" src="images/fig_97ec46a3b3.jpg" alt=""></figure>
+<p>1日の変化の大きさ</p>
+<p>お金の複利をイメージしてください。</p>
+<p>年利の効いた預金は、最初の数年、ほとんど増えていないように見えます。</p>
+<p>グラフはほぼ平らです。</p>
+<p>増えているのは事実なのに、<span class="hl">増え方が小さすぎて、目盛りの上では動いていないように見える</span>だけなのです。</p>
+<p>習慣を考えるときも、この形をイメージすると理解の助けになります。</p>
+<p>今日読んだ1ページは、明日のあなたを賢くしません。</p>
+<p>今日歩いた<span class="hl">10</span><span class="hl">分</span>は、明日の体重計を1グラムも動かしません。</p>
+<p><span class="hl">変化が起きていても、変化を測る目盛りが粗すぎて検出できない</span>。</p>
+<p>これが「小さい行動は無意味に見える」という錯覚の正体ではないか、というのが本書の見立てです。</p>
+<p>ただし、これはあくまで考えるための比喩です。</p>
+<p>技能・健康・信頼など、領域によって成果の現れ方は同じではなく、直線的に伸びるものもあれば、ある時点から急に伸びるものもあります。</p>
+<p>ところが私たちは、目盛りに映らないものを「起きていないこと」と判定してしまいます。</p>
+<p>そして「効果がないからやめる」という、きわめて合理的に見える判断を下します。</p>
+<p>ここが最初の分岐点です。</p>
+<p>複利というたとえで考えるなら、平らに見える区間を通過した人にしか、次の景色は見えてきません。</p>
+<p><span class="hl">平らに見える期間があることは、変化が止まっている証拠ではなく、積み上がりが進んでいる途中だと考えることができる</span>のです。</p>
+<p>英語学習の例を見てみましょう。</p>
+<p>ビズメイツが2021年5月に発表した調査では、英語学習経験者111名のうち<span class="hl">87.4%</span>が挫折を経験し、そのうち<span class="hl">81.4%</span>が3ヶ月以内に離脱していました。</p>
+<p>挫折の理由の最上位は「モチベーションの低下」で<span class="hl">62.9%</span>、次いで「上達を感じられない」が<span class="hl">39.2%</span>です。</p>
+<p>この数字が示しているのは、意志の弱さではなく、<span class="hl">人は、変化が目盛りに現れる前に判定を下してしまいやすい</span>という、認知の傾向かもしれません。</p>
+<p>複利というたとえに当てはめて考えるなら、3ヶ月はまだ平らな区間を歩いている時期だと捉えることもできます。</p>
+<p>もしかすると多くの人は、効果がなかったからやめたのではなく、効果が見える前にやめてしまっているのではないでしょうか。</p>
+<h3>停滞は失敗ではなく「潜伏期間」</h3>
+<figure><img loading="lazy" src="images/fig_7133051fe3.jpg" alt=""></figure>
+<p>停滞に見える潜伏期間</p>
+<p>ロンドン大学ユニヴァーシティ・カレッジのフィリッパ・ラリーらは2009年、<span class="hl">96</span><span class="hl">人</span>を12週間にわたって追跡し、新しい行動が「意識せずに自動的にできる」と感じられるまでの期間を測定しました。</p>
+<p>結果は、平均で<span class="hl">66</span><span class="hl">日</span>。</p>
+<p>そして個人差の範囲は<span class="hl">18</span><span class="hl">日から</span><span class="hl">254</span><span class="hl">日</span>にまで広がっていました。</p>
+<p>ここで注目していただきたいのは、平均値ではなく幅のほうです。</p>
+<p><span class="hl">同じ行動でも、自動化までに</span><span class="hl">1</span><span class="hl">ヶ月かからない人と、</span><span class="hl">8</span><span class="hl">ヶ月以上かかる人がいる</span>。</p>
+<p>つまり、あなたが2ヶ月続けて「まだしんどい」と感じていたとしても、それは失敗ではなく、単にあなたの潜伏期間がまだ終わっていないだけなのかもしれません。</p>
+<p>私はこの区間を「潜伏期間」と呼んでいます。</p>
+<p>地面の下では根が伸びているのに、地上には何も出ていない時期です。</p>
+<p>この時期の特徴は、努力の量と手応えの量が一致しないことにあります。</p>
+<p>だから多くの人が、ここで「向いていない」と結論を出します。</p>
+<p><span class="hl">潜伏期間を失敗と誤読してしまうことが、複利を止める大きな要因の一つ</span>だと考えられます。</p>
+<p>逆に言えば、この期間の存在をあらかじめ知っておくことで、離脱を防ぎやすくなるかもしれません。</p>
+<p>効果が出ないのではなく、まだ出る時期ではない。</p>
+<p>そう言い換えられる人は、平らな区間を歩き続けやすくなるはずです。</p>
+<h3>積み上がるのは行動ではなく「証拠」</h3>
+<figure><img loading="lazy" src="images/fig_ead4032ce9.jpg" alt=""></figure>
+<p>積み上がっていく3つの層</p>
+<p>ここが本書で最もお伝えしたい部分です。</p>
+<p>毎日の1ミリが積み上げているのは、実は行動の総量ではありません。</p>
+<p><span class="hl">積み上がっているのは、自分についての証拠</span>です。</p>
+<p>腕立て伏せを<span class="hl">30</span><span class="hl">日</span>続けた人が手にしているのは、30回分の筋肉ではありません。</p>
+<p>「自分は決めたことを<span class="hl">30</span><span class="hl">日</span>続けられる人間らしい」という、反論しにくい記録です。</p>
+<p>これは気合いや自己暗示とは違います。</p>
+<p>実際に起きた出来事の集積であり、証拠だからこそ、あとから覆せません。</p>
+<p>南カリフォルニア大学のウェンディ・ウッド教授が2014年に発表した研究によれば、私たちの日常行動のうち<span class="hl">約</span><span class="hl">40%</span><span class="hl">から</span><span class="hl">43%</span>は、同じ状況で繰り返される自動的な行動です。</p>
+<p>判断して選んでいるのではなく、その場所・その時間になったから体が動いている行動が、4割前後を占めているということです。</p>
+<p>この研究がわかりやすく示しているのは、私たちの毎日にはそれだけの割合で、いちいち決断せずに繰り返している行動があるという事実です。</p>
+<p>研究が明らかにしたのはそこまでで、その中身が何でできているかまでを述べているわけではありません。</p>
+<p>ただ、ここから先は本書の見方として、こう考えてみたいのです。</p>
+<p><span class="hl">繰り返されている行動の多くは、過去の自分が何度も通った道の上にある</span>のではないでしょうか。</p>
+<p>今日ほとんど無意識にやっていることは、いつかの自分が選び、それなりの回数を重ねたから、そこにあります。</p>
+<p>そう捉えると、今日の1ミリは、明日以降の自分が通る道を<span class="hl">1</span><span class="hl">本</span>ずつ敷いている作業だと考えることができます。</p>
+<p>だから、続けることの本当の報酬は、成果よりも先に来ます。</p>
+<p>成果はまだ目盛りに現れていなくても、証拠は初日から<span class="hl">1</span><span class="hl">件</span>ずつ確実に積み上がっているのです。</p>
+<h3>複利はマイナスにも効く</h3>
+<figure><img loading="lazy" src="images/fig_aebff03b43.jpg" alt=""></figure>
+<p>同じ1ミリが分ける10年後</p>
+<p>ここまでの話には、素直に喜べない裏側があります。</p>
+<p><span class="hl">複利は、方向を選びません</span>。</p>
+<p>複利という仕組みが持っているのは「小さな変化に時間を掛け算する」機能だけです。</p>
+<p>掛けられる中身がプラスかマイナスかを、仕組みは判定しません。</p>
+<p>毎晩<span class="hl">30</span><span class="hl">分</span>の夜更かしも、毎日の小さな先延ばしも、まったく同じ形で積み上がります。</p>
+<p>そしてマイナスの複利にも、あの平らな区間があります。</p>
+<p>「<span class="hl">1</span><span class="hl">日</span>くらい夜更かししても平気」は正しい観察です。</p>
+<p>実際、<span class="hl">1</span><span class="hl">日</span>では何も起きません。</p>
+<p>目盛りは動きません。</p>
+<p><span class="hl">プラスの</span><span class="hl">1</span><span class="hl">ミリが今日は無意味に見えるのと、まったく同じ理由で、マイナスの</span><span class="hl">1</span><span class="hl">ミリも今日は無害に見える</span>のです。</p>
+<p>この対称性が、悪い習慣を厄介にしています。</p>
+<p>前の節でお伝えした「証拠」も同じです。</p>
+<p>「今日はやらなかった」という日は、疲労の記録ではなく、「自分は決めたことをやらない人間らしい」という証拠として<span class="hl">1</span><span class="hl">件</span>積み上がります。</p>
+<p>この証拠が積み上がると、次に何かを始めるときの初期値が下がります。</p>
+<p>三日坊主を繰り返した人が、新しい挑戦の前から「どうせまた続かない」と思うのは、性格の問題というより、証拠の残高がそう感じさせているのかもしれません。</p>
+<p>ただし、悲観する必要はありません。</p>
+<p>方向を選ばないということは、<span class="hl">方向を変えれば同じ勢いで逆に効く</span>ということでもあります。</p>
+<p>マイナスの複利を10年積んできた人ほど、この仕組みの威力を体感で知っているはずです。</p>
+<h3>10年を「日数」に変換して見る</h3>
+<figure><img loading="lazy" src="images/fig_7551434c29.jpg" alt=""></figure>
+<p>10年を日数に変換する</p>
+<p>最後に、この章の締めくくりとして、単位の変換をしていただきます。</p>
+<p>「10年」と聞くと、それは遠い未来の、輪郭のない時間に感じられます。</p>
+<p>ところが10年を日数に直すと、<span class="hl">3,650</span><span class="hl">日</span>になります。</p>
+<p>この瞬間、10年は「未来」から「回数」に変わります。</p>
+<p><span class="hl">1</span><span class="hl">日</span>1ミリなら、<span class="hl">3,650</span>ミリ。</p>
+<p><span class="hl">3</span><span class="hl">メートル</span><span class="hl">65</span><span class="hl">センチ</span>です。</p>
+<p>人の身長の倍を超える距離が、目盛りに映らない1ミリだけで積み上がる計算になります。</p>
+<p>逆から見れば、10年で3メートル動きたいなら、今日必要なのは1ミリだけだということです。</p>
+<p>念のため断っておくと、この<span class="hl">3,650</span><span class="hl">日</span>という計算は複利ではなく単純な足し算です。</p>
+<p>毎日同じ量を積み重ねるとどれだけになるかを示しているだけで、複利のように増え方そのものが加速する計算ではありません。</p>
+<p>それでも、続けること自体が次の1ミリを選びやすくするという波及効果は別に重なっていきます。</p>
+<p>この波及効果のほうを、本書では複利というたとえで説明しています。</p>
+<p>ここで重要なのは、<span class="hl">3,650</span>という数字の大きさではありません。</p>
+<p><span class="hl">10</span><span class="hl">年という塊が、今日という</span><span class="hl">1</span><span class="hl">回に分解できる</span>という事実のほうです。</p>
+<p>私たちが習慣に挫折してしまうのは、多くの場合、10年分の重さを今日<span class="hl">1</span><span class="hl">日</span>で持ち上げようとしてしまうからではないでしょうか。</p>
+<p>10年分のダイエットを今日始めようとすると、いきなり<span class="hl">1</span><span class="hl">時間</span>走ることになります。</p>
+<p>そして続きません。</p>
+<p>10年を日数に変換すると、やるべきことの単位が変わります。</p>
+<p>10年後に必要なのは、<span class="hl">3,650</span><span class="hl">日分</span>の努力ではありません。</p>
+<p><span class="hl">今日の</span><span class="hl">1</span><span class="hl">ミリと、明日もそれを選べる状態</span>です。</p>
+<p>この2つだけです。</p>
+<p>つまり、複利というたとえで捉えるなら、大切なのは「大きな行動を持続させる技術」ではなく、「小さすぎる行動を、明日も選べる状態に保つ技術」なのです。</p>
+<p>そして、ここまで読んで、多くの方はこう思っているはずです。</p>
+<p>理屈はわかった。</p>
+<p>1ミリでいいことも、平らな区間があることもわかった。</p>
+<p>それでも、その1ミリすら続かなかったのが自分なのだ、と。</p>
+<p>その感覚こそが、次の章のテーマです。</p>
+<p>私たちは続かなかった理由を、ほぼ例外なく「自分の意志が弱いから」に着地させます。</p>
+<p>ですが、もしその原因の見立てそのものが最初から間違っていたとしたら、あなたはこれまで、直せない場所を直そうとして10年を使ってきたことになります。</p>
+<p><span class="hl">続かないのは、本当にあなたの意志のせいなのでしょうか。</span></p>
+<figure><img loading="lazy" src="images/fig_eb41cc6b8c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_fd3b775d35.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_593d9a246b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_aee53d86d6.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a3dadba3b4.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_1a5c92b09b.jpg" alt=""></figure>
+<h2 class="chapter" id="ch03"><span class="cnum">03</span>第2章 「意志が弱い」の誤解 ― 続かないのはあなたのせいではない</h2>
+<p>&lt;!-- [HEADER_IMAGE: pattern=illustration | title=第2章 「意志が弱い」の誤解 | elements=<span class="hl">21</span><span class="hl">日</span>神話,自動行動4割,天気のような意志力,完璧主義,設計が悪い | description=自責のループから抜け出し、原因を意志力から設計へ移す章。</p>
+<p>うつむいた人物の背後で「意志が弱い」という文字がひび割れ、代わりに設計図が現れる構図 --&gt;</p>
+<p>前の章の最後で、こう問いかけました。</p>
+<p>1ミリの積み重ねが10年後を変えると頭でわかったとして、では、なぜ私たちはその1ミリを続けられないのか。</p>
+<p>多くの人はこの問いに、一瞬で答えを出します。</p>
+<p>自分の意志が弱いからだ、と。</p>
+<p>この答えは早くて、わかりやすいものです。</p>
+<p>ですが、これから見ていく研究を踏まえると、<span class="hl">その答えは実態とずれている可能性が高い</span>のです。</p>
+<p>この章では、あなたが自分に貼った「意志が弱い」というラベルを、研究の知見を手がかりに一枚ずつ剥がしていきます。</p>
+<p>剥がした後に何が残るのか。</p>
+<p>本書の見方では、それは性格の欠陥ではなく、<span class="hl">修正可能な設計ミス</span>であることが多いのです。</p>
+<h3>21日神話が、あなたを挫折させた</h3>
+<p>「習慣は<span class="hl">21</span><span class="hl">日</span>で身につく」。</p>
+<p>この言葉を、あなたも一度は聞いたことがあるはずです。</p>
+<p>手帳にもアプリにも、この21という数字が刻まれています。</p>
+<p>そして、あなたは<span class="hl">22</span><span class="hl">日</span>目に挫折しました。</p>
+<p>だから思ったのです。</p>
+<p><span class="hl">21</span><span class="hl">日</span>で身につくはずのものが身につかなかった。</p>
+<p>やはり自分は人並み以下なのだ、と。</p>
+<p>ここで、あなたを<span class="hl">22</span><span class="hl">日</span>目に絶望させたその前提そのものを疑ってください。</p>
+<p><span class="hl">「</span><span class="hl">21</span><span class="hl">日で習慣化」には、科学的な裏づけがありません</span>。</p>
+<p>実際に測った研究があります。</p>
+<p>University College London の Phillippa Lally らが2009年に発表した調査です。</p>
+<p><span class="hl">96</span><span class="hl">人</span>の参加者に、水を飲む、運動をするといった新しい行動を毎日続けてもらい、12週間にわたって「どのくらい自動的にできるようになったか」を追跡しました。</p>
+<p>結果はこうでした。</p>
+<p>行動が自動的に感じられるまでにかかった期間は、<span class="hl">平均</span><span class="hl">66</span><span class="hl">日</span>。</p>
+<p><span class="hl">21</span><span class="hl">日</span>ではありません。</p>
+<p><span class="hl">3</span><span class="hl">倍</span>以上です。</p>
+<p>さらに重要なのは、その内訳です。</p>
+<p>範囲は<span class="hl">18</span><span class="hl">日から</span><span class="hl">254</span><span class="hl">日</span>まで広がっていました。</p>
+<p><span class="hl">18</span><span class="hl">日</span>で自動化した人もいれば、<span class="hl">254</span><span class="hl">日</span>かかった人もいる。</p>
+<p>同じ人間が同じように取り組んでも、これだけの差が出るのです。</p>
+<p>スタンフォード大学の Andrew Huberman も、この個人差の大きさこそが習慣化の実態だと解説しています。</p>
+<p>&lt;!-- [INLINE_IMAGE: pattern=scale-circles | title=<span class="hl">21</span><span class="hl">日</span>という数字には根拠がない | elements=神話<span class="hl">21</span><span class="hl">日</span>,平均<span class="hl">66</span><span class="hl">日</span>,最短<span class="hl">18</span><span class="hl">日</span>,最長<span class="hl">254</span><span class="hl">日</span> | description=Lally 2009の実測値。</p>
+<p><span class="hl">21</span><span class="hl">日</span>の円が小さく、平均<span class="hl">66</span><span class="hl">日</span>が<span class="hl">3</span><span class="hl">倍</span>の円、その外側に<span class="hl">18</span><span class="hl">日</span>から<span class="hl">254</span><span class="hl">日</span>の広い帯が重なる比較図 --&gt;</p>
+<p>つまり、<span class="hl">22</span><span class="hl">日</span>目に続かなかったあなたは、失敗したとは限りません。</p>
+<p><span class="hl">平均</span><span class="hl">66</span><span class="hl">日と比べても、</span><span class="hl">22</span><span class="hl">日はまだ早い段階</span>です。</p>
+<p>ただし<span class="hl">66</span><span class="hl">日</span>はあくまで平均値であり、あなた自身の締切ではありません。</p>
+<p>必要な期間は人によって、行動によっても大きく異なり、<span class="hl">18</span><span class="hl">日</span>で自動化した人もいれば<span class="hl">254</span><span class="hl">日</span>かかった人もいます。</p>
+<p><span class="hl">21</span><span class="hl">日</span>という根拠のない目印に自分を合わせて採点していただけなのかもしれません。</p>
+<h3>行動の4割は「意志で選んでいない」</h3>
+<p>もうひとつ、私たちが取り違えていることがあります。</p>
+<p>それは「自分の<span class="hl">1</span><span class="hl">日</span>は、自分の意志で決めている」という思い込みです。</p>
+<p>南カリフォルニア大学の Wendy Wood は、人が日常でとる行動を調べ続けてきた研究者です。</p>
+<p>その報告によれば、<span class="hl">日常行動の約</span><span class="hl">40%</span><span class="hl">から</span><span class="hl">43%</span><span class="hl">は、同じ状況で繰り返される自動的な行動</span>でした。</p>
+<p>朝起きて、まず何をしましたか。</p>
+<p>その手はどこへ伸びましたか。</p>
+<p>帰宅して玄関を上がってから、テレビをつけるまでの間に、あなたは何かを決断したでしょうか。</p>
+<p>おそらく、していません。</p>
+<p>体が勝手に動いたはずです。</p>
+<p>これは、あなたの<span class="hl">1</span><span class="hl">日</span>のかなりの部分が、<span class="hl">意志ではなく状況によって動いている</span>可能性を示しています。</p>
+<p>同じ時間、同じ場所、同じ手順。</p>
+<p>その状況に置かれると、考える前に体が動く。</p>
+<p>それも習慣の正体の一つと言えそうです。</p>
+<p>&lt;!-- [INLINE_IMAGE: pattern=venn | title=<span class="hl">1</span><span class="hl">日</span>の行動の内訳 | elements=意志で選んでいる行動,状況が自動で決めている行動 約4割,重なる部分 | description=Wendy Woodの知見。</p>
+<p>円の4割強が「自動行動」として色分けされ、意志の領域が思ったより小さいことを示す --&gt;</p>
+<p>この事実から、二つのことが見えてきます。</p>
+<p>ひとつ目。</p>
+<p>あなたが今、悪い習慣をやめられないのは、意志が敗北しているからとは限りません。</p>
+<p><span class="hl">状況があなたより先に動いている</span>からかもしれません。</p>
+<p>ソファに座った時点で、スマホを手に取ることはもう決まっていた、とも考えられます。</p>
+<p>ふたつ目。</p>
+<p>ここが希望です。</p>
+<p>行動の4割前後が状況によって自動的に起きているなら、<span class="hl">状況の手がかりを変えることで、一部の自動行動は意志を使わなくても変えやすくなる可能性があります</span>。</p>
+<p>戦う相手は自分の性格ではなく、自分の周囲の配置なのかもしれません。</p>
+<h3>意志力は筋肉ではなく、天気に近い</h3>
+<p>「意志力は筋肉と同じで、鍛えれば強くなる」。</p>
+<p>この比喩も、私たちを苦しめてきました。</p>
+<p>鍛えれば強くなるということは、続かない自分は鍛え方が足りない、ということになってしまうからです。</p>
+<p>現実に照らして考えるなら、<span class="hl">意志力は筋肉より天気に似ている</span>のではないでしょうか。</p>
+<p>昨日は晴れていました。</p>
+<p>今日は雨です。</p>
+<p>理由はあります。</p>
+<p>睡眠が足りない、仕事で叱られた、体調が悪い、家族と揉めた。</p>
+<p>そのどれもが、あなたの意志力の残量を静かに削っている、と考えることができます。</p>
+<p>そして、それらのほとんどはあなたが選んだ出来事ではありません。</p>
+<p>つまり、<span class="hl">意志力は毎日同じ量だけ手元にあるとは限らない</span>のです。</p>
+<p>にもかかわらず、私たちは計画を立てるとき、いつも晴れの日の自分を基準にします。</p>
+<p>「毎朝<span class="hl">5</span><span class="hl">時</span>に起きて<span class="hl">1</span><span class="hl">時間</span>勉強する」。</p>
+<p>それは、意志力が満タンの日にしか実行できない計画です。</p>
+<p>雨の日は必ず来ます。</p>
+<p>来た瞬間に計画は破綻し、破綻した理由を私たちは天気ではなく自分の人格のせいにします。</p>
+<p>スタンフォード大学の行動科学者 BJ Fogg は、この点をはっきりと述べています。</p>
+<p><span class="hl">行動変化は意志力ではなく、デザインから生まれる</span>。</p>
+<p>&lt;!-- [INLINE_IMAGE: pattern=comparison-table | title=意志力に頼る計画とデザインに頼る計画 | elements=晴れの日だけ動く計画,雨の日でも動く計画,前提としている自分,破綻したときの解釈 | description=左に「毎朝<span class="hl">5</span><span class="hl">時</span>に<span class="hl">1</span><span class="hl">時間</span>勉強」、右に「歯磨きの後にテキストを1行読む」。</p>
+<p>前者は好調時の自分が前提で崩れると自責に、後者は不調時の自分が前提で崩れにくい --&gt;</p>
+<p>良い設計とは、<span class="hl">雨の日の自分でも実行できる設計</span>のことです。</p>
+<p>晴れの日の自分に合わせて計画を立てるのをやめる。</p>
+<p>それだけで、続かない理由の多くが消えていく可能性があります。</p>
+<h3>完璧主義という名の自滅装置</h3>
+<p>ここまでは世界共通の話でした。</p>
+<p>ここからは、日本語で暮らす私たちが特に踏みやすい地雷の話をします。</p>
+<p>それが<span class="hl">完璧主義</span>です。</p>
+<p>実際に、こんな経験はないでしょうか。</p>
+<p><span class="hl">30</span><span class="hl">日</span>連続で走ると決めた。</p>
+<p>順調に<span class="hl">18</span><span class="hl">日</span>続いた。</p>
+<p><span class="hl">19</span><span class="hl">日</span>目、寝坊した。</p>
+<p>走れなかった。</p>
+<p>その夜、あなたは走らなかったことよりも、<span class="hl">連続記録が途切れたこと</span>にダメージを受けた。</p>
+<p>そして<span class="hl">20</span><span class="hl">日</span>目、走りませんでした。</p>
+<p><span class="hl">21</span><span class="hl">日</span>目も走りませんでした。</p>
+<p>気づけば、二度と走らなくなっていました。</p>
+<p>ここで何が起きたのかを冷静に見てください。</p>
+<p>あなたが失ったのは、たった<span class="hl">1</span><span class="hl">日分</span>の運動です。</p>
+<p><span class="hl">18</span><span class="hl">日分</span>の積み上げそのものが、なくなるわけではありません。</p>
+<p><span class="hl">1</span><span class="hl">日休んだだけで、</span><span class="hl">18</span><span class="hl">日がゼロになるわけではない</span>、と考えることができます。</p>
+<p>にもかかわらず、私たちは記録が途切れた瞬間に「もう台無しだ」と判断してしまいます。</p>
+<p>0か100かでしか自分を採点しないため、99が1に転落するのです。</p>
+<p>これは高い基準ではありません。</p>
+<p><span class="hl">基準の高さを装った、自滅の装置</span>です。</p>
+<p>&lt;!-- [INLINE_IMAGE: pattern=before-after | title=<span class="hl">1</span><span class="hl">日</span>休んだ後に起きること | elements=完璧主義の解釈 台無しだから全部やめる,現実 <span class="hl">18</span><span class="hl">日分</span>は残っている <span class="hl">20</span><span class="hl">日</span>目から再開できる | description=上段は<span class="hl">18</span><span class="hl">本</span>積み上がったブロックが<span class="hl">1</span><span class="hl">日</span>の欠けで全て崩れ落ちる幻想、下段は<span class="hl">1</span><span class="hl">本</span>欠けただけで残りは積み上がったままの現実 --&gt;</p>
+<p>だから、こう決めてしまってください。</p>
+<p><span class="hl">寝坊した日があっても自分を責めず、翌日からまた始める</span>。</p>
+<p>これはゆるい妥協ではなく、続けるための技術です。</p>
+<p>思い出してください。</p>
+<p>Lally らの研究で、習慣が自動化するまでにかかった期間は平均<span class="hl">66</span><span class="hl">日</span>、長い人は<span class="hl">254</span><span class="hl">日</span>でした。</p>
+<p><span class="hl">66</span><span class="hl">日</span>の道のりで、<span class="hl">1</span><span class="hl">日</span>も休まない人がどれだけいるでしょうか。</p>
+<p><span class="hl">休みが混ざることも、十分あり得る範囲</span>だと考えられます。</p>
+<p>少なくとも、完璧な連続記録だけが習慣化の条件ではなさそうです。</p>
+<h3>「意志が弱い」を「設計が悪い」に翻訳する</h3>
+<p>ここまでの3つの視点を並べてみましょう。</p>
+<p>習慣化には平均<span class="hl">66</span><span class="hl">日</span>かかり、人によっては<span class="hl">254</span><span class="hl">日</span>かかる。</p>
+<p>行動の4割は意志ではなく状況が決めていると考えられる。</p>
+<p>そして意志力は天気のように毎日変動すると捉えることもできる。</p>
+<p>この3つを前提にすると、「<span class="hl">21</span><span class="hl">日</span>続かなかった自分は意志が弱い」という文章は、かなり疑わしくなります。</p>
+<p>そこで、これから使う言葉を入れ替えてください。</p>
+<p><span class="hl">「意志が弱い」を、そのまま「設計が悪い」に翻訳する</span>のです。</p>
+<p>翻訳の例を挙げます。</p>
+<p>「毎朝走れない自分は意志が弱い」は、「起きてすぐ走れる場所にウェアを置いていない設計が悪い」になります。</p>
+<p>「勉強が続かない自分は意志が弱い」は、「机に座る前にスマホが手に届く設計が悪い」になります。</p>
+<p>「ジムに行けない自分は意志が弱い」は、「行くかどうかを毎回考える余地が残っている設計が悪い」になります。</p>
+<p>&lt;!-- [INLINE_IMAGE: pattern=list-vertical | title=自責の言葉を設計の言葉に翻訳する | elements=意志が弱いから走れない を ウェアが遠い設計が悪い に,意志が弱いから勉強しない を スマホが手元にある設計が悪い に,意志が弱いからジムに行かない を 毎回考える余地がある設計が悪い に | description=左の自責文が右の設計文へ置き換わる翻訳リスト。</p>
+<p>すべて主語が「私の性格」から「私の周囲の配置」へ移っている --&gt;</p>
+<p>この翻訳には、決定的な違いがあります。</p>
+<p><span class="hl">性格</span><span class="hl">は</span><span class="hl">今日は変えられませんが、設計は今日変えられます</span>。</p>
+<p>「意志が弱い」で止まると、できることは何もありません。</p>
+<p>反省と自己嫌悪が残るだけです。</p>
+<p>しかし「設計が悪い」まで翻訳できれば、そこから先はすべて具体的な作業になります。</p>
+<p>ウェアを枕元に置く。</p>
+<p>スマホを別室に置く。</p>
+<p>考える余地を消す。</p>
+<p>どれも今日の夜、<span class="hl">5</span><span class="hl">分</span>でできることばかりです。</p>
+<p>自責は、あなたを止めます。</p>
+<p>設計は、あなたを動かします。</p>
+<p>この章であなたに手放してほしかったのは、努力ではなく、<span class="hl">自分を責めるという習慣</span>そのものでした。</p>
+<p>さて、原因が設計にあるとわかりました。</p>
+<p>ならば、次に必要なのは具体的な設計図です。</p>
+<p>どこまで小さくすれば、雨の日の自分でも実行できるのでしょうか。</p>
+<p>どこにくっつければ、意志を使わずに体が動き出すのでしょうか。</p>
+<p>次の章では、<span class="hl">小さすぎて失敗のしようがない初動</span>を、あなたの生活の中に一つ組み立てます。</p>
+<figure><img loading="lazy" src="images/fig_34007bfe48.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9c5f2c27b2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_e7055df4e0.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_8c7b5af90b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7e200210b4.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6cd97eadb5.jpg" alt=""></figure>
+<h2 class="chapter" id="ch04"><span class="cnum">04</span>第3章 1ミリの設計図 ― 小さすぎて失敗できない初動をつくる</h2>
+<figure><img loading="lazy" src="images/fig_3eb4c1545b.jpg" alt=""></figure>
+<p>第3章 1ミリの設計図</p>
+<p>前章で私たちは、「意志が弱いから続かない」という言葉を「設計が悪いから続かない」に翻訳しました。</p>
+<p>犯人は性格ではなく、設計図の不在です。</p>
+<p>ではその設計図は、どうやって引けばいいのでしょうか。</p>
+<p>この章は、本書のなかで最も手を動かす章です。</p>
+<p>読み終えたときにあなたの手元に、明日の朝から実行できる一行のルールが残っていること。</p>
+<p>それがこの章の唯一の目的です。</p>
+<p>理論の解説は最小限にとどめ、そのかわりに順番どおりに埋めていけば設計図が完成する形で進めます。</p>
+<p>紙でもスマートフォンのメモでも構いません。</p>
+<p>何か書けるものを用意して読み進めてください。</p>
+<p>設計図に必要な部品は五つです。</p>
+<p><span class="hl">小さくする、くっつける、条件文にする、時間と場所を決める、祝う</span>。</p>
+<p>この五つが揃ったとき、その行動は「頑張ってやるもの」から「気がついたら終わっているもの」に変わっていきやすくなります。</p>
+<h3>目標を「バカバカしいほど小さく」割る</h3>
+<p>最初の部品は、行動のサイズです。</p>
+<p>ここで多くの人が、いきなりつまずきます。</p>
+<p>三日坊主になった人の記憶をたどると、たいてい初日は成功しています。</p>
+<p>問題は初日ではなく、初日の設定です。</p>
+<p>「毎日<span class="hl">30</span><span class="hl">分</span>走る」「毎日<span class="hl">1</span><span class="hl">時間</span>勉強する」。</p>
+<p>この設定は、やる気が最高潮の日に決められています。</p>
+<p>ところが実行するのは、残業で疲れた日、子どもが熱を出した日、なんとなく気が乗らない日の自分です。</p>
+<p><span class="hl">目標は最高の日の自分が決め、実行は最低の日の自分がする</span>。</p>
+<p>この不一致が、挫折の正体だと考えられます。</p>
+<p>ですから設計の第一歩は、目標を「最低の日の自分でも失敗できないサイズ」まで割ることです。</p>
+<p>腕立て伏せなら1回。</p>
+<p>日記なら1行。</p>
+<p>読書なら1ページ。</p>
+<p>英単語なら1語。</p>
+<p>ランニングならシューズを履いて玄関を出るところまで。</p>
+<p>声に出すとバカバカしく聞こえるはずです。</p>
+<p>そのバカバカしさこそが正解の合図です。</p>
+<p>「そんな量では効果がない」と感じたなら、第1章を思い出してください。</p>
+<p>1ミリの変化はその日には見えません。</p>
+<p>私たちがいま作ろうとしているのは効果ではなく、<span class="hl">回数</span>です。</p>
+<p>効果は回数の後からついてきます。</p>
+<p>逆に、効果の大きい行動を選んで回数がゼロになれば、複利は一度も働きません。</p>
+<p>小さく割るときのコツは、量を減らすのではなく、行動を切り分けることです。</p>
+<p>「<span class="hl">30</span><span class="hl">分</span>勉強する」を「<span class="hl">10</span><span class="hl">分</span>勉強する」に減らすのは、まだ同じ行動の縮小版です。</p>
+<p>そうではなく「参考書を開く」まで切り分けます。</p>
+<p>開いたら閉じてよい。</p>
+<p>それでその日は達成です。</p>
+<p>実際にやってみると、開いたついでにそのまま数ページ読んでしまう日もあるかもしれません。</p>
+<p>ただし、それが起きるかどうかは日によりますし、起きなくてもまったく構いません。</p>
+<p>おまけが来ない日があることを前提に設計するのが、この方法の要点です。</p>
+<p><span class="hl">達成の基準は、あくまで小さすぎる方に置いたままにしてください</span>。</p>
+<p>基準を上げた瞬間、失敗できる余地が生まれます。</p>
+<figure><img loading="lazy" src="images/fig_ff8a18491b.jpg" alt=""></figure>
+<p>目標を失敗できないサイズまで割る</p>
+<h3>既存の習慣にくっつける</h3>
+<p>サイズが決まったら、次はその行動を置く場所を決めます。</p>
+<p>ここで使うのがアンカリング、つまり<span class="hl">すでに毎日やっている行動の直後に、新しい行動をくっつけること</span>です。</p>
+<p>船が錨を下ろして流されなくなるように、既存の習慣を錨にして新しい行動をつなぎ留める、という発想です。</p>
+<p>日本語圏では「くっつけ習慣」という呼び方で広まっています。</p>
+<p>なぜこれが効くのか。</p>
+<p>第2章で紹介した南カリフォルニア大学のWendy Woodの研究では、私たちの日常行動のうち約40から43パーセントが、同じ状況で繰り返される自動的な行動だと報告されています。</p>
+<p>歯を磨く、コーヒーを淹れる、電車に乗る、風呂に入る。</p>
+<p>これらはもう意志で選ばれていません。</p>
+<p>すでに完成して自動で回っている行動です。</p>
+<p>新しい行動を、この自動で回る歯車のすぐ隣に置く。</p>
+<p>すると、思い出す努力が少しずつ減っていきます。</p>
+<p>くっつける相手は、頻度と時刻が安定している行動を選びます。</p>
+<p>歯磨きの後、コーヒーを淹れた後、パソコンを立ち上げた後、風呂から出た後、子どもを寝かしつけた後。</p>
+<p>逆に「気が向いたら」「仕事が早く終わったら」は錨になりません。</p>
+<p>それ自体が不安定だからです。</p>
+<p>もう一つ大事なのが、「直後」を守ることです。</p>
+<p>歯磨きの後に腕立て1回なら、歯ブラシを置いたその場でやります。</p>
+<p>「歯磨きの後、しばらくして」は、隙間に別の行動が入り込み、錨から糸が切れます。</p>
+<p><span class="hl">既存の習慣が終わる瞬間と、新しい行動が始まる瞬間の間に、何も挟まないこと</span>。</p>
+<p>これが接続の強さを左右します。</p>
+<p>自分の一日を朝から順にたどって、確実に毎日起きている行動を五つほど書き出してみてください。</p>
+<p>そのうちの一つが、あなたの錨になります。</p>
+<figure><img loading="lazy" src="images/fig_6beef312f6.jpg" alt=""></figure>
+<p>既存の習慣に新しい行動をくっつける</p>
+<h3>もしXならY ― 実行意図の力</h3>
+<p>錨が決まったら、それを一つの文にします。</p>
+<p>ここで登場するのが、この章でいちばん強力な道具、<span class="hl">実行意図</span>です。</p>
+<p>これはニューヨーク大学のPeter Gollwitzerが1993年に提唱し、1999年に American Psychologist 誌で体系化した考え方で、行動を「もしXが起きたら、Yをする」という条件文の形で事前に決めておく、というものです。</p>
+<p>Gollwitzerの研究では、この形で事前に計画した群は、計画しなかった群のおよそ<span class="hl">3</span><span class="hl">倍</span>の達成率を示しました。</p>
+<p>やる気を上げたわけでも、能力を鍛えたわけでもない、というのが本書の見方です。</p>
+<p>決め方の形式を変えただけだと考えることができます。</p>
+<p>なぜ形式だけでこれほど変わるのか。</p>
+<p>ここから先は本書の見方ですが、理由は意思決定の回数にあると考えられます。</p>
+<p>「今週中に運動する」と決めた場合、私たちは毎日「今日やるか、明日にするか」を判断し続けなければなりません。</p>
+<p>判断のたびに、疲れや気分が言い訳を差し込んできます。</p>
+<p>読者の方がよく口にする「今日しんどいな、明日<span class="hl">2</span><span class="hl">時間</span>やろう」は、この判断の隙間で生まれる自己交渉でしょう。</p>
+<p>ところが「もし朝コーヒーを淹れたら、参考書を1ページ開く」と決めてあれば、判断する場面が減ります。</p>
+<p>コーヒーを淹れたかどうかは、考えなくてもわかるからです。</p>
+<p><span class="hl">実行意図とは、やる気の問題を、事実確認の問題にすり替える技術だと言えるかもしれません</span>。</p>
+<p>書き方のルールは二つだけです。</p>
+<p>第一に、Xは自分の目に見える出来事にすること。</p>
+<p>「やる気が出たら」「時間ができたら」は見えないので条件になりません。</p>
+<p>「歯ブラシを置いたら」「電車が発車したら」は見えます。</p>
+<p>第二に、Yは前節で決めた小さすぎる行動にすること。</p>
+<p>ここで欲張って「<span class="hl">1</span><span class="hl">時間</span>勉強する」と書くと、条件文の強さが台無しになります。</p>
+<p>いま、あなたの一文を書いてください。</p>
+<p>「もし〇〇したら、△△する」。</p>
+<p>この一行が、あなたの設計図の中心線です。</p>
+<figure><img loading="lazy" src="images/fig_8006a8e450.jpg" alt=""></figure>
+<p>実行意図の一行の型</p>
+<h3>時間と場所を固定する</h3>
+<p>条件文ができたら、その一行に時間と場所を縫いつけます。</p>
+<p>続かない人の記録を見ると、行動そのものより先に、時間と場所が崩れていることが多いのです。</p>
+<p>今日は朝、明日は夜。</p>
+<p>今日はリビング、明日はカフェ。</p>
+<p>行動は同じでも、周囲の景色が毎回変わっていると、脳は「これはいつもの流れだ」と判断できません。</p>
+<p>Wendy Woodが示した自動的な行動は、いずれも<span class="hl">文脈</span>、つまり時間帯や場所や直前の状況とセットになっていました。</p>
+<p>歯磨きが自動なのは、洗面所という場所と、起床直後という時間に縫いつけられているからだと考えられます。</p>
+<p>行動を自動にしたければ、行動ではなく文脈を固定することが有効だと考えられます。</p>
+<p>具体的には、あなたの一行に「いつ」と「どこで」を書き足します。</p>
+<p>「もしコーヒーを淹れたら、参考書を1ページ開く」を、「朝<span class="hl">7</span><span class="hl">時</span>、ダイニングテーブルで、コーヒーを淹れたら参考書を1ページ開く」にします。</p>
+<p>参考書は前の晩からそのテーブルに置いておきます。</p>
+<p><span class="hl">行動を固定するとは、その行動が起きる景色を毎回同じにすることです</span>。</p>
+<p>時間帯の固定には、もう一つの効果があります。</p>
+<p>スタンフォード大学のAndrew Hubermanは、同じ時間帯に同じ行動を繰り返すと、開始する前から体がその行動に向けて準備を始める、つまり時間帯そのものが合図になっていく現象を解説しています。</p>
+<p>毎朝同じ時刻に走る人が、その時刻になると体が勝手にそわそわするのは、この条件づけが働いているためだと考えられます。</p>
+<p>なお、ここでも完璧主義は禁物です。</p>
+<p>時間がずれた日を失敗と数える必要はありません。</p>
+<p>Hubermanが紹介するように、習慣が自動になるまでの日数には<span class="hl">18</span><span class="hl">日</span>から<span class="hl">254</span><span class="hl">日</span>という大きな個人差があります。</p>
+<p>固定は目安であって、契約書ではありません。</p>
+<p>ずれたら翌日また同じ景色に戻す。</p>
+<p>それだけで十分です。</p>
+<figure><img loading="lazy" src="images/fig_0947cc618c.jpg" alt=""></figure>
+<p>行動を景色ごと固定する</p>
+<h3>やった直後に自分を祝う</h3>
+<p>最後の部品は、多くの人が省いてしまう部品です。</p>
+<p>やった直後に、自分を祝うこと。</p>
+<p>スタンフォード大学の行動科学者BJ Foggは、極小の行動を既存の習慣の直後につなぎ、成功した瞬間に自分を祝うことを提唱しています。</p>
+<p>彼が celebration と呼ぶこの一手は、ガッツポーズでも、小さく「よし」と口に出すことでも、鏡の自分に笑いかけることでも構いません。</p>
+<p><span class="hl">大事なのは、行動が終わった直後、数秒以内に、自分で自分に良い感情を発生させることです</span>。</p>
+<p>ばかばかしく感じるでしょうか。</p>
+<p>しかしここには理屈があります。</p>
+<p>Foggの考え方に沿えば、行動が定着するかどうかを左右する大きな要因の一つは、その行動の価値ではなく、その行動に結びついた感情だということになります。</p>
+<p>腕立て1回に健康効果はほとんどありません。</p>
+<p>それでも、終わった瞬間に「よし」と言った人の脳には、「あれは気分の良い行動だった」という記録が残ると考えられます。</p>
+<p>残った記録が、次の日の始めやすさにつながっていきます。</p>
+<p>逆に、1回終えて「たった1回か、こんなので意味あるのか」と自分を採点した人は、その行動に嫌な感情を結びつけてしまうかもしれません。</p>
+<p><span class="hl">成果を採点する癖は、初動を弱らせる一因になり得ます</span>。</p>
+<p>そしてこの部品は、日本の読者にとって特に重要かもしれません。</p>
+<p>習慣化アプリ「みんチャレ」が2023年10月に利用者<span class="hl">706</span><span class="hl">人</span>へ行った調査では、三日坊主の経験がある人は85パーセントにのぼり、その挫折理由の上位には「やめてもペナルティがなかった」「やらない言い訳を作った」「継続しやすい環境を整えなかった」が並びました。</p>
+<p>ここから先は本書の見方ですが、私たちは罰の不足には敏感でも、祝いの不足には気づきにくいのかもしれません。</p>
+<p>だとすれば、設計として組み込むべきは、罰ではなく祝いのほうだと考えられます。</p>
+<p>罰は行動を避けさせる方向に働きやすく、祝いは行動を呼び寄せる方向に働きやすい、というのが本書の立場です。</p>
+<p>これで五つの部品が揃いました。</p>
+<p>小さすぎる行動を決め、既存の習慣にくっつけ、条件文にし、時間と場所を固定し、終わった瞬間に祝う。</p>
+<p>あなたの一行は、いまこう書けているはずです。</p>
+<p>「朝<span class="hl">7</span><span class="hl">時</span>、ダイニングで、コーヒーを淹れたら、参考書を1ページ開き、開けたら小さくよしと言う」。</p>
+<figure><img loading="lazy" src="images/fig_1419b66a84.jpg" alt=""></figure>
+<p>祝いが次の一回を呼び寄せる</p>
+<h3>設計図は引けた。しかし</h3>
+<p>ここまでで、設計図は完成しました。</p>
+<p>あとは実行するだけです。</p>
+<p>そして実際、この設計図どおりに始めた人の多くは、最初の一週間はあっさり成功しやすいはずです。</p>
+<p>小さくしてあるからです。</p>
+<p>問題はその先にあります。</p>
+<p>三日坊主という言葉は、実はやや親切すぎる呼び名かもしれません。</p>
+<p>本当に多くの人が姿を消すのは、三日目ではないからです。</p>
+<p>前述の「みんチャレ」の調査では、習慣化の効果を実感した時期として、<span class="hl">3</span><span class="hl">日</span>以内が17パーセント、<span class="hl">7</span><span class="hl">日</span>以内が17パーセント、<span class="hl">21</span><span class="hl">日</span>以内が27パーセントと報告されています。</p>
+<p>合わせて61パーセントの人が、3週間以内に「変わってきた」という手応えを得ている計算になります。</p>
+<p>裏を返せば、<span class="hl">残る</span><span class="hl">4</span><span class="hl">割近くの人は、</span><span class="hl">3</span><span class="hl">週間を過ぎても、まだはっきりした手応えを得られていない可能性がある</span>ということです。</p>
+<p>効果を実感するまでの期間には、それだけ個人差があります。</p>
+<p>小さすぎる行動は、始めるのを助けてくれます。</p>
+<p>しかし、その行動が退屈になった日、記録が一日途切れた日、誰も見ていないと気づいた日に、設計図の五つの部品だけで持ちこたえられるでしょうか。</p>
+<p>私たちを待っているのは、3週間の壁です。</p>
+<p>この壁の前で、意志は最も頼りにならない味方になります。</p>
+<p>では、続いた人たちは、その区間を何を使って渡ったのでしょうか。</p>
+<p>次章では、彼らの多くが持ち込んでいた「自分の外側にある装置」を見ていきます。</p>
+<figure><img loading="lazy" src="images/fig_08f113b35b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_e3c2e04c81.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a50ab288d7.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_b9d6defdce.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_8e8c1433ef.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_ff62308866.jpg" alt=""></figure>
+<h2 class="chapter" id="ch05"><span class="cnum">05</span>第4章 3週間の壁を越える ― 続く人が使っている外部装置</h2>
+<figure><img loading="lazy" src="images/fig_151f83b87f.jpg" alt=""></figure>
+<p>第4章 3週間の壁を越える</p>
+<p>前章で、あなたは1ミリの設計図を手に入れました。</p>
+<p>小さすぎて失敗しようがない初動を決め、すでにある習慣にくっつけ、時間と場所を固定し、やった直後に自分を祝う。</p>
+<p>ここまでは、正直に言えば誰にでもできます。</p>
+<p>本当に難しいのは、その設計図が今日の気分に押し流されずに、来週も再来週も動き続けるかどうかです。</p>
+<p>前章の最後に残した問いは、こうでした。</p>
+<p>設計図どおりに始めた小さな1ミリを、あなたは何週間、持ちこたえられるでしょうか。</p>
+<p>この章はその問いへの回答です。</p>
+<p>ただし「気合で乗り切りましょう」とは言いません。</p>
+<p><span class="hl">続く人の多くは、気合ではなく外部装置を使っています</span>。</p>
+<p>記録、仲間、環境。</p>
+<p>この3つを、あなたの外側に取り付ける方法を、読者が実際につまずく順番に沿って、質問と回答の形で見ていきます。</p>
+<h3>手応えが乏しい時期を越える</h3>
+<p>質問: 最初の数日は楽しいのに、2週間目あたりで急にどうでもよくなります。</p>
+<p>私の気合が足りないのでしょうか。</p>
+<p>気合の問題ではないのかもしれません。</p>
+<p><span class="hl">ここから先は本書の見方ですが、報酬が届くタイミングの問題</span>だと考えられます。</p>
+<p>習慣化アプリ「みんチャレ」を運営するエーテンラボが、2023年10月に利用者<span class="hl">706</span><span class="hl">人</span>へ行った調査があります。</p>
+<p>習慣化の効果を実感した時期を聞いたところ、<span class="hl">3</span><span class="hl">日</span>以内が<span class="hl">17%</span>、<span class="hl">7</span><span class="hl">日</span>以内が<span class="hl">17%</span>、<span class="hl">21</span><span class="hl">日</span>以内が<span class="hl">27%</span>でした。</p>
+<p>足し合わせると、<span class="hl">61%</span><span class="hl">が</span><span class="hl">3</span><span class="hl">週間以内に「効果が出てきた」と感じている</span>ことになります。</p>
+<p>裏を返せば、残る4割近くは3週間を過ぎても、まだはっきりした手応えを得ていないということです。</p>
+<p>効果を実感するタイミングには、それだけ個人差があります。</p>
+<p><span class="hl">手応えがまだ来ていないからといって、あなたのやり方が間違っているとは限りません</span>。</p>
+<figure><img loading="lazy" src="images/fig_3779550b9c.jpg" alt=""></figure>
+<p>効果を実感するまでの期間</p>
+<p>同じ構図が語学学習でも起きています。</p>
+<p>ビズメイツが2021年5月に発表した調査では、英語学習の経験者111名のうち<span class="hl">87.4%</span><span class="hl">が挫折</span>を経験し、そのうち<span class="hl">81.4%</span><span class="hl">が</span><span class="hl">3</span><span class="hl">ヶ月以内</span>に脱落していました。</p>
+<p>挫折理由の上位は、モチベーション低下が<span class="hl">62.9%</span>、自己管理ができずが<span class="hl">51.5%</span>、そして上達を感じられずが<span class="hl">39.2%</span>です。</p>
+<p>3番目の「上達を感じられず」に注目してください。</p>
+<p>これは効果実感がまだ届いていない状態を、そのまま言葉にしたものだと考えられます。</p>
+<p>ここから先は本書の見方ですが、1番目の「モチベーション低下」も、独立した原因ではなく、手応えが返ってこない期間が続いた結果として生まれている可能性があります。</p>
+<p>だとすれば、<span class="hl">やる気が落ちたから続かないのではなく、手応えが来ないからやる気が落ちる</span>、という順番で捉え直すこともできます。</p>
+<p>もしその順番だとすれば、対策の組み立て方も変わってきます。</p>
+<p>もうひとつ、別の調査も参考になります。</p>
+<p>ロンドン大学ユニバーシティ・カレッジのフィリッパ・ラリーらが2009年に発表した研究では、行動が自動的に感じられるまでに平均<span class="hl">66</span><span class="hl">日</span>、個人差は<span class="hl">18</span><span class="hl">日</span>から<span class="hl">254</span><span class="hl">日</span>でした。</p>
+<p>これは「効果を実感するまでの期間」ではなく「体が意識せずに動くまでの期間」を測った、みんチャレ調査とは対象も測定項目も異なる別の調査です。</p>
+<p><span class="hl">2</span><span class="hl">つを足し算して結論は出せませんが、どちらからも共通の示唆は読み取れます</span>。</p>
+<p>効果を実感し始めたあとも、しばらくは意識的な努力が必要な時期が続くことがある、ということです。</p>
+<p>だからこそ、手応えが乏しいと感じる時期を、意志の力だけで乗り切ろうとするのは燃費が悪いのです。</p>
+<p><span class="hl">ここでこそ、外部装置に肩代わりさせましょう</span>。</p>
+<h3>記録は、記憶より強い</h3>
+<p><span class="hl">質問: 続いているのかどうか、自分でもよく分からなくなります。</span></p>
+<p>分からなくなって当然です。</p>
+<p><span class="hl">記憶は、都合よく丸めるからです</span>。</p>
+<p><span class="hl">3</span><span class="hl">日</span>サボっても、人は「まあまあやれている」と記憶を丸めます。</p>
+<p>逆に<span class="hl">10</span><span class="hl">日</span>続いていても「大したことはしていない」と丸めます。</p>
+<p>どちらに丸めても結果は同じで、自分の現在地が見えなくなります。</p>
+<p>現在地が見えない乗り物から、人は降ります。</p>
+<p>記録は丸めません。</p>
+<p><span class="hl">やった日とやらなかった日を、そのままの形で残します</span>。</p>
+<p>カレンダーに丸を書くだけでも、アプリのボタンを1回押すだけでも構いません。</p>
+<p>大事なのは、あなたの評価ではなく事実が残ることです。</p>
+<figure><img loading="lazy" src="images/fig_6d20c0bc96.jpg" alt=""></figure>
+<p>記憶と記録は何が違うか</p>
+<p>そして記録には、もうひとつ効き目があります。</p>
+<p><span class="hl">累計が常に見えていること</span>です。</p>
+<p>実践者の声を集めると、この効果はかなり具体的に語られます。</p>
+<p>画面に「<span class="hl">19</span><span class="hl">日</span>」と出ていると、なんとなく20で切りたくなる。</p>
+<p>この「もう少しやろうかな」は、意志の力によるものというより、<span class="hl">数字が目に入ったことによって、自然に湧いた気持ち</span>だと考えられます。</p>
+<p>外部装置とは、こういうものを指します。</p>
+<p>ただし、記録には設計上の落とし穴があります。</p>
+<p><span class="hl">記録そのものが面倒だと、記録ごと捨てられます</span>。</p>
+<p>続く記録には共通点があります。</p>
+<p>タップだけで終わることです。</p>
+<p>アプリを開き、目的の画面まで何度も遷移し、日付を選び、コメントを書き、保存を押す。</p>
+<p>この流れは、それ自体が新しい習慣として重すぎます。</p>
+<p>実際、画面遷移の多い記録は続かないという声は、実践者の記事に繰り返し出てきます。</p>
+<p><span class="hl">記録は、あなたの</span><span class="hl">1</span><span class="hl">ミリより小さくなければいけません</span>。</p>
+<p>個人で淡々と積みたいなら「Streaks」のようなシンプルな記録型のアプリが向いています。</p>
+<p>紙のカレンダーでも十分です。</p>
+<p>実践者に多いのは、アプリで毎日の記録を取り、ノートは週末の振り返りだけに使うという分担です。</p>
+<p><span class="hl">毎日の記録と、週</span><span class="hl">1</span><span class="hl">回の振り返りを、同じ道具でやろうとしない</span>。</p>
+<p>この切り分けだけで、記録は驚くほど軽くなります。</p>
+<p>最後に、置き場所です。</p>
+<p>記録の道具は、生活の導線上に置いてください。</p>
+<p>歯ブラシの横、玄関の靴の上、パソコンを開いた最初の画面。</p>
+<p><span class="hl">取りに行かないと記録できない場所に置いた時点で、その記録はいずれ止まります</span>。</p>
+<h3>途切れた日の扱い方</h3>
+<p>質問: <span class="hl">5</span><span class="hl">日</span>続けたのに、寝坊で<span class="hl">1</span><span class="hl">日</span>飛ばしました。</p>
+<p>もうリセットですよね。</p>
+<p>リセットではありません。</p>
+<p>ここは、この本の中でも特に強く言いたいところです。</p>
+<p><span class="hl">1</span><span class="hl">日空けても、連鎖は死にません</span>。</p>
+<p>死ぬのは、<span class="hl">1</span><span class="hl">日</span>空けたときではありません。</p>
+<p><span class="hl">「</span><span class="hl">1</span><span class="hl">日空けた自分は失格だ」と判定した瞬間</span>です。</p>
+<p>そしてこの判定は、日本語圏の習慣化でとりわけよく起きます。</p>
+<p>完璧主義という言葉で語られるこの傾向は、実は継続の味方ではなく、最も静かな破壊装置です。</p>
+<p>完璧にできないなら、やらないほうがマシだ。</p>
+<p>この理屈は、途切れた<span class="hl">1</span><span class="hl">日</span>を、途切れた1ヶ月に変えてしまいます。</p>
+<p>数字で考えれば、判定の理不尽さが見えてきます。</p>
+<p>自動化までは平均<span class="hl">66</span><span class="hl">日</span>とされています。</p>
+<p>ここから先は本書の見方ですが、<span class="hl">66</span><span class="hl">日</span>の道のりの途中で<span class="hl">1</span><span class="hl">日</span>欠けたからといって、それまでに積み上げた分がすべて消えるとは考えにくいはずです。</p>
+<p><span class="hl">複利は日割りの勤怠評価ではなく、累計に近いものだと捉えることができます</span>。</p>
+<p>欠けた<span class="hl">1</span><span class="hl">日</span>は、累計から1を引くだけで、ゼロに戻す操作ではない、と本書は考えます。</p>
+<p>ゼロに戻すのは、あなたの自己判定のほうです。</p>
+<figure><img loading="lazy" src="images/fig_f7966c7e6d.jpg" alt=""></figure>
+<p>途切れた日からの戻り方</p>
+<p>そこで、<span class="hl">本書が提案する復帰ルール</span>を1つだけ決めておきます。</p>
+<p><span class="hl">1</span><span class="hl">日</span>は空けてもいい。</p>
+<p>ただし<span class="hl">2</span><span class="hl">日</span>連続では空けない、というラインです。</p>
+<p>これは研究で裏づけられた数字ではなく、実践のための目安として提案するものです。</p>
+<p>これを紙に書いて、記録の道具の近くに貼っておいてください。</p>
+<p>「なるべく毎日」ではなく、空けていい日の上限を先に決めるのがポイントです。</p>
+<p>曖昧なままにしておくと、その日の自分が都合よく解釈します。</p>
+<p>生活リズムが不規則で、<span class="hl">2</span><span class="hl">日</span>連続というライン自体が引きにくい方もいるはずです。</p>
+<p>その場合は、<span class="hl">次に予定されている機会に、最小サイズの行動で復帰する</span>という目安でも構いません。</p>
+<p>大事なのは、いつ・どう戻るかを事前に決めておくことです。</p>
+<p>前章で使った「もしXならY」の形も、ここでそのまま使えます。</p>
+<p><span class="hl">もし</span><span class="hl">1</span><span class="hl">日飛ばしたら、翌日は最小サイズだけやる</span>。</p>
+<p>腕立てなら1回、英語なら1文、日記なら1行。</p>
+<p>復帰の日にいつもの量を課すから、復帰そのものが億劫になるのです。</p>
+<p>復帰は軽くしてください。</p>
+<p>記録の付け方にも工夫があります。</p>
+<p><span class="hl">途切れた日にバツを付けない</span>。</p>
+<p>空白のままにする。</p>
+<p>バツは判定であり、判定はあなたを裁く材料になります。</p>
+<p>空白なら、事実が残るだけです。</p>
+<p>最近のSNSでは、完璧な継続記録よりも、失敗も含めた日常のログのほうが共感を集める傾向があります。</p>
+<p>これは見られ方の話であって、それで習慣が長続きすると証明されたわけではありません。</p>
+<p>それでも本書がこの姿勢をおすすめするのは、別の理由からです。</p>
+<p><span class="hl">途切れを隠そうとすると、記録そのものを付けなくなる</span>からです。</p>
+<p>空白を認めない人は、空白ができた瞬間に記録を閉じてしまいます。</p>
+<p>隠す必要がなければ、記録は続けられます。</p>
+<h3>人に見られると、続く</h3>
+<p><span class="hl">質問: 一人でやると、必ず消えます。</span></p>
+<p>そのとおりです。</p>
+<p>そして、それはあなたの性格の話ではありません。</p>
+<p>先ほどのエーテンラボによる<span class="hl">706</span><span class="hl">人</span>調査には、もうひとつ重要な結果があります。</p>
+<p>三日坊主の経験率は<span class="hl">85%</span>。</p>
+<p>そして挫折理由として挙がった上位が、「やめてもペナルティがなかった」「やらない言い訳を作った」「継続しやすい環境を整えなかった」でした。</p>
+<p>この3つの回答は、意志の弱さそのものを尋ねたものではありません。</p>
+<p><span class="hl">ここから先は本書の見方ですが、これらは外側の仕組みが足りなかったことを示している、と読むことができます</span>。</p>
+<p>一人で始めた習慣は、やめても誰も困りません。</p>
+<p>誰も困らないことを、人は静かにやめてしまいやすいのかもしれません。</p>
+<p>ならば、裏返せばいい。</p>
+<p><span class="hl">やめたことが誰かに見える状態を作る</span>のです。</p>
+<figure><img loading="lazy" src="images/fig_313185acc2.jpg" alt=""></figure>
+<p>匿名5人チームという装置</p>
+<p>日本でこの発想をそのまま形にしたのが「みんチャレ」です。</p>
+<p>匿名の<span class="hl">5</span><span class="hl">人</span>チームを組み、チャットで毎日の取り組みを報告し合う仕組みで、利用者は<span class="hl">140</span><span class="hl">万人</span>を突破し、チーム数は<span class="hl">15</span><span class="hl">万以上</span>にのぼります。</p>
+<p>注目してほしいのは、匿名だという点です。</p>
+<p><span class="hl">評価も見栄も付いてこない</span>。</p>
+<p>取り出されているのは、報告する相手がいるという一点だけです。</p>
+<p>人に見られると続きやすくなるという現象は、優等生に見られたいという欲求からというより、もっと単純な「今日、誰も報告していない枠が空いている」という居心地の悪さから来ているのかもしれません。</p>
+<p><span class="hl">5</span><span class="hl">人</span>という規模にも意味があります。</p>
+<p><span class="hl">100</span><span class="hl">人</span>のグループでは、あなた一人の沈黙は誰にも気づかれにくくなります。</p>
+<p><span class="hl">誰にも気づかれにくい場所は、一人でやっているのに近くなる</span>と考えられます。</p>
+<p>ビズメイツの調査で、挫折理由の2番目が「自己管理ができず」だったことを思い出してください。</p>
+<p>ここから先は本書の見方ですが、<span class="hl">51.5%</span>の人は、自分の管理は自分でやるという前提のまま行き詰まった、と読むこともできます。</p>
+<p><span class="hl">自己管理を自己の内側に閉じている限り、やる気が落ちた日に止めてくれる人がいなくなりやすいのです</span>。</p>
+<p>管理の一部を、外に出しましょう。</p>
+<p>やり方は段階的で構いません。</p>
+<p>まず、誰か<span class="hl">1</span><span class="hl">人</span>に宣言する。</p>
+<p>次に、その相手に週1回でいいので進捗を伝える。</p>
+<p>最後に、うまくいかなかった日も報告する。</p>
+<p>この3段目が特に効くと考えられます。</p>
+<p><span class="hl">成功だけを報告する関係は、失敗した瞬間に連絡が途絶えやすくなります</span>。</p>
+<p>失敗を報告できる相手がいれば、あなたを3週間の向こうへ運んでくれる可能性が高まります。</p>
+<h3>環境から言い訳を消す</h3>
+<p><span class="hl">質問: やる気はあるのに、気づくとスマホを見ています。</span></p>
+<p>やる気はあるのだと思います。</p>
+<p>問題は、<span class="hl">やる気と誘惑を同じ土俵で戦わせている</span>ことです。</p>
+<p>この勝負に、意志力で挑んではいけません。</p>
+<p><span class="hl">距離で挑んでください</span>。</p>
+<p>スマホを別室に置く。</p>
+<p>ただそれだけで、勝負は始まる前に終わります。</p>
+<p>取りに行くのが面倒だからです。</p>
+<p>人は、面倒なことをやめます。</p>
+<p>この性質は、あなたの敵にも味方にもなります。</p>
+<p><span class="hl">やめてほしい行動を面倒にし、続けてほしい行動を面倒でなくする</span>。</p>
+<p>環境設計とは、要するにこれだけのことです。</p>
+<figure><img loading="lazy" src="images/fig_adf6ef9734.jpg" alt=""></figure>
+<p>言い訳が消える部屋のつくり方</p>
+<p>もうひとつ強力なのが、<span class="hl">予約を先に入れてしまう</span>ことです。</p>
+<p>トレーナーとの時間を押さえる、レッスンの日程を確定させる、講座の受講料を払い込む。</p>
+<p>これらに共通しているのは、<span class="hl">未来の自分から選択権を取り上げている</span>という点です。</p>
+<p>今日のあなたは、やる気に満ちています。</p>
+<p>来週水曜の夜のあなたは、疲れています。</p>
+<p>その水曜のあなたに「行くかどうか」を決めさせてはいけません。</p>
+<p>決定権は、やる気のある今日のあなたが握ったまま、予約という形で固定してしまう。</p>
+<p><span class="hl">続く人は、未来の自分を信用していません</span>。</p>
+<p>信用しない代わりに、選ばなくて済む状態を先に作っています。</p>
+<p>そして、記録の話でも触れましたが、<span class="hl">続けたい行動は生活導線の上に置いてください</span>。</p>
+<p>朝の通り道に本を置く。</p>
+<p>パソコンを開いた最初の画面を記録アプリにする。</p>
+<p>運動着を前の晩に椅子に掛けておく。</p>
+<p>導線から1歩でも外れたものは、忙しい日に確実に飛ばされます。</p>
+<p>最後に、この章のまとめとして手を動かす作業を1つ提案します。</p>
+<p><span class="hl">言い訳の棚卸し</span>です。</p>
+<p>直近1ヶ月で「できなかった理由」を3つだけ書き出してください。</p>
+<p>時間がなかった、疲れていた、忘れていた。</p>
+<p>どんなものでも構いません。</p>
+<p>そして、その1つずつに、<span class="hl">物理的な対策を</span><span class="hl">1</span><span class="hl">つだけ</span>当ててください。</p>
+<p>忘れていたなら、道具を導線上に移す。</p>
+<p>疲れていたなら、最小サイズを決め直す。</p>
+<p>時間がなかったなら、予約を先に入れる。</p>
+<p>エーテンラボの調査で挙がった挫折理由は「継続しやすい環境を整えなかった」でした。</p>
+<p><span class="hl">整えなかったのなら、整えればいい</span>。</p>
+<p>それは性格の改造ではなく、部屋の模様替えに近い作業です。</p>
+<p>今日できます。</p>
+<p>記録で現在地を見えるようにし、仲間で「やめても誰も困らない」を壊し、環境で言い訳を物理的に消す。</p>
+<p>この3つの外部装置があれば、手応えがまだ乏しいと感じる時期も、意志力にあまり頼らずに乗り切りやすくなります。</p>
+<p>そうして続けていけば、<span class="hl">61%</span>の人が語ったような効果実感を、あなたも味わえる可能性が高まります。</p>
+<p>さて、ここからが本題です。</p>
+<p>仮にあなたが、記録も仲間も環境も整えて、平均<span class="hl">66</span><span class="hl">日</span>を越えて、その行動が完全に自動になったとしましょう。</p>
+<p><span class="hl">そのとき、あなたの手元には何が残っているのでしょうか</span>。</p>
+<p>体重が数キロ減ったこと。</p>
+<p>英単語がいくらか増えたこと。</p>
+<p>おそらく、それだけではありません。</p>
+<p><span class="hl">続いた人が本当に手にしているものは、成果そのものではないところにあります</span>。</p>
+<p>そして、その本当の獲得物は、3週間や<span class="hl">66</span><span class="hl">日</span>という単位では姿を見せません。</p>
+<p>もっと長い時間軸で、ようやく輪郭を現します。</p>
+<p>10年です。</p>
+<p>次の章で、時間の向きを反転させます。</p>
+<p>今日から未来へ積み上げるのではなく、<span class="hl">10</span><span class="hl">年後の自分から今日へ逆算する</span>。</p>
+<p>そのとき問われるのは、たった一つです。</p>
+<p>あなたは10年後、どんな証拠を積み上げた人として、そこに立っていたいでしょうか。</p>
+<figure><img loading="lazy" src="images/fig_66cb081598.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c88cd787a1.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_35d80b3458.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_47615cf09e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_2593324d1e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_18028c1cf9.jpg" alt=""></figure>
+<h2 class="chapter" id="ch06"><span class="cnum">06</span>第5章 10年後の自分から逆算する ― 積み上がった証拠が人を変える</h2>
+<figure><img loading="lazy" src="images/fig_5f3db503c6.jpg" alt=""></figure>
+<p>第5章 10年後の自分から逆算する</p>
+<p>前の章で、記録・可視化・仲間・環境という外部装置を手に入れました。</p>
+<p>これで、意志力に頼らずに続く仕掛けはひととおり揃ったことになります。</p>
+<p>そこで、最後に残る問いがあります。</p>
+<p><span class="hl">続けられるようになったとして、その先に何があるのでしょうか。</span></p>
+<p>資格が取れる。</p>
+<p>体重が落ちる。</p>
+<p>英語が話せる。</p>
+<p>もちろん、それらは手に入ります。</p>
+<p>ただ、実際に何かを続けられた人が「一番大きかった」と口を揃えるのは、たいていそこではありません。</p>
+<p>この章では、続けた先に本当に積み上がるものの正体を確かめ、第1章で見た複利の話に回収して本書を締めくくります。</p>
+<h3>続いた人が本当に手にしたもの</h3>
+<p>想像してみてください。</p>
+<p>あなたが「毎日1ページだけ本を読む」と決めて、それを<span class="hl">100</span><span class="hl">日</span>続けたとします。</p>
+<p>読んだのは100ページ。</p>
+<p>冊数にすれば数冊です。</p>
+<p>人生が変わるほどの量ではありません。</p>
+<p>ではその<span class="hl">100</span><span class="hl">日間</span>で、あなたの中に何が起きたのでしょうか。</p>
+<p>変わったのは、<span class="hl">自分に対して持っている証拠の量</span>です。</p>
+<p>「今度こそ」と言っては投げ出してきた人にとって、<span class="hl">100</span><span class="hl">日</span>という記録は、頭の中の理屈ではなく、実際に起きた出来事です。</p>
+<p>過去のあなたが100回、決めたことを実行した。</p>
+<p>この事実は、あなたが否定しようとしても消せません。</p>
+<p>ここが重要なところです。</p>
+<p>多くの人は、順番を逆に考えています。</p>
+<p>「自分に自信がついたら続けられるようになる」と思っている。</p>
+<p>ここから先は本書の見方ですが、実際は逆で、<span class="hl">続けた事実が先にあり、自信はその後から遅れてついてくる</span>、と考えることができます。</p>
+<p>自信とは性格ではなく、積み上がった証拠を見た結果として生まれる感想だと捉えると、腑に落ちやすくなります。</p>
+<p>だから、証拠が1つもない状態で「意志を強く持とう」と念じても効きません。</p>
+<p>念じる材料がないのです。</p>
+<p>逆に言えば、材料は小さくて構いません。</p>
+<p>1ページでも、腕立て1回でもいい。</p>
+<p>証拠は質ではなく、回数で積み上がります。</p>
+<figure><img loading="lazy" src="images/fig_94efe2c1e0.jpg" alt=""></figure>
+<p>証拠は中心から外へ積み上がる</p>
+<p>そして、この証拠には持ち運びができるという性質があります。</p>
+<p>読書で<span class="hl">100</span><span class="hl">日</span>続けた人は、次に運動を始めるとき、ゼロからのスタートではありません。</p>
+<p>「自分は決めたことを続けられる」という証拠をすでに手に持っている。</p>
+<p>エーテンラボが2023年10月に習慣化アプリの利用者<span class="hl">706</span><span class="hl">人</span>に行った調査では、三日坊主の経験率は<span class="hl">85%</span>にのぼりました。</p>
+<p>ほとんどの人が「続かなかった証拠」ばかりを集めてしまっている。</p>
+<p>逆側の証拠を1つ持つだけで、立ち位置は変わっていくはずです。</p>
+<h3>習慣は増やさない。1つずつ、確実に。</h3>
+<p>ここまで読んで、やる気が出てきた人ほど危ないので、先に釘を刺しておきます。</p>
+<p><span class="hl">同時にいくつも始めないでください。</span></p>
+<p>三日坊主に悩む人の多くは、意志が弱いのではなく、欲張りです。</p>
+<p>「朝<span class="hl">5</span><span class="hl">時</span>起き、ジョギング、英語<span class="hl">30</span><span class="hl">分</span>、日記、家計簿」を月曜日から全部始めようとする。</p>
+<p>そして水曜日に全部崩れて、「やっぱり自分はダメだ」という証拠だけを増やしてしまいます。</p>
+<p>メンタリストDaiGo氏は、人が同時に育てられる習慣はせいぜい1つだと指摘しています。</p>
+<p>第2章で見たLallyらの研究を思い出してください。</p>
+<p>ロンドン大学ユニバーシティ・カレッジのPhillippa Lallyらが<span class="hl">96</span><span class="hl">人</span>を12週間追跡した2009年の研究では、行動が自動的だと感じられるまでに<span class="hl">平均</span><span class="hl">66</span><span class="hl">日</span>、個人差を含めると<span class="hl">18</span><span class="hl">日から</span><span class="hl">254</span><span class="hl">日</span>かかっていました。</p>
+<p>この研究が見ているのは1つの習慣が根づくまでの期間ですが、そこにこれだけの幅があるということは、それを5つ同時に育てようとすれば、どれも根づかないまま枯れてしまう可能性が高い、と考えられます。</p>
+<figure><img loading="lazy" src="images/fig_289361f4fb.jpg" alt=""></figure>
+<p>安定したら次の1段へ</p>
+<p>だからこそ本書では、負荷を集中させないために、<span class="hl">育てる習慣はつねに</span><span class="hl">1</span><span class="hl">つに絞る</span>ことを推奨します。</p>
+<p>次を足すタイミングは、カレンダーで決めるのではありません。</p>
+<p>いまの1つが、もう意識しなくても回るようになったかどうかで決めてください。</p>
+<p><span class="hl">66</span><span class="hl">日</span>で安定する人もいれば、<span class="hl">254</span><span class="hl">日</span>かかる人もいます。</p>
+<p>早く進めることに意味はありません。</p>
+<p><span class="hl">遅く見える方法ほど、</span><span class="hl">10</span><span class="hl">年後に残っていく</span>というのが、この本の見方です。</p>
+<p>やり方はシンプルです。</p>
+<p>いまの1つが安定するまで、他にやりたいことはメモに書いて封をする。</p>
+<p>捨てるのではなく、順番待ちの列に並べるだけです。</p>
+<p>始めない、ではなく、まだ始めない。</p>
+<p>この違いが、罪悪感を消してくれます。</p>
+<h3>生活が変われば、習慣も設計し直す</h3>
+<p>半年続いた習慣が、ある日ぱったり止まる。</p>
+<p>転職した、引っ越した、子どもが生まれた、部署が変わった。</p>
+<p>そんなタイミングで、それまで自動で回っていたものが一斉に崩れます。</p>
+<p>これを「気の緩み」だと解釈すると、また自責が始まります。</p>
+<p>しかし原因は別のところにあります。</p>
+<p>南カリフォルニア大学のWendy Woodは、日常行動のうち<span class="hl">約</span><span class="hl">40%</span><span class="hl">から</span><span class="hl">43%</span>が、同じ状況で繰り返される自動的な行動だと報告しています。</p>
+<p>これは、日常行動のかなりの割合が同じ状況の中で繰り返し観察されているという報告であって、ここから先は本書の解釈になりますが、習慣は「あなたの意志」よりも「あなたの置かれた状況」に紐づいて動いている部分が大きい、と考えることができます。</p>
+<p>同じ時間、同じ場所、同じ順番だから、考えずに体が動く。</p>
+<p>だとすれば、状況が変われば習慣が止まりやすくなるのも自然なことだと考えられます。</p>
+<p><span class="hl">壊れたのは意志ではなく、設計だ</span>と捉えると、次の一手が見えてきます。</p>
+<p>引っ越しで通勤ルートが変わったなら、「駅の売店の前で単語帳を開く」というきっかけは物理的に消えています。</p>
+<p>消えたきっかけの上に、意志力だけで行動を立たせようとしても無理があります。</p>
+<figure><img loading="lazy" src="images/fig_069224e833.jpg" alt=""></figure>
+<p>文脈が変われば設計も変える</p>
+<p>やることは、反省ではなく再設計です。</p>
+<p>第3章で使った手順をもう一度回してください。</p>
+<p>新しい生活の中で、毎日必ず起きていることは何か。</p>
+<p>それを見つけて、そこに小さな行動をくっつけ直す。</p>
+<p><span class="hl">もしコーヒーを淹れ終わったら、本を1ページ開く。</span></p>
+<p>ニューヨーク大学のPeter Gollwitzerが体系化した実行意図の研究では、事前にこの「もしXならY」の形で計画した人たちは、計画しなかった人たちの約<span class="hl">3</span><span class="hl">倍</span>の達成率を示しました。</p>
+<p>この研究自体は生活の変化を扱ったものではありませんが、同じ考え方は生活が変わったあとの再設計にも応用できるはずです。</p>
+<p>人生の節目のたびに習慣が止まるのは、失敗ではありません。</p>
+<p>設計図の更新時期が来た、というだけの合図です。</p>
+<h3>悪い習慣を「複利のマイナス」から外す</h3>
+<p>第1章で、複利はマイナス側にも同じように効くという話をしました。</p>
+<p>ここで回収します。</p>
+<p>良い習慣を1つ足すのと、悪い習慣を1つ減らすのは、算数としては同じ効果に見えます。</p>
+<p>しかし体感はまったく違います。</p>
+<p>足す方は最初の数週間、何も起きません。</p>
+<p>減らす方は、その日のうちに時間が返ってきます。</p>
+<p>夜のスマホを<span class="hl">30</span><span class="hl">分</span>減らせば、今夜<span class="hl">30</span><span class="hl">分</span>が手に入る。</p>
+<p><span class="hl">減らす習慣は、効果が先に来る</span>のです。</p>
+<figure><img loading="lazy" src="images/fig_3de7373c34.jpg" alt=""></figure>
+<p>マイナスの複利も同じ速さで育つ</p>
+<p>ただし、ここでも原則は変わりません。</p>
+<p>減らす対象も、1つだけです。</p>
+<p>やめたいものを全部リストにして、月曜から全部断つ。</p>
+<p>この作戦が続かないことは、もう分かっているはずです。</p>
+<p>夜更かし、間食、SNS、衝動買い。</p>
+<p>全部やめようとした人は、金曜日には全部やっています。</p>
+<p>だから、いま一番あなたの時間を溶かしているものを、1つだけ選んでください。</p>
+<p>そして「やめる」ではなく「面倒にする」を狙います。</p>
+<p>第2章で見たとおり、行動は意志だけでなく状況にも大きく左右されるのですから、状況の側をいじる方が確実です。</p>
+<p>スマホを別室で充電する。</p>
+<p>お菓子を買い置きしない。</p>
+<p>アプリをホーム画面から外す。</p>
+<p>ゼロにする必要はありません。</p>
+<p>手が伸びるまでの手数を1つ増やすだけで、状況任せになっている行動は動きにくくなっていくと考えられます。</p>
+<p>先の<span class="hl">706</span><span class="hl">人</span>の調査では、三日坊主の理由の上位に「やめてもペナルティがなかった」「やらない言い訳を作った」「継続しやすい環境を整えなかった」が挙がっていました。</p>
+<p>この3つは、本書の見方では、意志の弱さというより環境の整え方に関する話として読むことができます。</p>
+<p>減らすときも、戦う相手は自分ではなく設計だと考えてみてください。</p>
+<h3>10年後の自分に渡すバトン</h3>
+<p>最後に、第1章の複利の話に戻ります。</p>
+<p>毎日1ミリ。</p>
+<p>今日やっても、明日には何も変わりません。</p>
+<p>1週間続けても、鏡の中の自分は同じ顔をしています。</p>
+<p>この「見返りのなさ」こそが、ほとんどの人を脱落させてきた正体でした。</p>
+<p>英語学習について調べたビズメイツの2021年の調査では、経験者111名のうち<span class="hl">87.4%</span>が挫折し、そのうち<span class="hl">81.4%</span>が3ヶ月以内に離れていました。</p>
+<p>理由の最多はモチベーションの低下で<span class="hl">62.9%</span>。</p>
+<p>ここから先は本書の受け取り方ですが、<span class="hl">成果が見える前に、燃料が切れる。</span></p>
+<p>挫折の背景には、そういう構造があると考えることができます。</p>
+<p>だからこそ、順番を入れ替えてください。</p>
+<p>成果が出るまで待つのではなく、<span class="hl">証拠を先に積む</span>のです。</p>
+<p>今日1ページ読んだ。</p>
+<p>それだけで、今日の分の証拠は確定しました。</p>
+<p>成果はまだ来なくていい。</p>
+<p>来るまでの間、あなたは証拠を数えていればいいのです。</p>
+<figure><img loading="lazy" src="images/fig_7160984e9d.jpg" alt=""></figure>
+<p>今日の1ミリが10年後へ渡るまで</p>
+<p>10年後のあなたは、今日のあなたが決めたことの結果として存在します。</p>
+<p>これは精神論ではなく、単なる足し算の帰結です。</p>
+<p><span class="hl">1</span><span class="hl">日</span>1ページなら10年で<span class="hl">3,650</span>ページ。</p>
+<p>これは複利ではなく、単純な足し算です。</p>
+<p>Lallyらの研究では、行動の自動性が高まるまでの期間に<span class="hl">18</span><span class="hl">日から</span><span class="hl">254</span><span class="hl">日</span>という幅が見られました。</p>
+<p>ただしこの研究が観察したのは12週間までで、その先に何が起きるかを調べたものではありません。</p>
+<p>自動性がどこまでも際限なく高まり続けると示したわけでもありません。</p>
+<p>10年という時間軸は、どんな研究の射程からも外れています。</p>
+<p>ですから、ここから先は本書の見方として受け取ってください。</p>
+<p><span class="hl">一度考えずに動けるようになった行動は、次に何かを始めるときの負担を、いくらか軽くしてくれる</span>のではないでしょうか。</p>
+<p>1つ目に使った気力を、2つ目に回せるようになる。</p>
+<p>その積み重なりのイメージを、本書は複利というたとえで呼んできました。</p>
+<p>証明された法則ではなく、時間の使い方を考えるための道具です。</p>
+<p>そして10年後のあなたが本当に受け取るのは、<span class="hl">3,650</span>ページの知識でも、引き締まった体でもないかもしれません。</p>
+<p>受け取るのは、<span class="hl">決めたことを、決めたとおりにやってきたという証拠の束</span>です。</p>
+<p>その束を持っている人は、11年目に何を始めても、もう「今度こそ」とは言わなくなっていくはずです。</p>
+<p>言う必要を感じなくなるからです。</p>
+<p>バトンは、いつも今日のあなたの手にあります。</p>
+<p>10年後の自分は、まだ何も持っていません。</p>
+<p>渡せるのは、今日のあなただけです。</p>
+<p>さあ、渡すものを1つだけ決めましょう。</p>
+<p>おわりに ― 今日の1ミリ</p>
+<figure><img loading="lazy" src="images/fig_fd4aed039c.jpg" alt=""></figure>
+<p>おわりに 今日の1ミリ</p>
+<p>ここまで読んでくださって、ありがとうございます。</p>
+<p>最後に、この本でお伝えしてきたことを、いちばん短い形にまとめておきます。</p>
+<p><span class="hl">続かなかったのは、あなたの意志が弱かったからではありません。</span></p>
+<p>続く仕組みが、生活の中になかっただけです。</p>
+<p>仕組みは性格と違って、今日から変えられます。</p>
+<p>そして、その仕組みを動かすために必要な行動は、あなたが思っているよりはるかに小さくて構いません。</p>
+<p>腕立て伏せ1回。</p>
+<p>日記1行。</p>
+<p>本を1ページ。</p>
+<p><span class="hl">小さすぎて失敗しようがない行動</span>こそが、10年という時間を味方につけたときに、いちばん遠くまで運んでくれます。</p>
+<h3>忘れてほしいこと</h3>
+<p>この本を閉じたあと、むしろ忘れてしまってほしいことがあります。</p>
+<p>研究者の名前も、パーセンテージも、覚えていなくて構いません。</p>
+<p>Phillippa Lally の研究が示した<span class="hl">平均</span><span class="hl">66</span><span class="hl">日</span>という数字も、思い出せなくなって結構です。</p>
+<p>あの数字を紹介したのは、暗記してほしかったからではありません。</p>
+<p><span class="hl">あなたが</span><span class="hl">21</span><span class="hl">日で挫折したとき、それは異常ではなかった</span>と知ってほしかったからです。</p>
+<p>同じ研究では、人によって<span class="hl">18</span><span class="hl">日</span>から<span class="hl">254</span><span class="hl">日</span>まで幅があることもわかっています。</p>
+<p>あなたが折れたその日は、統計の真ん中よりずっと手前だったかもしれない、というだけの話でした。</p>
+<p>自分を責める材料が一つ減ったなら、この本の役目の半分は終わっています。</p>
+<h3>覚えておいてほしい、たった一つのこと</h3>
+<p>代わりに、一つだけ持ち帰ってください。</p>
+<p><span class="hl">複利は、途中では見えません。</span></p>
+<p>これが、この本を通じていちばんお伝えしたかったことです。</p>
+<p>小さな行動を積み上げているあいだ、グラフはほとんど平らに見えます。</p>
+<p>三週間たっても、二ヶ月たっても、目に見える変化はわずかです。</p>
+<p>多くの人はここで「やっぱり意味がなかった」と判断して降ります。</p>
+<p>効果が出る手前で、です。</p>
+<p>けれど、平らに見える期間に何も起きていないわけではありません。</p>
+<p><span class="hl">見えていないだけで、積み上がっています。</span></p>
+<p>続けた人が最終的に手にするのは、実はスキルや成果そのものではありませんでした。</p>
+<p>「自分は続けられる人間だ」という、否定しようのない証拠です。</p>
+<p>そしてその証拠は、次の挑戦のハードルを静かに下げてくれるはずです。</p>
+<h3>最後のお願い</h3>
+<p>はじめにも書いた、この本の唯一のお願いを、もう一度だけ。</p>
+<p><span class="hl">今日、たった1つだけ、小さすぎる行動を決めてください。</span></p>
+<p>2つはいりません。</p>
+<p>この本を読んで気分が高まっているいまこそ、あれもこれもと欲張りたくなるはずです。</p>
+<p>運動も、読書も、早起きも、家計簿も。</p>
+<p>その衝動が、これまで何度もあなたを振り出しに戻してきたものの正体でした。</p>
+<p>だから、1つです。</p>
+<p>そして決めるときは、次の三つだけ確認してください。</p>
+<p>笑ってしまうくらい小さいか。</p>
+<p>すでにある習慣の直後にくっついているか。</p>
+<p>時間と場所が決まっているか。</p>
+<p>それだけで十分です。</p>
+<p>あとは今日、それをやってください。</p>
+<p>祝ってください。</p>
+<p>明日また、やってください。</p>
+<h3>10年後のあなたへ</h3>
+<p>10年後、あなたがこの本のことを覚えている可能性は低いと思います。</p>
+<p>それでいいと思っています。</p>
+<p>覚えていてほしいのは本のタイトルではなく、<span class="hl">あなたが今日決めた、その</span><span class="hl">1</span><span class="hl">ミリのほう</span>です。</p>
+<p>もし10年後にそれがまだ続いていたなら、そのときのあなたは、この本を必要としない人になっているはずですから。</p>
+<p>今日の1ミリは、今日のあなたには何も返してくれません。</p>
+<p>明日も、来週も、たぶん来月も。</p>
+<p><span class="hl">それでも、10年後のあなたは、今日のあなたが積んだ1ミリの上に立っています。</span></p>
+<p>始めるのに、いい日を待つ必要はありません。</p>
+<p>1ミリなら、今日できます。</p>
+<p>いってらっしゃい。</p>
+<figure><img loading="lazy" src="images/fig_f4e99bf128.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4169c531db.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_3ab9b27d71.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_5b031bd120.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_0675c7d1f5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_69ad070bc5.jpg" alt=""></figure>
+<a class="backtop" href="../../index.html" onclick="if(history.length>1){history.back();return false;}">&#9664; 他の書籍を見る</a>
+<p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
+</main>
+</div>
+<script>
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){
+ var h=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+</script>
+</body>
+</html>
