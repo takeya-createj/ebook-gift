@@ -37,6 +37,10 @@ strong{font-weight:700;}
 figure{margin:30px 0;text-align:center;}
 figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
 .caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+ul,ol{margin:0 0 1.25em;padding-left:1.4em;}
+li{margin:0 0 .5em;padding-left:.2em;}
+li::marker{color:var(--brand);}
+.callout{background:#eef3fb;border-left:4px solid var(--brand);border-radius:8px;padding:14px 16px;margin:24px 0;font-size:15.5px;line-height:1.85;font-family:"Noto Sans JP",sans-serif;}
 .backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
 .foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
 @media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
@@ -203,11 +207,15 @@ figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(
 <p><span class="hl">Zettelkasten</span><span class="hl">ノートの書き方（</span><span class="hl">3</span><span class="hl">要素）</span></p>
 <p>1. <span class="hl">見出し（タイトル）</span>: アイデアを1文で表現。</p>
 <p>検索キーワードになる</p>
-<p>良い例：「Obsidianのリンク密度は1ノートあたり3〜5個が理想」</p>
-<p>悪い例：「Obsidianについてのメモ」</p>
+<ul>
+<li>良い例：「Obsidianのリンク密度は1ノートあたり3〜5個が理想」</li>
+<li>悪い例：「Obsidianについてのメモ」</li>
+</ul>
 <p>2. <span class="hl">本文（</span><span class="hl">200</span><span class="hl">〜</span><span class="hl">800</span><span class="hl">字）</span>: そのアイデアを自分の言葉で説明。</p>
 <p>コピペ禁止</p>
-<p>自分の言葉で書き直すことで、理解が深まり「自分の知識」になる</p>
+<ul>
+<li>自分の言葉で書き直すことで、理解が深まり「自分の知識」になる</li>
+</ul>
 <p>3. <span class="hl">リンク</span>: 関連する既存ノートへの[[ウィキリンク]]を最低2〜<span class="hl">3</span><span class="hl">個</span>追加</p>
 <h4>タグ戦略——「使えるタグ」の設計原則</h4>
 <p>タグは「フォルダで分類しきれない横断的な属性」に使う。</p>
@@ -293,10 +301,12 @@ figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(
 <p>→「デイリーノートの作成日をカレンダー表示（継続率の可視化）」</p>
 <p><span class="hl">週次レビューダッシュボードの作り方</span></p>
 <p>専用ノート「_ダッシュボード.md」を作成し、以下のDataviewクエリを埋め込む：</p>
-<p>今週の進行中プロジェクト一覧</p>
-<p>今週作成した新しいZettelkastenノート</p>
-<p>「要アクション」タグのノート</p>
-<p>今週読了した本のノート</p>
+<ul>
+<li>今週の進行中プロジェクト一覧</li>
+<li>今週作成した新しいZettelkastenノート</li>
+<li>「要アクション」タグのノート</li>
+<li>今週読了した本のノート</li>
+</ul>
 <p>このダッシュボードを週次レビューの起点にすることで、レビューの質と速度が劇的に向上する。</p>
 <h4>Templaterプラグイン——ノート作成を自動化する</h4>
 <p>Templaterは、テンプレートに動的な変数（日付、タイトル等）を自動挿入するプラグインだ。</p>
@@ -319,9 +329,11 @@ figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(
 <p>3. 「Capture」を選択し、キャプチャ先を「000_Inbox/inbox.md」に設定</p>
 <p>4. ホットキーを割り当て（例：`Alt + Q`）</p>
 <p><span class="hl">QuickAdd</span><span class="hl">の応用パターン：</span></p>
-<p>本を読みながら気になった引用をその場でキャプチャ</p>
-<p>会議中に浮かんだアイデアをスマホのObsidianアプリから追加</p>
-<p>ポッドキャストを聴きながら参考になった内容をメモ</p>
+<ul>
+<li>本を読みながら気になった引用をその場でキャプチャ</li>
+<li>会議中に浮かんだアイデアをスマホのObsidianアプリから追加</li>
+<li>ポッドキャストを聴きながら参考になった内容をメモ</li>
+</ul>
 <figure><img loading="lazy" src="images/fig_17715dff45.jpg" alt=""></figure>
 <figure><img loading="lazy" src="images/fig_21c8bb8a7a.jpg" alt=""></figure>
 <figure><img loading="lazy" src="images/fig_f8aef9dbdb.jpg" alt=""></figure>
@@ -402,10 +414,12 @@ figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(
 <h4>Claude Code + Obsidian——エンジニアリング思考で知識を自動化する</h4>
 <p>2026年現在、Claude Codeを使った高度なObsidian自動化が可能になっている。</p>
 <p><span class="hl">自動化できること：</span></p>
-<p>指定フォルダのノートを自動分類・タグ付け</p>
-<p>Inboxのノートを週次レビュー時に自動Zettelkasten化</p>
-<p>関連ノートのリンクを自動提案・追加</p>
-<p>知識ネットワークの弱点（孤立ノート）を自動検出してレポート</p>
+<ul>
+<li>指定フォルダのノートを自動分類・タグ付け</li>
+<li>Inboxのノートを週次レビュー時に自動Zettelkasten化</li>
+<li>関連ノートのリンクを自動提案・追加</li>
+<li>知識ネットワークの弱点（孤立ノート）を自動検出してレポート</li>
+</ul>
 <p>これはプログラミング経験がなくても、Claude Codeに自然言語で指示することで実現できる。</p>
 <p>「Inboxフォルダの内容を見て、既存のZettelkastenノートとリンクできそうなものをリストアップして」——この一言で、Claude Codeが数百のノートを分析してリンク候補を提案する。</p>
 <p>Obsidianの知識管理をAIが「メンテナンス」してくれる時代が来ている。</p>
@@ -461,9 +475,11 @@ figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(
 <p>Obsidian Sync（月約<span class="hl">700</span><span class="hl">円</span>）またはiCloudドライブを使えば、同じVaultをチームで共有できる。</p>
 <p>会議のアクションアイテム、プロジェクトの学びの記録、業界トレンドの共有——これらを<span class="hl">全員が書き込める</span><span class="hl">Obsidian Vault</span><span class="hl">に集約</span>することで、「会社の知識資産」が形成される。</p>
 <p><span class="hl">個人が組織で実践できる活用例：</span></p>
-<p>毎週の1on1メモをObsidianに記録し、部下の成長を追跡する</p>
-<p>競合分析ノートをZettelkastenで蓄積し、提案書の精度を上げる</p>
-<p>業界ニュースのWeb Clipを蓄積し、毎月社内向けトレンドレポートを作る</p>
+<ul>
+<li>毎週の1on1メモをObsidianに記録し、部下の成長を追跡する</li>
+<li>競合分析ノートをZettelkastenで蓄積し、提案書の精度を上げる</li>
+<li>業界ニュースのWeb Clipを蓄積し、毎月社内向けトレンドレポートを作る</li>
+</ul>
 <p>「知識管理を仕組み化している人」は、組織の中で希少価値を持つ。</p>
 <p>意思決定の場面で「過去にも似たケースがあって、こういう結果でした」と即座に言える人間は、「知識資産」そのものだ。</p>
 <h4>知識の複利——習慣化によって指数関数的に成長する</h4>

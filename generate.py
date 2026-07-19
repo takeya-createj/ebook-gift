@@ -31,7 +31,17 @@ BOOKS = [
     ("die-with-zero", SRC_ROOT), ("mile-tabi-nyumon", SRC_ROOT2),
     # 2026-07 追加
     ("habit-compound", SRC_ROOT2),
+    ("chatgpt-work", None),   # ソースは DOCX_OVERRIDE で個別指定
 ]
+
+# 標準構造(<slug>/final_book.docx + 表紙N.jpg)に載らない本の個別指定
+_CGPTWORK_DIR = Path(r"C:\Users\takey\Dropbox\ChatGPT Work\ChatGPT Work2026\ChatGPT_Work超入門_全章本文・付録_制作一式")
+DOCX_OVERRIDE = {
+    "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_完成版_20260720_2.docx",
+}
+COVER_PATH_OVERRIDE = {
+    "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_表紙案1.jpg",  # 実物確認済(添付画像と一致)
+}
 
 MAX_W = 1080  # 画像最大幅(px)
 
@@ -58,7 +68,12 @@ TITLE_OVERRIDE = {
                       "「ゼロで死ぬ」から学ぶ、後悔しないお金の使い方"),
     "habit-compound": ("習慣の複利",
                        "毎日1ミリの積み重ねが10年後を変える"),
+    "chatgpt-work": ("ChatGPT Work超入門【2026年版】",
+                     "質問するだけのAIから、仕事を任せるAIへ"),
 }
+
+# docx冒頭の表紙テキスト〜印刷用目次を、最初の見出しが来るまで丸ごと除去する本
+SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work"}
 
 # docx本文に残る「表紙のタイトル行」を本文から除外（ヒーロー側で表示するため）
 FRONT_SKIP = {
@@ -164,8 +179,12 @@ def para_images(para, img_dir):
     return names
 
 def build_book(slug, src_root=SRC_ROOT):
-    src_dir = Path(src_root) / slug
-    docx_path = src_dir / "final_book.docx"
+    if slug in DOCX_OVERRIDE:
+        docx_path = DOCX_OVERRIDE[slug]
+        src_dir = docx_path.parent
+    else:
+        src_dir = Path(src_root) / slug
+        docx_path = src_dir / "final_book.docx"
     if not docx_path.exists():
         print(f"[SKIP] {slug}: docxなし ({docx_path})")
         return None
@@ -176,7 +195,7 @@ def build_book(slug, src_root=SRC_ROOT):
     img_dir.mkdir(parents=True, exist_ok=True)
 
     # 表紙
-    cover_src = find_cover(src_dir, slug)
+    cover_src = COVER_PATH_OVERRIDE.get(slug) or find_cover(src_dir, slug)
     cover_name = save_image(cover_src, img_dir, "cover") if cover_src else None
 
     doc = Document(str(docx_path))
@@ -191,9 +210,16 @@ def build_book(slug, src_root=SRC_ROOT):
     front_skip = set(FRONT_SKIP.get(slug, []))
     in_toc_block = False    # docx内の目次ブロックを読み飛ばし中か
     after_title = False     # 直前がタイトル行か（サブタイトル判定用）
+    skip_front = slug in SKIP_FRONT_UNTIL_HEADING  # 最初の見出しまで前付けを除去
     for para in doc.paragraphs:
         style = (para.style.name or "").lower()
         is_heading = bool(re.match(r'heading (\d+)', style))
+        # 前付け（表紙テキスト・印刷用目次）を最初の見出しまで丸ごと除去
+        if skip_front:
+            if is_heading:
+                skip_front = False
+            else:
+                continue
         # docx埋め込みの目次は除去（Web版は自動生成の目次を使う）
         if style.startswith("toc"):
             continue
@@ -258,7 +284,14 @@ def build_book(slug, src_root=SRC_ROOT):
             inner = inner.strip()
             if not inner:
                 continue
-            parts.append(('p', inner))
+            if "list bullet" in style:
+                parts.append(('li_bullet', inner))
+            elif "list number" in style:
+                parts.append(('li_num', inner))
+            elif "callout" in style:
+                parts.append(('callout', inner))
+            else:
+                parts.append(('p', inner))
             after_title = False
 
     if slug in TITLE_OVERRIDE:
@@ -269,7 +302,22 @@ def build_book(slug, src_root=SRC_ROOT):
     body = []
     toc = []
     chapter_idx = 0
+    open_list = None   # 連続する箇条書きを ul/ol でまとめる
+    def close_list():
+        nonlocal open_list
+        if open_list:
+            body.append(f'</{open_list}>')
+            open_list = None
     for kind, val in parts:
+        if kind in ('li_bullet', 'li_num'):
+            want = 'ul' if kind == 'li_bullet' else 'ol'
+            if open_list != want:
+                close_list()
+                body.append(f'<{want}>')
+                open_list = want
+            body.append(f'<li>{val}</li>')
+            continue
+        close_list()
         if kind == 'h1':
             chapter_idx += 1
             cid = f"ch{chapter_idx:02d}"
@@ -281,10 +329,13 @@ def build_book(slug, src_root=SRC_ROOT):
             body.append(f'<h4>{val}</h4>')
         elif kind == 'p':
             body.append(f'<p>{val}</p>')
+        elif kind == 'callout':
+            body.append(f'<div class="callout">{val}</div>')
         elif kind == 'img':
             body.append(f'<figure><img loading="lazy" src="images/{val}" alt=""></figure>')
         elif kind == 'cap':
             body.append(f'<p class="caption">{val}</p>')
+    close_list()
     body_html = "\n".join(body)
 
     # 目次
@@ -352,6 +403,10 @@ strong{{font-weight:700;}}
 figure{{margin:30px 0;text-align:center;}}
 figure img{{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}}
 .caption{{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}}
+ul,ol{{margin:0 0 1.25em;padding-left:1.4em;}}
+li{{margin:0 0 .5em;padding-left:.2em;}}
+li::marker{{color:var(--brand);}}
+.callout{{background:#eef3fb;border-left:4px solid var(--brand);border-radius:8px;padding:14px 16px;margin:24px 0;font-size:15.5px;line-height:1.85;font-family:"Noto Sans JP",sans-serif;}}
 .backtop{{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}}
 .foot{{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}}
 @media(max-width:480px){{body{{font-size:16px;}}.hero h1{{font-size:22px;}}.chapter{{font-size:19px;}}}}

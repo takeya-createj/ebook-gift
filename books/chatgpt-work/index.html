@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ChatGPT Work超入門【2026年版】</title>
+<meta name="description" content="質問するだけのAIから、仕事を任せるAIへ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif JP",serif;line-height:1.95;font-size:17px;-webkit-text-size-adjust:100%;}
+.bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:50;transition:width .1s;}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px 80px;}
+header.hero{text-align:center;padding:46px 0 30px;}
+.cover{width:min(70%,300px);height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(60,40,10,.22);margin-bottom:26px;}
+.hero h1{font-size:26px;font-weight:700;line-height:1.5;margin:.2em 0;letter-spacing:.01em;}
+.subtitle{color:var(--sub);font-size:15px;font-family:"Noto Sans JP",sans-serif;margin:.4em auto 0;max-width:90%;}
+.divider{width:54px;height:3px;background:var(--accent);border:0;border-radius:3px;margin:26px auto 8px;}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 18px 16px;margin:8px 0 10px;box-shadow:0 6px 18px rgba(60,40,10,.07);}
+.toc-h{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:15px;letter-spacing:.18em;color:var(--brand);text-align:center;margin:12px 0 14px;}
+.toc-row{display:flex;align-items:baseline;gap:13px;padding:11px 4px;text-decoration:none;color:var(--ink);border-bottom:1px dashed var(--line);font-family:"Noto Sans JP",sans-serif;line-height:1.5;}
+.toc-row:last-child{border-bottom:0;}
+.toc-row:active{background:#f1ebe0;}
+.toc-num{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--accent);min-width:1.6em;}
+.toc-ttl{font-size:14.5px;}
+.chapter{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:21px;line-height:1.45;margin:62px 0 22px;padding-top:26px;border-top:1px solid var(--line);color:var(--brand);scroll-margin-top:14px;}
+.chapter .cnum{display:block;font-size:13px;letter-spacing:.22em;color:var(--accent);margin-bottom:6px;}
+h3{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:18px;margin:40px 0 14px;padding-left:13px;border-left:5px solid var(--brand);line-height:1.5;}
+h4{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:16px;color:var(--sub);margin:28px 0 10px;}
+p{margin:0 0 1.25em;}
+.hl{color:var(--accent);font-weight:700;}
+strong{font-weight:700;}
+figure{margin:30px 0;text-align:center;}
+figure img{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(60,40,10,.13);}
+.caption{font-family:"Noto Sans JP",sans-serif;font-size:13px;color:var(--sub);text-align:center;margin:-18px 0 24px;}
+ul,ol{margin:0 0 1.25em;padding-left:1.4em;}
+li{margin:0 0 .5em;padding-left:.2em;}
+li::marker{color:var(--brand);}
+.callout{background:#eef3fb;border-left:4px solid var(--brand);border-radius:8px;padding:14px 16px;margin:24px 0;font-size:15.5px;line-height:1.85;font-family:"Noto Sans JP",sans-serif;}
+.backtop{display:block;text-align:center;margin:60px auto 0;font-family:"Noto Sans JP",sans-serif;font-size:14px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:30px;padding:12px 0;max-width:280px;background:var(--card);}
+.foot{text-align:center;color:var(--sub);font-size:12px;font-family:"Noto Sans JP",sans-serif;margin-top:40px;}
+@media(max-width:480px){body{font-size:16px;}.hero h1{font-size:22px;}.chapter{font-size:19px;}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+<header class="hero">
+<img class="cover" src="images/cover_a3728906a3.jpg" alt="表紙">
+<h1>ChatGPT Work超入門【2026年版】</h1>
+<p class="subtitle">質問するだけのAIから、仕事を任せるAIへ</p>
+<hr class="divider">
+</header>
+<nav class="toc"><p class="toc-h">目次</p><a class="toc-row" href="#ch01"><span class="toc-num">01</span><span class="toc-ttl">はじめに</span></a>
+<a class="toc-row" href="#ch02"><span class="toc-num">02</span><span class="toc-ttl">第1章　ChatGPT Workで、何が変わったのか？</span></a>
+<a class="toc-row" href="#ch03"><span class="toc-num">03</span><span class="toc-ttl">第2章　まずはWorkを使ってみよう</span></a>
+<a class="toc-row" href="#ch04"><span class="toc-num">04</span><span class="toc-ttl">第3章　Workへの頼み方には「型」がある</span></a>
+<a class="toc-row" href="#ch05"><span class="toc-num">05</span><span class="toc-ttl">第4章　手元の資料を渡して、文書を完成させる</span></a>
+<a class="toc-row" href="#ch06"><span class="toc-num">06</span><span class="toc-ttl">第5章　Excelの数字を、経営判断に使える情報へ変える</span></a>
+<a class="toc-row" href="#ch07"><span class="toc-num">07</span><span class="toc-ttl">第6章　プレゼン資料を完成させる</span></a>
+<a class="toc-row" href="#ch08"><span class="toc-num">08</span><span class="toc-ttl">第7章　調査から報告書までを一気に任せる</span></a>
+<a class="toc-row" href="#ch09"><span class="toc-num">09</span><span class="toc-ttl">第8章　プラグインと外部サービスをつなげる</span></a>
+<a class="toc-row" href="#ch10"><span class="toc-num">10</span><span class="toc-ttl">第9章　自分専用のWebサイトや業務ツールを作る</span></a>
+<a class="toc-row" href="#ch11"><span class="toc-num">11</span><span class="toc-ttl">第10章　毎日の仕事を、Workに続けてもらう</span></a>
+<a class="toc-row" href="#ch12"><span class="toc-num">12</span><span class="toc-ttl">第11章　AIの間違いと情報漏えいから会社を守る</span></a>
+<a class="toc-row" href="#ch13"><span class="toc-num">13</span><span class="toc-ttl">第12章　AIに作業を任せ、人間は判断する</span></a>
+<a class="toc-row" href="#ch14"><span class="toc-num">14</span><span class="toc-ttl">エピローグ　質問する人から、仕事を生み出す人へ</span></a>
+<a class="toc-row" href="#ch15"><span class="toc-num">15</span><span class="toc-ttl">巻末付録　コピーして使える実践テンプレート集</span></a>
+<a class="toc-row" href="#ch16"><span class="toc-num">16</span><span class="toc-ttl">主な公式情報源</span></a></nav>
+<main>
+<h2 class="chapter" id="ch01"><span class="cnum">01</span>はじめに</h2>
+<p>ChatGPTに文章を書いてもらったり、アイデアを出してもらったりしている。</p>
+<p>それなのに、仕事は思ったほど減っていない。</p>
+<p>そんな感覚はないでしょうか。</p>
+<p>その理由は、ChatGPTから「答え」を受け取ったあと、資料への転記、
+数字の集計、グラフ作成、レイアウト調整、ファイル保存といった作業を、
+結局は自分で行っているからかもしれません。</p>
+<p>2026年7月に登場したChatGPT Workは、
+質問に答えるだけでなく、調査や分析を進め、文書・表計算・プレゼンテーション・レポ
+ート・Webサイトなどの完成品を作るための新しい選択肢です。</p>
+<p>本書は、AIやプログラミングに詳しくない40〜50代のビジネスパーソンを主な読者
+として想定しています。</p>
+<p>難しい専門用語ではなく、実際の仕事をどう頼み、どこを確認し、
+どう直してもらうのかを、マンガと実例で説明します。</p>
+<div class="callout">本書のゴールは、ChatGPTに何を質問するかを覚えることではありません。
+何を完成させたいかを伝え、AIと一緒に仕事を前へ進められるようになることです。</div>
+<h3>本書の読み方</h3>
+<ul>
+<li>各章の冒頭にマンガを掲載し、その章で学ぶ変化を先にイメージします。</li>
+<li>マンガの後に、機能と考え方を本文で詳しく解説します。</li>
+<li>実践例とコピー用の指示文を使い、自分の仕事で試します。</li>
+<li>最後にチェックリストとワークで、理解を行動へ変えます。</li>
+</ul>
+<p>※本書の機能・提供状況は、特に記載がない限り2026年7月18日時点の公式情報を
+基準としています。</p>
+<p>ChatGPT Workは段階的に提供されており、プラン、地域、端末、
+組織の設定によって表示や対応機能が異なる場合があります。</p>
+<h2 class="chapter" id="ch02"><span class="cnum">02</span>第1章　ChatGPT Workで、何が変わったのか？</h2>
+<figure><img loading="lazy" src="images/fig_917ed7484b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_36800ef822.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_278e6c79af.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_8665e6251f.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_29ae6a8d01.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c879ddbcc2.jpg" alt=""></figure>
+<h3>1　ChatGPTを使っても、仕事が減らない理由</h3>
+<p>マンガの主人公は、ChatGPTに会議資料の構成案を作ってもらっていました。</p>
+<p>しかし、その後は自分でWordへ文章を移し、Excelの数字を確認し、
+グラフを作り、プレゼンテーションへ整えていました。</p>
+<p>ChatGPTを使っていること自体は間違いではありません。</p>
+<p>構成案や文章を短時間で用意できるだけでも、大きな効率化です。</p>
+<p>ただし、AIへ任せているのが仕事の一部分だけなら、
+残りの工程は人間に残ります。</p>
+<div class="callout">「AIを使っている」ことと、「AIに仕事を任せている」
+ことは同じではありません。</div>
+<p>従来の使い方では、人間が作業全体を管理し、その途中にChatGPTを置いていました。</p>
+<p>Workでは、最初に目的、資料、完成形式、守るべき条件を伝え、
+複数の工程を進めてもらいます。</p>
+<p>人間は途中で質問に答え、方向を調整し、完成品を確認します。</p>
+<h3>2　2026年7月に登場したChatGPT Work</h3>
+<p>OpenAIは2026年7月9日、ChatGPT Workを発表しました。</p>
+<p>公式には、長く複雑な仕事に取り組み、接続されたアプリやファイルを使い、
+文書、表計算、プレゼンテーション、レポート、
+Sitesなどの完成品を作るエージェントとして説明されています。</p>
+<p>Workは、依頼を受けてから必要な情報を集め、作業をいくつかの工程に分け、
+途中経過を示しながら進みます。</p>
+<p>利用者は進行中に質問へ答えたり、方向を変えたり、
+重要な操作を承認したりできます。</p>
+<ul>
+<li>調査して終わるのではなく、調査結果を報告書へまとめる。</li>
+<li>売上データを集計して終わるのではなく、分析とグラフを含む会議資料へ仕上げる。</li>
+<li>アイデアを出して終わるのではなく、Webサイトや簡単な業務ツールの試作品を作る。</li>
+<li>一度限りの作業だけでなく、定期実行や変化の監視につなげる。</li>
+</ul>
+<h3>3　Chat・Work・Codexの違い</h3>
+<p>3つは優劣ではなく、目的によって使い分けます。</p>
+<p>すぐに答えが欲しいならChat、複数工程を含む完成品が必要ならWork、
+ソフトウェア開発が中心ならCodexというのが基本です。</p>
+<figure><img loading="lazy" src="images/fig_cefc9dfcc2.jpg" alt=""></figure>
+<h4>迷ったときの判断</h4>
+<ul>
+<li>数分で終わる質問や相談ならChat。</li>
+<li>複数の資料や工程があり、完成ファイルが欲しいならWork。</li>
+<li>プログラムや開発環境そのものを扱うならCodex。</li>
+<li>途中で目的が変わった場合は、別モードに切り替えてやり直してもよい。</li>
+</ul>
+<h3>4　Workでは、何を作れるのか？</h3>
+<p>Workの価値は、単に長文を書けることではありません。</p>
+<p>手元の資料や接続されたサービスの情報を使い、
+目的に合わせて成果物へまとめられる点にあります。</p>
+<figure><img loading="lazy" src="images/fig_b494d42b6d.jpg" alt=""></figure>
+<p>ただし、利用できる形式や操作は、プラン、端末、接続しているアプリ、
+会社の管理者設定などによって異なります。</p>
+<p>メニューに表示されていても、すべての利用者が同じ操作をできるとは限りません。</p>
+<h3>5　ChatからWorkへ切り替える</h3>
+<p>マンガでは、画面上部にある「Chat／Work」の切り替えを示しました。</p>
+<p>実際の表示位置や名称は、Web、スマートフォン、
+デスクトップアプリの更新によって変わる可能性があります。</p>
+<h4>Web版・スマートフォン版</h4>
+<ol>
+<li>ChatGPTを開きます。</li>
+<li>画面上部のモード選択から「Work」を選びます。</li>
+<li>新しい会話を始めるか、既存のプロジェクトを開きます。</li>
+<li>使用する資料を追加し、完成させたいものを伝えます。</li>
+</ol>
+<h4>デスクトップ版</h4>
+<ol>
+<li>新しいChatGPTデスクトップアプリを開きます。</li>
+<li>左上でChatGPTを選び、画面上部の切り替えからWorkを選びます。</li>
+<li>必要に応じてプロジェクトやローカルフォルダーを開きます。</li>
+<li>Workに必要なファイルだけを許可し、仕事を依頼します。</li>
+</ol>
+<div class="callout">Workが表示されない場合は、対象プランへの提供がまだ完了していない、
+アプリが旧版、会社の管理者が無効にしている、
+別のワークスペースへ入っている、といった可能性があります。</div>
+<h3>6　Workへ仕事を任せる基本の流れ</h3>
+<ol>
+<li>完成させたいものを決める。</li>
+<li>目的と利用者を伝える。</li>
+<li>必要な資料やデータを渡す。</li>
+<li>完成形式と変更してはいけない条件を伝える。</li>
+<li>途中で質問へ答え、必要なら方向を修正する。</li>
+<li>完成品の数字、固有名詞、出典、レイアウトを確認する。</li>
+</ol>
+<p>マンガでは、「売上の変化と問題点を分析して、
+会議用の報告資料を作ってください」と依頼しました。</p>
+<p>この文章には、材料、分析内容、完成品が含まれています。</p>
+<div class="callout">操作方法を細かく指示するより、「何のために、何を使い、何を完成させるか」
+を伝えることが重要です。</div>
+<h3>7　まず任せたい5つの仕事</h3>
+<h4>① 会議メモから議事録を作る</h4>
+<p>会議メモや文字起こしを渡し、決定事項、担当者、期限、
+未解決事項を整理した議事録にします。</p>
+<h4>② 売上データから月次報告を作る</h4>
+<p>ExcelやCSVを渡し、前月・前年との比較、変化の大きい項目、問題点、
+次月の確認事項をまとめます。</p>
+<h4>③ 過去の提案書を新しい顧客向けに作り直す</h4>
+<p>参考にする提案書と新しい顧客情報を渡し、構成やブランドを保ちながら内容を変更します。</p>
+<h4>④ 複数の資料から比較レポートを作る</h4>
+<p>商品資料やPDFを渡し、価格、機能、対象者、注意点など、
+同じ条件で比較します。</p>
+<h4>⑤ 簡単なWebサイトや業務ツールを試作する</h4>
+<p>目的、利用者、必要な入力項目や表示内容を伝え、
+まず試作品を作って動きを確認します。</p>
+<h3>8　そのまま使える最初の指示文</h3>
+<div class="callout">これから【作成するもの】を作ってください。
+
+目的は【目的】です。
+読み手・利用者は【対象者】です。
+添付した【資料名】を使用してください。
+
+完成形式は【Word／Excel／プレゼン／PDF／Webサイトなど】
+としてください。
+【変更してはいけないもの】は、そのまま残してください。
+【特に重視すること】を優先してください。
+
+作業を始める前に資料を確認し、不明点や矛盾があれば先に質問してください。
+完成後は【数字・固有名詞・出典・レイアウトなど】を確認してください。</div>
+<h4>売上分析の指示例</h4>
+<div class="callout">添付した月次売上データを分析し、経営会議用の報告資料を作ってください。
+
+前月比と前年同月比を確認し、変化の大きい商品と担当者を抽出してください。
+売上増減の要因は、データから確認できる事実と推測を分けて記載してください。
+
+全体を5ページ以内にまとめ、概要、主要指標、グラフ、問題点、
+次月に確認する事項を入れてください。
+
+計算結果と元データの整合性を確認してから完成としてください。
+不明な列や数値がある場合は、分析前に質問してください。</div>
+<h3>9　Workに任せる前の確認</h3>
+<ul>
+<li>渡す資料に、不要な個人情報や顧客情報が含まれていないか。</li>
+<li>その資料をAIへ提供する権限があるか。</li>
+<li>完成品を誰が使い、どこまで公開するのか。</li>
+<li>数字、固有名詞、日付、出典を誰が確認するのか。</li>
+<li>送信、公開、削除など、取り消しにくい操作が含まれていないか。</li>
+<li>税務、法務、医療、投資など、専門家の確認が必要な判断ではないか。</li>
+</ul>
+<p>Workは強力ですが、最終責任までAIへ移るわけではありません。</p>
+<p>AIへ作業を任せ、人間が確認と判断を担うことが基本です。</p>
+<h3>10　第1章のまとめ</h3>
+<ul>
+<li>Chatは質問、相談、検索、アイデア出しなど、短い会話に向いている。</li>
+<li>Workは調査・分析・複数工程を進め、完成品を作る仕事に向いている。</li>
+<li>Codexはソフトウェア開発や技術作業に向いている。</li>
+<li>Workでは、目的、材料、完成形式、守る条件、確認基準を伝える。</li>
+<li>AIに作業を任せても、数字・出典・公開範囲の最終確認は人間が行う。</li>
+</ul>
+<div class="callout">第1章の問い：あなたが今日、ChatGPT
+Workに任せる最初の仕事は何ですか？</div>
+<h3>実践ワーク｜自分の仕事を分けてみよう</h3>
+<figure><img loading="lazy" src="images/fig_4bd779e1c2.jpg" alt=""></figure>
+<h3>第1章の主な公式情報源</h3>
+<ul>
+<li>ChatGPT Work and Codex
+https://help.openai.com/en/articles/200012
+75-chatgpt-work-and-codex</li>
+<li>ChatGPT Release Notes（2026年7月9日）
+https://help.openai.com/en/articles/682545
+3-chatgpt-release-notes</li>
+<li>Creating and editing documents,
+spreadsheets, and presentations with
+ChatGPT Work
+https://help.openai.com/en/articles/200012
+78-creating-and-editing-documents-spreadsh
+eets-and-presentations-with-chatgpt-work</li>
+<li>Creating and managing ChatGPT
+Sites
+https://help.openai.com/en/articles/200013
+39-creating-and-managing-chatgpt-sites</li>
+</ul>
+<p>※本書はOpenAIの公式出版物ではありません。</p>
+<p>ChatGPT、Work、Codexなどの名称・機能・提供条件は変更される場合が
+あります。</p>
+<p>利用時には公式情報と実際の画面をご確認ください。</p>
+<h2 class="chapter" id="ch03"><span class="cnum">03</span>第2章　まずはWorkを使ってみよう</h2>
+<figure><img loading="lazy" src="images/fig_b902ca3461.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9d5c0c5bb6.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6d6e1ac3ec.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a89a44c378.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_b8a9a9314b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_760db665a5.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は初めてWorkを開き、月次報告書を作ろうとします。</p>
+<p>ところが、「いい感じに作って」とだけ頼んだため、
+期待と違う結果になりました。</p>
+<p>案内役は、Workは一度の命令で完璧な答えを出す機械ではなく、
+完成まで一緒に進める仕事のパートナーだと説明します。</p>
+<h3>Workを始める前の確認</h3>
+<p>Workは対象となる有料プランへ段階的に提供されています。</p>
+<p>表示されない場合は、契約プラン、利用中のワークスペース、アプリの更新、
+会社の管理者設定を確認します。</p>
+<p>Web版とスマートフォン版のWorkはクラウド上で動きます。</p>
+<p>デスクトップ版では、許可したローカルファイルや対応するデスクトップアプリを扱える場合があります。</p>
+<p>会社で利用する場合は、自分の判断だけで接続サービスや機密資料を使わず、
+社内ルールも確認します。</p>
+<h3>最初の仕事は小さくする</h3>
+<p>初回から大規模な事業計画や重要な顧客資料を任せる必要はありません。</p>
+<p>まずは、会議メモの整理、既存文章の修正、簡単な集計など、
+結果を自分で確認しやすい仕事を選びます。</p>
+<p>小さな仕事で、ファイルの渡し方、途中の質問、修正の伝え方、
+完成品の保存方法を覚えます。</p>
+<h3>途中で会話してよい</h3>
+<p>Workが作業中に質問してきたら、分かる範囲で答えます。</p>
+<p>質問の意味が分からなければ、なぜ必要なのかを説明してもらえます。</p>
+<p>方向が違うと感じたら、完成まで待つ必要はありません。</p>
+<p>「対象者を経営者に変更してください」「数字の説明を増やしてください」
+のように途中で修正できます。</p>
+<h3>完成品を確認する</h3>
+<p>完成したら、内容、数字、固有名詞、出典、ファイル形式、
+レイアウトを確認します。</p>
+<p>最初の成果物は完成ではなく、確認と修正を始めるためのたたき台と考えると使いやすくなります。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">添付した会議メモを整理し、社内共有用の議事録を作ってください。決定事項、
+担当者、期限、未解決事項に分けてください。不明な固有名詞や日付は推測せず、
+先に質問してください。完成後に、メモの内容が漏れていないか確認してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>Workが表示される環境か確認した</li>
+<li>結果を自分で確認できる小さな仕事を選んだ</li>
+<li>途中の質問へ答えた</li>
+<li>完成品を確認して1回以上修正した</li>
+</ul>
+<h3>第2章のまとめ</h3>
+<div class="callout">Workは、依頼して待つだけの機能ではありません。進行を確認し、
+質問へ答え、方向を変えながら、完成まで一緒に進める機能です。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch04"><span class="cnum">04</span>第3章　Workへの頼み方には「型」がある</h2>
+<figure><img loading="lazy" src="images/fig_14ac37d683.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c4e816a18b.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_eb53f36fc4.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_c013d04444.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6d0bf74293.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_298a675ee7.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は「会議資料を作って」と頼みますが、用途も読み手も分からない一般的な資料ができてしまいます。</p>
+<p>案内役は、長く難しいプロンプトよりも、目的、対象者、材料、完成形式、
+確認基準の5つが重要だと教えます。</p>
+<h3>目的を伝える</h3>
+<p>同じ売上データでも、経営会議、営業担当者の振り返り、金融機関への説明では、
+必要な内容が変わります。</p>
+<p>最初に「何のために使うか」を伝えます。</p>
+<h3>対象者を伝える</h3>
+<p>読み手の知識、役職、関心によって、言葉の難しさや説明量を変える必要があります。</p>
+<p>「AIに詳しくない50代経営者向け」のように具体化します。</p>
+<h3>材料を指定する</h3>
+<p>添付した資料のうち、どれを事実の根拠として使うかを伝えます。</p>
+<p>参考資料と、必ず守る基準資料を区別します。</p>
+<h3>完成形式と守る条件</h3>
+<p>Word、Excel、プレゼン、PDF、Webサイトなど、
+必要な形式を指定します。</p>
+<p>会社名、数式、ブランドカラー、ページ順など、
+変更してはいけないものも伝えます。</p>
+<h3>確認基準を決める</h3>
+<p>数字の整合性、出典、誤字、読みやすさ、ページ数など、
+完成と判断する条件を先に示します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">【目的】のために【成果物】を作ってください。読み手は【対象者】です。
+【資料名】を使用し、完成形式は【形式】としてください。【変更禁止事項】
+は変更しないでください。作業前に資料の不足や矛盾を確認し、
+不明点があれば質問してください。完成後は【確認項目】を確認してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>目的を一文で書いた</li>
+<li>対象者を具体的にした</li>
+<li>使用資料を指定した</li>
+<li>完成形式を指定した</li>
+<li>変更禁止事項と確認基準を伝えた</li>
+</ul>
+<h3>第3章のまとめ</h3>
+<div class="callout">頼み方の型は、目的・対象者・材料・完成形式・確認基準です。
+この5つがあれば、長い専門的なプロンプトを書かなくても、
+仕事の方向が伝わりやすくなります。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch05"><span class="cnum">05</span>第4章　手元の資料を渡して、文書を完成させる</h2>
+<figure><img loading="lazy" src="images/fig_5ce7a9df39.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_0bbdc0d3e8.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_ad37f1d89e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_909d1ef170.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_0fc134f459.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4e567ab214.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は会議メモ、前年の報告書、今月の売上資料を渡し、
+月次報告書を作ります。</p>
+<p>案内役は、資料を多く渡すだけではなく、それぞれの役割を説明することが大切だと伝えます。</p>
+<h3>資料ごとの役割を決める</h3>
+<p>前年の報告書は構成と文体の参考、今月の売上表は数字の根拠、
+会議メモは背景情報というように役割を指定します。</p>
+<h3>参考ファイルとテンプレート</h3>
+<p>参考ファイルは今回の仕事で見本にする資料です。</p>
+<p>テンプレートは、同じ形式の成果物を繰り返し作るための型です。</p>
+<p>毎月の報告書などはテンプレート化すると効率が上がります。</p>
+<h3>文書の種類に合わせる</h3>
+<p>議事録では決定事項と期限、提案書では相手の課題と提案価値、
+マニュアルでは手順と注意点が重要です。</p>
+<p>成果物の用途を明確にします。</p>
+<h3>確認は原資料へ戻る</h3>
+<p>AIが自然な文章に整えても、元資料にない事実を補っている可能性があります。</p>
+<p>数字、日付、人物名、契約条件は原資料と照合します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">添付資料を使い、今月の月次報告書をWordで作ってください。「前年報告書」
+は構成と文体の参考にし、「今月売上表」は数字の根拠として使用してください。
+「会議メモ」は背景説明へ反映してください。元資料にない事実は追加せず、
+不明点は質問してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>各資料の役割を説明した</li>
+<li>変更禁止部分を指定した</li>
+<li>元資料にない内容が加わっていないか確認した</li>
+<li>数字・日付・固有名詞を照合した</li>
+</ul>
+<h3>第4章のまとめ</h3>
+<div class="callout">資料は量より役割が重要です。何を見本にし、何を事実の根拠にし、
+何を変更してはいけないのかを伝えます。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch06"><span class="cnum">06</span>第5章　Excelの数字を、経営判断に使える情報へ変える</h2>
+<figure><img loading="lazy" src="images/fig_019a62d8ca.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_ccd7f7456c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_74e2a49b96.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9cd3bc1247.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_41e9f321b2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_2ddee68c48.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は毎月の売上表を開いていますが、数字の集計だけで時間がなくなります。</p>
+<p>Workへ表を渡し、「何が起きたか」「なぜ確認が必要か」「次に何を見るか」
+まで整理します。</p>
+<h3>分析前にデータを確認する</h3>
+<p>列名、単位、期間、空欄、重複、異常値を確認します。</p>
+<p>AIが列の意味を誤解すると、その後の分析もずれます。</p>
+<h3>比較の基準を決める</h3>
+<p>前月比、前年同月比、目標比、商品別、担当者別など、見る基準を指定します。</p>
+<p>比較基準がなければ、数字の大小だけでは判断できません。</p>
+<h3>事実と推測を分ける</h3>
+<p>売上が減ったことはデータから分かる事実です。</p>
+<p>減少理由は、別の情報がなければ推測です。</p>
+<p>Workには事実、仮説、追加確認事項を分けてもらいます。</p>
+<h3>グラフは目的に合わせる</h3>
+<p>推移は折れ線、項目比較は棒、構成比は円などが基本ですが、
+伝えたい内容によって選びます。</p>
+<p>見栄えより、判断しやすさを優先します。</p>
+<h3>計算を検証する</h3>
+<p>合計値、比率、抽出条件、期間を元データと照合します。</p>
+<p>重要な経営判断へ使う数字は、人間が必ず再確認します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">添付した売上データを分析してください。前月比、前年同月比、商品別、
+担当者別で比較し、変化の大きい項目を抽出してください。確認できる事実、
+考えられる仮説、追加で必要な情報を分けてください。主要な結果をグラフにし、
+計算結果を元データと照合してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>列名と単位を確認した</li>
+<li>比較基準を指定した</li>
+<li>事実と推測を分けた</li>
+<li>合計と比率を再確認した</li>
+<li>グラフが判断に役立つか確認した</li>
+</ul>
+<h3>第5章のまとめ</h3>
+<div class="callout">Excel操作を尋ねるだけでなく、そのデータから何を判断したいかを伝えます。AIは分析を支援しますが、重要な数字の最終確認は人間が行います。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch07"><span class="cnum">07</span>第6章　プレゼン資料を完成させる</h2>
+<figure><img loading="lazy" src="images/fig_610d456518.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_e15e3d5c71.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_934d39bd38.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_62ef55d1b2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_fc3f9ca2ef.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9018490999.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は売上分析を経営会議で説明することになりました。</p>
+<p>Workへ数字を並べてもらうだけではなく、会議参加者が何を理解し、
+何を決める資料なのかを伝えます。</p>
+<h3>資料の目的を一つに絞る</h3>
+<p>報告、提案、承認、研修では構成が違います。</p>
+<p>「現状を共有し、来月の施策を決める」のように目的を一文にします。</p>
+<h3>1枚1メッセージ</h3>
+<p>一枚へ情報を詰め込みすぎず、そのスライドで伝える結論を一つにします。</p>
+<p>詳細データは補足へ回します。</p>
+<h3>既存デザインを使う</h3>
+<p>会社のマスタースライドや過去資料があれば、残すレイアウト、色、ロゴ位置、
+フォント、ページ順を明示します。</p>
+<h3>内容と見た目を別々に確認する</h3>
+<p>最初に構成と主張を確認し、その後に図表、文字量、余白、
+色を確認すると修正しやすくなります。</p>
+<h3>利用環境による違い</h3>
+<p>プレゼンテーションの作成・編集方法は、プラン、接続サービス、Web版、
+デスクトップ版などによって異なります。</p>
+<p>実際に利用できる形式を確認します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">添付した売上分析を使い、経営会議用のプレゼン資料を作ってください。目的は、
+現状を共有し、来月の重点施策を決めることです。全8枚以内、
+1枚1メッセージとし、結論、根拠、課題、提案、
+決めたい事項の順にしてください。数字とグラフを確認してから完成としてください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>会議で決めたいことを明確にした</li>
+<li>1枚1メッセージになっている</li>
+<li>元データと数字を照合した</li>
+<li>文字が小さすぎない</li>
+<li>説明用と配布用の違いを確認した</li>
+</ul>
+<h3>第6章のまとめ</h3>
+<div class="callout">プレゼン資料は、情報を並べるものではなく、相手の理解と判断を助けるものです。目的と決めたいことを先に伝えます。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch08"><span class="cnum">08</span>第7章　調査から報告書までを一気に任せる</h2>
+<figure><img loading="lazy" src="images/fig_59c3e0066d.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_ed9e67da41.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_53224d15a2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_1ff79790f5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_abb06253f7.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_d3b2058fda.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は新規事業の市場を調べるよう頼まれます。</p>
+<p>検索結果を集めるだけでは判断できません。</p>
+<p>調査範囲、比較条件、情報の基準日、出典、報告形式を決め、
+意思決定に使えるレポートへまとめます。</p>
+<h3>問いを具体化する</h3>
+<p>「市場を調べて」では広すぎます。</p>
+<p>対象地域、顧客層、商品、期間、知りたい判断を具体化します。</p>
+<h3>情報の新しさを指定する</h3>
+<p>価格、法律、製品仕様、会社情報などは変化します。</p>
+<p>基準日と、公式情報を優先することを伝えます。</p>
+<h3>出典を確認する</h3>
+<p>リンクがあるだけでは十分ではありません。</p>
+<p>主張を実際に裏付けているか、公開日と更新日、一次情報かどうかを確認します。</p>
+<h3>事実と提案を分ける</h3>
+<p>調査で確認できた事実と、それをもとにしたAIの評価・提案を分けます。</p>
+<p>判断材料が不足している場合は、不足事項を明示します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">【テーマ】について調査し、意思決定用の報告書を作ってください。
+対象は【地域・顧客・期間】です。2026年7月18日時点の情報を基準とし、
+公式・一次情報を優先してください。事実、推測、提案を分け、
+重要な主張には出典を付けてください。情報が不足する点は断定せず、
+追加調査事項として示してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>調査の目的と範囲を決めた</li>
+<li>情報の基準日を指定した</li>
+<li>一次情報を優先した</li>
+<li>出典が主張を裏付けている</li>
+<li>事実と提案を分けた</li>
+</ul>
+<h3>第7章のまとめ</h3>
+<div class="callout">調査の品質は、検索量ではなく、問い、範囲、基準日、情報源、
+出典確認で決まります。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch09"><span class="cnum">09</span>第8章　プラグインと外部サービスをつなげる</h2>
+<figure><img loading="lazy" src="images/fig_ee17438a10.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_861d53809e.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_68cf9e5c44.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_5f43926ef2.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_39beee6504.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_65ab2a5bf1.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は必要な資料を探すだけで時間を使っています。</p>
+<p>案内役は、プラグインやアプリを使えば外部サービスの情報を探し、
+成果物へつなげられる一方、アクセス権限を理解する必要があると説明します。</p>
+<h3>プラグインとアプリ</h3>
+<p>2026年7月9日以降、ワークフローを見つける中心はプラグインディレクトリになりました。</p>
+<p>プラグインには、再利用可能な手順であるスキル、
+外部サービスへ接続するアプリ、アプリのテンプレートなどが含まれる場合があります。</p>
+<h3>接続と許可は別</h3>
+<p>プラグインを入れても、外部アプリへの接続や必要な権限がなければ、
+その機能は使えません。</p>
+<p>会社の管理者が利用者、操作、承認条件を制限している場合もあります。</p>
+<h3>最小限の権限</h3>
+<p>必要な情報と操作だけを許可します。</p>
+<p>閲覧だけで足りる仕事に、送信、編集、削除の権限を与える必要はありません。</p>
+<h3>実行前に相手と範囲を確認する</h3>
+<p>メール送信、予定作成、ファイル共有など、他人へ影響する操作では、相手、
+内容、公開範囲を確認します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">接続した【サービス名】から【対象資料】を探し、【成果物】を作ってください。
+対象期間は【期間】です。閲覧のみで進め、ファイルの変更、共有、
+送信は行わないでください。必要な資料が複数見つかった場合は、
+使用前に候補を提示してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>接続するサービスを確認した</li>
+<li>閲覧と変更の権限を区別した</li>
+<li>使用するアカウントを確認した</li>
+<li>外部へ影響する操作は承認前に確認した</li>
+<li>不要になった接続を見直した</li>
+</ul>
+<h3>第8章のまとめ</h3>
+<div class="callout">外部サービスとの接続は便利ですが、何を見せ、何を許可し、
+どの操作を承認するかを先に決めます。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch10"><span class="cnum">10</span>第9章　自分専用のWebサイトや業務ツールを作る</h2>
+<figure><img loading="lazy" src="images/fig_f7026a9d96.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7c80fd3c85.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7b594617f0.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a556ab0f7f.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4d51189bdf.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_fc73504066.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公はExcelで管理している営業進捗を、
+入力・検索・集計のできるツールにしたいと考えます。</p>
+<p>ChatGPT Sitesを使い、まず小さな試作品を作り、
+動きを確認しながら改善します。</p>
+<h3>最初は機能を絞る</h3>
+<p>入力、一覧、検索、集計など、本当に必要な機能を3つ程度に絞ります。</p>
+<p>最初から本格システムを目指すと、確認が難しくなります。</p>
+<h3>利用者と場面を伝える</h3>
+<p>誰が、どの端末で、いつ使うかを伝えます。</p>
+<p>経営者がスマートフォンで確認する画面と、担当者がPCで入力する画面では設計が違います。</p>
+<h3>プレビューで確認する</h3>
+<p>公開前に、入力、計算、リンク、表示崩れ、スマートフォン表示、
+公開範囲を確認します。</p>
+<h3>扱ってはいけない情報</h3>
+<p>公開サイトへ顧客情報、決済情報、機密資料を置かないようにします。</p>
+<p>ChatGPT Sitesには利用上の制限があり、
+本格的な基幹システムの代わりではありません。</p>
+<h3>公開後も確認する</h3>
+<p>更新前にバージョンを保存し、変更内容を確認してから公開します。</p>
+<p>公開URLは実際の利用者と同じ状態でテストします。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">営業進捗を確認するWebサイトを作ってください。
+利用者は中小企業の営業部長で、主にスマートフォンで閲覧します。
+必要な機能は、月別売上の表示、担当者別比較、目標達成率のグラフです。
+個人情報は扱いません。まず非公開の試作品を作り、
+公開前に確認項目を提示してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>利用者と利用端末を決めた</li>
+<li>最初の機能を3つ程度に絞った</li>
+<li>個人情報を除外した</li>
+<li>スマートフォン表示を確認した</li>
+<li>公開範囲とURLを確認した</li>
+</ul>
+<h3>第9章のまとめ</h3>
+<div class="callout">Sitesでは、説明するだけで試作品を作れます。小さく作り、
+非公開で確認し、必要な部分だけ改善してから公開します。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch11"><span class="cnum">11</span>第10章　毎日の仕事を、Workに続けてもらう</h2>
+<figure><img loading="lazy" src="images/fig_a936cf3e42.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_4357fd3c5c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_5088926d77.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_fba6edfe4c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7c7de43051.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_cbd6e01767.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は毎週、業界ニュースを調べて社内へ共有しています。</p>
+<p>案内役はScheduled Tasksを使い、一回、定期、
+条件監視という3種類の仕事に分けます。</p>
+<h3>一回だけ実行する</h3>
+<p>数時間後のリマインドや、指定日の確認など、一度だけ行う仕事です。</p>
+<p>日時とタイムゾーンを確認します。</p>
+<h3>繰り返し実行する</h3>
+<p>毎朝、毎週月曜日、毎月末など、決まった周期で行う仕事です。</p>
+<p>何も変化がなくても報告するのか、重要な変化だけ知らせるのかを決めます。</p>
+<h3>条件を監視する</h3>
+<p>価格、ニュース、天気、空席など、条件が成立したときだけ知らせてもらいます。</p>
+<p>確認頻度と通知条件を具体的にします。</p>
+<h3>外部サービスの接続</h3>
+<p>定期タスクでメールやカレンダーなどを使う場合は、
+作成時点で接続と権限が利用できるか確認します。</p>
+<h3>定期的に整理する</h3>
+<p>不要になったタスクを止め、重複、通知過多、古い条件がないか見直します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">毎週月曜日の朝、【業界】の重要ニュースを確認し、先週からの変化、
+経営への影響、今週確認すべき点をまとめてください。重要な変化がない場合は、
+その旨を短く伝えてください。情報源と公開日を付けてください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>一回・繰り返し・条件監視を選んだ</li>
+<li>日時とタイムゾーンを確認した</li>
+<li>通知条件を具体的にした</li>
+<li>必要な外部サービスを接続した</li>
+<li>不要なタスクを停止した</li>
+</ul>
+<h3>第10章のまとめ</h3>
+<div class="callout">定期タスクでは、いつ動くかだけでなく、何を確認し、どんな場合に知らせ、
+何を報告するかを決めます。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch12"><span class="cnum">12</span>第11章　AIの間違いと情報漏えいから会社を守る</h2>
+<figure><img loading="lazy" src="images/fig_d51d3ef644.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6aeae6ab9c.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_1bdcd6d701.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_726a4ce6b5.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_a7a88b6d39.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_5fee8ce77d.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>Workの便利さを知った主人公は、顧客名簿をそのまま渡そうとします。</p>
+<p>案内役は、成果物を作れる範囲が広がるほど、情報、権限、
+外部への影響を確認する必要があると止めます。</p>
+<h3>AIは間違える</h3>
+<p>自然な文章でも、数字、出典、固有名詞、日付が正しいとは限りません。</p>
+<p>重要な内容は原資料と照合します。</p>
+<h3>入力する情報を減らす</h3>
+<p>氏名、住所、連絡先、健康情報、決済情報など、
+目的に不要な情報は削除または匿名化します。</p>
+<h3>権限と公開範囲</h3>
+<p>接続サービスでは、閲覧、作成、変更、送信、削除を区別します。</p>
+<p>公開サイトや共有ファイルは、想定する相手以外から見えないか確認します。</p>
+<h3>重要な操作を承認する</h3>
+<p>送信、公開、購入、削除など、外部へ影響し、取り消しにくい操作は、
+対象と内容を確認してから承認します。</p>
+<h3>専門家の判断</h3>
+<p>税務、法務、医療、投資、労務などは、AIの回答だけで最終判断せず、
+必要に応じて専門家へ確認します。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">この資料を処理する前に、個人情報、機密情報、
+第三者の権利に関わる内容が含まれていないか確認してください。
+必要な場合は匿名化の候補を提示してください。外部への送信、公開、共有、
+削除は行わず、実行が必要な場合は対象と影響を説明して承認を求めてください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>不要な個人情報を削除した</li>
+<li>資料を提供する権限がある</li>
+<li>数字と出典を原資料で確認した</li>
+<li>公開・送信・削除前に対象を確認した</li>
+<li>専門家確認が必要か判断した</li>
+</ul>
+<h3>第11章のまとめ</h3>
+<div class="callout">AIへ任せる範囲が広がっても、責任まで移るわけではありません。
+情報を最小化し、権限を絞り、重要な操作と判断を人間が確認します。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch13"><span class="cnum">13</span>第12章　AIに作業を任せ、人間は判断する</h2>
+<figure><img loading="lazy" src="images/fig_efafbc5841.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_7f31f6c1c7.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_3642d69981.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_15ad7c84fa.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_589c510a96.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_6b211b5315.jpg" alt=""></figure>
+<h3>マンガから学ぶ、この章のテーマ</h3>
+<p>主人公は資料作成の時間を減らし、部下との面談や顧客への提案へ時間を使えるようになります。</p>
+<p>最後に、自分の仕事をAIへ任せる部分と、人間が担う部分に分けます。</p>
+<h3>AIに任せやすい仕事</h3>
+<p>整理、要約、比較、下書き、集計、形式変換、定期確認など、
+基準を示しやすく結果を確認できる仕事です。</p>
+<h3>人間が担う仕事</h3>
+<p>目的を決める、優先順位を付ける、責任を負う、相手の感情を理解する、
+例外に対応する、最終判断をする仕事です。</p>
+<h3>仕事の流れをテンプレート化する</h3>
+<p>繰り返す仕事は、使用資料、手順、完成形式、確認項目をテンプレートにします。</p>
+<p>毎回一から説明する必要が減ります。</p>
+<h3>完全自動化を目指さない</h3>
+<p>人間の確認を入れた方が安全で速い仕事もあります。</p>
+<p>自動化率ではなく、成果、時間、品質、リスクのバランスを見ます。</p>
+<h3>最初の一週間</h3>
+<p>毎日一つ、小さな仕事をWorkへ任せます。</p>
+<p>結果、修正内容、削減できた時間を記録し、自分に合う使い方を見つけます。</p>
+<h3>そのまま使える指示文</h3>
+<div class="callout">私の仕事を、①すぐWorkへ任せられる、②資料を整理すれば任せられる、
+③人間の確認を条件に任せられる、④人間が直接行うべき、
+の4つに分類してください。判断に必要な情報を先に質問し、
+分類理由と最初に試す仕事を提案してください。</div>
+<h3>実践チェック</h3>
+<ul>
+<li>自分の仕事を4分類した</li>
+<li>最初に任せる小さな仕事を決めた</li>
+<li>確認基準を作った</li>
+<li>繰り返す仕事をテンプレート化した</li>
+<li>削減時間と品質を振り返った</li>
+</ul>
+<h3>第12章のまとめ</h3>
+<div class="callout">AIに作業を任せ、人間は目的、確認、判断、責任へ集中します。
+Workを使う価値は、作業を減らすだけでなく、
+人間にしかできない仕事へ時間を戻すことです。</div>
+<h3>この章の実践ワーク</h3>
+<p>この章で学んだ内容を使い、自分の仕事から一つ選んでWorkへ依頼してください。完成後に、最初の指示、Workからの質問、修正内容、完成品、削減できた時間を記録しましょう。</p>
+<figure><img loading="lazy" src="images/fig_23443a915c.jpg" alt=""></figure>
+<h2 class="chapter" id="ch14"><span class="cnum">14</span>エピローグ　質問する人から、仕事を生み出す人へ</h2>
+<figure><img loading="lazy" src="images/fig_2038621601.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_9951f36682.jpg" alt=""></figure>
+<figure><img loading="lazy" src="images/fig_2f4ef0ae96.jpg" alt=""></figure>
+<p>主人公は、資料を作るために残業する時間が減り、
+部下との面談や顧客への提案に時間を使えるようになりました。</p>
+<p>ある日、部下から「ChatGPTって、何に使えばいいんですか」
+と聞かれます。</p>
+<div class="callout">主人公は答えます。
+
+「まずは、何を聞くかじゃない。何を完成させたいかを考えるんだ」</div>
+<p>ChatGPT Workを使う目的は、人間が考えなくなることではありません。</p>
+<p>作業をAIへ任せ、人間が目的、確認、判断、責任へ集中することです。</p>
+<p>あなたが今日、ChatGPT Workへ任せる最初の仕事は何でしょうか。</p>
+<h2 class="chapter" id="ch15"><span class="cnum">15</span>巻末付録　コピーして使える実践テンプレート集</h2>
+<p>この付録は、必要な部分を書き換え、そのままChatGPT
+Workへ貼り付けて使えるように作成しています。
+最初からすべてを埋める必要はありません。分からない項目は、
+Workへ質問してもらうこともできます。</p>
+<h3>付録1　基本依頼テンプレート</h3>
+<div class="callout">これから【作成するもの】を作ってください。
+
+目的は【目的】です。
+読み手・利用者は【対象者】です。
+添付した【資料名】を使用してください。
+
+完成形式は【Word／Excel／プレゼン／PDF／Webサイトなど】
+としてください。
+【変更してはいけないもの】は変更しないでください。
+【特に重視すること】を優先してください。
+
+作業前に資料を確認し、不明点や矛盾があれば質問してください。
+完成後は【数字・固有名詞・出典・レイアウトなど】を確認してください。</div>
+<h3>付録2　報告書・提案書・マニュアル</h3>
+<div class="callout">添付資料を使い、【報告書／提案書／マニュアル】をWordで作ってください。
+
+目的は【目的】、読み手は【対象者】です。
+全体を【ページ数】程度にまとめてください。
+構成は【必要な章・項目】としてください。
+
+【参考資料】は構成と文体の見本にし、【根拠資料】
+は事実と数字の根拠として使用してください。
+元資料にない内容は推測で補わず、不明点は先に質問してください。
+完成後に、数字、固有名詞、日付、抜け漏れを確認してください。</div>
+<h3>付録3　Excel・CSVデータ分析</h3>
+<div class="callout">添付した【データ名】を分析してください。
+
+分析の目的は【知りたいこと・決めたいこと】です。
+【前月比／前年同月比／目標比／商品別／担当者別】で比較してください。
+
+分析前に列名、単位、期間、空欄、重複、異常値を確認してください。
+結果は、確認できる事実、考えられる仮説、追加で必要な情報に分けてください。
+主要な結果をグラフにし、計算結果を元データと照合してください。</div>
+<h3>付録4　プレゼン資料</h3>
+<div class="callout">添付資料を使い、【会議・セミナー・提案】用のプレゼン資料を作ってください。
+
+目的は【共有・提案・承認・教育】です。
+対象者は【対象者】です。
+全【枚数】枚以内、1枚1メッセージとしてください。
+
+構成は、結論、背景、根拠、課題、提案、次の行動の順にしてください。
+数字と出典を確認し、文字が小さすぎないか、グラフが分かりやすいかも確認してください。</div>
+<h3>付録5　調査・比較・情報収集</h3>
+<div class="callout">【テーマ】について調査し、【用途】のための報告書を作ってください。
+
+対象は【地域・顧客・商品・期間】です。
+情報の基準日は【年月日】とし、公式・一次情報を優先してください。
+
+【比較項目】で比較し、事実、推測、提案を分けてください。
+重要な主張には出典を付け、情報が不足する点は断定せず、
+追加調査事項として示してください。</div>
+<h3>付録6　Webサイト・業務ツール</h3>
+<div class="callout">【目的】のためのWebサイトを作ってください。
+
+利用者は【対象者】で、主に【PC／スマートフォン】で使用します。
+必要な機能は【機能1】【機能2】【機能3】です。
+使用するデータは【データ】です。
+
+個人情報や機密情報は使用しません。
+まず非公開の試作品を作り、入力、計算、リンク、スマートフォン表示、
+公開範囲の確認項目を提示してください。</div>
+<h3>付録7　定期タスク・情報監視</h3>
+<div class="callout">【毎日／毎週／毎月】の【時間帯】に、【確認する対象】を確認してください。
+
+【変化・条件】があった場合は、内容、影響、次に確認すべき点を知らせてください。
+変化がない場合は【通知しない／短く報告する】としてください。
+
+情報源と公開日を付け、古い情報を新しい情報として扱わないでください。</div>
+<h3>付録8　期待と違ったときの修正指示集</h3>
+<div class="callout">・対象者を【対象者】へ変更し、言葉を分かりやすくしてください。
+・結論を先にし、全体を【長さ】へ短くしてください。
+・数字の根拠を元資料と照合し、違いを一覧にしてください。
+・元資料にない推測を削除してください。
+・この部分は変更せず、【変更する部分】だけを修正してください。
+・修正前と修正後の違いを説明してください。
+・完成と判断する前に、確認項目を一覧で示してください。</div>
+<h3>付録9　完成品の品質確認チェックリスト</h3>
+<div class="callout">□ 目的と対象者に合っている
+□ 必要な内容が漏れていない
+□ 数字を元資料と照合した
+□ 固有名詞と日付を確認した
+□ 出典が主張を裏付けている
+□ 事実と推測が分かれている
+□ ファイル形式が正しい
+□ レイアウトと文字サイズを確認した
+□ 公開・共有範囲が正しい
+□ 最終確認者が確認した</div>
+<h3>付録10　個人情報・機密情報チェック</h3>
+<div class="callout">□ 目的に不要な個人情報を削除した
+□ 顧客情報を匿名化した
+□ 資料をAIへ提供する権限がある
+□ 接続サービスとアカウントが正しい
+□ 閲覧・変更・送信・削除の権限を区別した
+□ 外部送信前に宛先と内容を確認した
+□ 公開サイトに機密情報が含まれていない
+□ 取り消せない操作は人間が承認した
+□ 専門家の確認が必要か判断した</div>
+<h3>付録11　Chat・Work・Codex使い分け早見表</h3>
+<figure><img loading="lazy" src="images/fig_48ec8692a5.jpg" alt=""></figure>
+<h3>付録12　仕事の棚卸しシート</h3>
+<figure><img loading="lazy" src="images/fig_22e6387b26.jpg" alt=""></figure>
+<h3>7日間実践プラン</h3>
+<figure><img loading="lazy" src="images/fig_58dea615a6.jpg" alt=""></figure>
+<h2 class="chapter" id="ch16"><span class="cnum">16</span>主な公式情報源</h2>
+<ul>
+<li>ChatGPT Work and Codex
+https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex</li>
+<li>ChatGPT Release Notes
+https://help.openai.com/en/articles/6825453-chatgpt-release-notes</li>
+<li>Creating and editing documents,
+spreadsheets, and presentations with
+ChatGPT Work
+https://help.openai.com/en/articles/20001278-creating-and-editing-documents-spreadsheets-and-presentations-with-chatgpt-work</li>
+<li>Creating and managing ChatGPT
+Sites
+https://help.openai.com/en/articles/20001339-creating-and-managing-chatgpt-sites</li>
+<li>Apps in ChatGPT
+https://help.openai.com/en/articles/11487775-connectors-in-chatgpt</li>
+<li>File storage and Library in
+ChatGPT
+https://help.openai.com/en/articles/20001052-file-storage-and-library-in-chatgpt</li>
+<li>Admin controls, security, and
+compliance for plugins and apps
+https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps</li>
+</ul>
+<p>※本書はOpenAIの公式出版物ではありません。機能、画面、名称、プラン、
+提供条件は変更される場合があります。利用時には公式情報と実際の画面をご確認ください。</p>
+<a class="backtop" href="../../index.html" onclick="if(history.length>1){history.back();return false;}">&#9664; 他の書籍を見る</a>
+<p class="foot">© 竹谷知悦 / 特別プレゼント版</p>
+</main>
+</div>
+<script>
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){
+ var h=document.documentElement.scrollHeight-innerHeight;
+ bar.style.width=(h>0?(scrollY/h*100):0)+'%';
+});
+</script>
+</body>
+</html>
