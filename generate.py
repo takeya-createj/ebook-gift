@@ -32,6 +32,7 @@ BOOKS = [
     # 2026-07 追加
     ("habit-compound", SRC_ROOT2),
     ("chatgpt-work", None),   # ソースは DOCX_OVERRIDE で個別指定
+    ("adler-psychology", SRC_ROOT2),
 ]
 
 # 標準構造(<slug>/final_book.docx + 表紙N.jpg)に載らない本の個別指定
@@ -52,6 +53,7 @@ COVER_OVERRIDE = {
     "die-with-zero": "表紙2.jpg",
     "mile-tabi-nyumon": "表紙2.jpg",
     "habit-compound": "表紙1.jpg",  # 実物確認済（階段を上る男性）
+    "adler-psychology": "表紙1.jpg",  # 実物確認済（喫茶灯台・カウンセラーと女性）
 }
 
 # docx冒頭にタイトル見出しが無い等で自動検出できない本の補正
@@ -70,10 +72,15 @@ TITLE_OVERRIDE = {
                        "毎日1ミリの積み重ねが10年後を変える"),
     "chatgpt-work": ("ChatGPT Work超入門【2026年版】",
                      "質問するだけのAIから、仕事を任せるAIへ"),
+    "adler-psychology": ("まんがでわかる アドラー心理学",
+                         "他人の目が気にならなくなる本"),
 }
 
 # docx冒頭の表紙テキスト〜印刷用目次を、最初の見出しが来るまで丸ごと除去する本
-SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work"}
+SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work", "adler-psychology"}
+
+# 見出しレベルが不統一な本は、章タイトルのパターンで章を判定（該当=章、他=節）
+CHAPTER_REGEX = {"adler-psychology": r'^(はじめに|おわりに|第[0-9０-９]+章)'}
 
 # docx本文に残る「表紙のタイトル行」を本文から除外（ヒーロー側で表示するため）
 FRONT_SKIP = {
@@ -251,7 +258,19 @@ def build_book(slug, src_root=SRC_ROOT):
         # 見出し判定（本ごとの見出しレベル補正を適用）
         hm = re.match(r'heading (\d+)', style)
         if hm:
-            lvl = heading_rank(slug, int(hm.group(1)))
+            creg = CHAPTER_REGEX.get(slug)
+            if creg:
+                # 見出しレベルが不統一な本：章タイトルのパターン＋見出しレベル≤2で章判定
+                # （節見出し「第N章 今日からできること」等の誤判定を防ぐ）
+                doc_lvl = int(hm.group(1))
+                if re.match(creg, text) and doc_lvl <= 2:
+                    lvl = 1
+                else:
+                    parts.append(('h3', html.escape(text)))
+                    after_title = False
+                    continue
+            else:
+                lvl = heading_rank(slug, int(hm.group(1)))
             if lvl <= 0:
                 if title is None:
                     title = text  # 書名 → ヒーローへ
