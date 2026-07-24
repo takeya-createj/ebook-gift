@@ -33,12 +33,14 @@ BOOKS = [
     ("habit-compound", SRC_ROOT2),
     ("chatgpt-work", None),   # ソースは DOCX_OVERRIDE で個別指定
     ("adler-psychology", SRC_ROOT2),
+    ("ai-daily-habits", None),  # docxが final_book_v1.docx なので DOCX_OVERRIDE で指定
 ]
 
 # 標準構造(<slug>/final_book.docx + 表紙N.jpg)に載らない本の個別指定
 _CGPTWORK_DIR = Path(r"C:\Users\takey\Dropbox\ChatGPT Work\ChatGPT Work2026\ChatGPT_Work超入門_全章本文・付録_制作一式")
 DOCX_OVERRIDE = {
     "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_完成版_20260720_2.docx",
+    "ai-daily-habits": SRC_ROOT2 / "ai-daily-habits" / "final_book_v1.docx",
 }
 COVER_PATH_OVERRIDE = {
     "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_表紙案1.jpg",  # 実物確認済(添付画像と一致)
@@ -54,6 +56,7 @@ COVER_OVERRIDE = {
     "mile-tabi-nyumon": "表紙2.jpg",
     "habit-compound": "表紙1.jpg",  # 実物確認済（階段を上る男性）
     "adler-psychology": "表紙1.jpg",  # 実物確認済（喫茶灯台・カウンセラーと女性）
+    "ai-daily-habits": "表紙2.jpg",  # 実物確認済（添付画像と一致・青帯）
 }
 
 # docx冒頭にタイトル見出しが無い等で自動検出できない本の補正
@@ -74,10 +77,12 @@ TITLE_OVERRIDE = {
                      "質問するだけのAIから、仕事を任せるAIへ"),
     "adler-psychology": ("まんがでわかる アドラー心理学",
                          "他人の目が気にならなくなる本"),
+    "ai-daily-habits": ("マンガでわかる ChatGPTで仕事が速くなる人の10の習慣",
+                        "丸投げをやめるだけで、AIが頼れる相棒に変わる"),
 }
 
 # docx冒頭の表紙テキスト〜印刷用目次を、最初の見出しが来るまで丸ごと除去する本
-SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work", "adler-psychology"}
+SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work", "adler-psychology", "ai-daily-habits"}
 
 # 見出しレベルが不統一な本は、章タイトルのパターンで章を判定（該当=章、他=節）
 CHAPTER_REGEX = {"adler-psychology": r'^(はじめに|おわりに|第[0-9０-９]+章)'}
@@ -98,7 +103,7 @@ NOT_SUBTITLE = {"はじめに", "おわりに", "まえがき", "あとがき",
                 "序章", "終章", "プロローグ", "エピローグ"}
 
 # 見出しレベルが1段深い本の補正（Heading1=書名 / Heading2=章 / Heading3=節）
-HEADING_SHIFT = {"mile-tabi-nyumon": 1, "habit-compound": 1}
+HEADING_SHIFT = {"mile-tabi-nyumon": 1, "habit-compound": 1, "ai-daily-habits": 1}
 # Heading2が無くHeading3が節になっている本の対応（docxの見出しレベル → 表示ランク）
 HEADING_LEVEL_MAP = {"die-with-zero": {1: 1, 3: 2}}
 
