@@ -58,7 +58,7 @@ COVER_OVERRIDE = {
     "mile-tabi-nyumon": "表紙2.jpg",
     "habit-compound": "表紙1.jpg",  # 実物確認済（階段を上る男性）
     "adler-psychology": "表紙1.jpg",  # 実物確認済（喫茶灯台・カウンセラーと女性）
-    "ai-daily-habits": "表紙2.jpg",  # 実物確認済（添付画像と一致・青帯）
+    "ai-daily-habits": "表紙1.jpg",  # 表紙2.jpgがマイル画像に上書きされたため表紙1へ(実物確認済・10習慣)
     "mile-tabi-jinsei": "表紙2.png",  # 実物確認済（最終版・家族＋写真コラージュ）
 }
 
