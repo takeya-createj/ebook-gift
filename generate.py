@@ -34,6 +34,7 @@ BOOKS = [
     ("chatgpt-work", None),   # ソースは DOCX_OVERRIDE で個別指定
     ("adler-psychology", SRC_ROOT2),
     ("ai-daily-habits", None),  # docxが final_book_v1.docx なので DOCX_OVERRIDE で指定
+    ("mile-tabi-jinsei", None),  # docxが final_book_v5.docx。表紙は暫定(修正中)
 ]
 
 # 標準構造(<slug>/final_book.docx + 表紙N.jpg)に載らない本の個別指定
@@ -41,6 +42,7 @@ _CGPTWORK_DIR = Path(r"C:\Users\takey\Dropbox\ChatGPT Work\ChatGPT Work2026\Chat
 DOCX_OVERRIDE = {
     "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_完成版_20260720_2.docx",
     "ai-daily-habits": SRC_ROOT2 / "ai-daily-habits" / "final_book_v1.docx",
+    "mile-tabi-jinsei": SRC_ROOT2 / "mile-tabi-jinsei" / "final_book_v5.docx",
 }
 COVER_PATH_OVERRIDE = {
     "chatgpt-work": _CGPTWORK_DIR / "ChatGPT_Work超入門_表紙案1.jpg",  # 実物確認済(添付画像と一致)
@@ -57,6 +59,7 @@ COVER_OVERRIDE = {
     "habit-compound": "表紙1.jpg",  # 実物確認済（階段を上る男性）
     "adler-psychology": "表紙1.jpg",  # 実物確認済（喫茶灯台・カウンセラーと女性）
     "ai-daily-habits": "表紙2.jpg",  # 実物確認済（添付画像と一致・青帯）
+    "mile-tabi-jinsei": "表紙2.png",  # 実物確認済（最終版・家族＋写真コラージュ）
 }
 
 # docx冒頭にタイトル見出しが無い等で自動検出できない本の補正
@@ -79,7 +82,12 @@ TITLE_OVERRIDE = {
                          "他人の目が気にならなくなる本"),
     "ai-daily-habits": ("マンガでわかる ChatGPTで仕事が速くなる人の10の習慣",
                         "丸投げをやめるだけで、AIが頼れる相棒に変わる"),
+    "mile-tabi-jinsei": ("マンガでわかる マイル旅のススメ",
+                         "「いつか行きたい」で終わらせない、人生を豊かにする旅のはじめ方"),
 }
+
+# タイトルが1つ目の見出し(Heading)に入っている本（前付け除去/事前確定をせず、見出しとして消費させる）
+TITLE_IS_FIRST_HEADING = {"mile-tabi-jinsei"}
 
 # docx冒頭の表紙テキスト〜印刷用目次を、最初の見出しが来るまで丸ごと除去する本
 SKIP_FRONT_UNTIL_HEADING = {"chatgpt-work", "adler-psychology", "ai-daily-habits"}
@@ -215,7 +223,7 @@ def build_book(slug, src_root=SRC_ROOT):
     # 補正指定がある本はタイトルを先に確定させる
     # （docx内のタイトルが見出しでない本で、最初の見出し=「はじめに」が
     #   タイトルとして消費されてしまうのを防ぐ）
-    if slug in TITLE_OVERRIDE:
+    if slug in TITLE_OVERRIDE and slug not in TITLE_IS_FIRST_HEADING:
         title, subtitle = TITLE_OVERRIDE[slug]
     parts = []  # html片
 
