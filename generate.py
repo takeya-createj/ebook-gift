@@ -722,7 +722,9 @@ if __name__ == "__main__":
         r = build_book(slug, root)
         if r:
             books.append(r)
-    build_index(books)
-    build_url_list(books)
-    print(f"\n=== 完了: {len(books)}冊 + 選択トップ + URL一覧 ===")
+    # 一覧は最新の本を一番上に（追加順の逆＝新しい順）
+    display_books = list(reversed(books))
+    build_index(display_books)
+    build_url_list(display_books)
+    print(f"\n=== 完了: {len(books)}冊 + 選択トップ + URL一覧（新しい順で表示）===")
     print(f"出力先: {OUT_ROOT}")
