@@ -635,6 +635,87 @@ __CARDS__
 </body>
 </html>"""
 
+SITE_BASE = "https://takeya-createj.github.io/ebook-gift"
+
+def build_url_list(books):
+    rows = []
+    for i, b in enumerate(books, 1):
+        url = f"{SITE_BASE}/books/{b['slug']}/"
+        cov = f'books/{b["slug"]}/images/{b["cover"]}' if b["cover"] else ""
+        img = f'<img loading="lazy" src="{cov}" alt="">' if cov else '<div class="noimg"></div>'
+        rows.append(
+            f'<tr><td class="num">{i}</td>'
+            f'<td class="cov">{img}</td>'
+            f'<td class="ttl"><div class="t">{html.escape(b["title"])}</div>'
+            f'<div class="u"><code>{url}</code></div></td>'
+            f'<td class="act"><button class="copy" data-url="{url}">コピー</button>'
+            f'<a class="open" href="{url}" target="_blank" rel="noopener">開く</a></td></tr>'
+        )
+    page = URL_LIST_TEMPLATE.replace("__ROWS__", "\n".join(rows)).replace("__N__", str(len(books)))
+    (OUT_ROOT / "urls.html").write_text(page, encoding="utf-8")
+    print(f"[OK] urls.html（URL一覧表） ({len(books)}冊)")
+
+URL_LIST_TEMPLATE = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>電子書籍プレゼント｜個別URL一覧（管理用）</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#23201c;--sub:#6f675c;--line:#e7e0d4;--bg:#f7f3ec;--card:#fffdf8;--accent:#c0392b;--brand:#3a5a8c;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;}
+.head{text-align:center;padding:34px 18px 6px;}
+.head h1{font-size:20px;margin:0 0 6px;}
+.head p{color:var(--sub);font-size:13px;margin:0;}
+.wrap{max-width:860px;margin:0 auto;padding:18px 14px 70px;}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+td{border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:middle;}
+tr:last-child td{border-bottom:0;}
+.num{width:26px;text-align:center;color:var(--sub);font-size:13px;font-weight:700;}
+.cov{width:52px;}
+.cov img,.noimg{width:44px;height:70px;object-fit:contain;background:#ece5d8;border-radius:4px;display:block;}
+.ttl .t{font-size:14px;font-weight:700;line-height:1.4;}
+.ttl .u{margin-top:4px;}
+.ttl code{font-size:11px;color:var(--brand);word-break:break-all;font-family:ui-monospace,monospace;}
+.act{width:120px;white-space:nowrap;text-align:right;}
+.copy{font-family:inherit;font-size:12px;font-weight:700;color:#fff;background:var(--brand);border:0;border-radius:20px;padding:8px 12px;cursor:pointer;}
+.copy.done{background:#2e8b57;}
+.open{display:inline-block;margin-left:6px;font-size:12px;color:var(--brand);text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:7px 10px;background:var(--card);}
+.tools{text-align:center;margin:16px 0 0;}
+.tools a{font-size:12px;color:var(--sub);margin:0 8px;}
+@media(max-width:560px){.act{width:auto;}.open{display:none;}.ttl .t{font-size:13px;}}
+</style>
+</head>
+<body>
+<div class="head">
+<h1>個別URL一覧（管理用）</h1>
+<p>1冊だけ誰かに渡すとき用。「コピー」でURLをコピーしてLINEに貼り付け（全__N__冊）</p>
+</div>
+<div class="wrap">
+<table><tbody>
+__ROWS__
+</tbody></table>
+<div class="tools">
+<a href="index.html">← ロック版トップ</a>
+<a href="all.html">全部読める版 →</a>
+</div>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var url=btn.getAttribute('data-url');
+    var done=function(){var t=btn.textContent;btn.textContent='コピー済';btn.classList.add('done');setTimeout(function(){btn.textContent=t;btn.classList.remove('done');},1500);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,function(){prompt('コピーしてください',url);});}
+    else{prompt('コピーしてください',url);}
+  });
+});
+</script>
+</body>
+</html>"""
+
 if __name__ == "__main__":
     books = []
     for slug, root in BOOKS:
@@ -642,5 +723,6 @@ if __name__ == "__main__":
         if r:
             books.append(r)
     build_index(books)
-    print(f"\n=== 完了: {len(books)}冊 + 選択トップ ===")
+    build_url_list(books)
+    print(f"\n=== 完了: {len(books)}冊 + 選択トップ + URL一覧 ===")
     print(f"出力先: {OUT_ROOT}")
