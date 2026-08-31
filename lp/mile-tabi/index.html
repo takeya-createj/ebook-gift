@@ -182,6 +182,31 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
   .shots3{gap:8px;} .shots3 img{border-radius:9px;box-shadow:0 6px 16px rgba(30,25,15,.13);}
 }
 </style>
+
+<!-- ============================================================
+     コンバージョン計測タグ
+     ▼ 発行された ID をこの3行に入れるだけで計測が始まります。
+       空のままでもページは正常に動きます（計測されないだけ）。
+     ============================================================ -->
+<script>
+  window.GA4_ID    = "";   /* GA4の測定ID     例: "G-XXXXXXXXXX"        */
+  window.ADS_ID    = "";   /* Google広告のID  例: "AW-123456789"        */
+  window.ADS_LABEL = "";   /* コンバージョンラベル 例: "AbCdEFgh_IjKlMnOp" */
+</script>
+<script>
+(function () {
+  var ids = [window.GA4_ID, window.ADS_ID].filter(Boolean);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  if (!ids.length) return;                      /* 未設定なら読み込まない */
+  var t = document.createElement('script');
+  t.async = true;
+  t.src = 'https://www.googletagmanager.com/gtag/js?id=' + ids[0];
+  document.head.appendChild(t);
+  gtag('js', new Date());
+  ids.forEach(function (id) { gtag('config', id); });
+})();
+</script>
 </head>
 <body>
 
@@ -560,5 +585,55 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
   </div>
 </footer>
 
+
+<!-- CTAクリックの計測（LINE友だち追加＝コンバージョン） -->
+<script>
+(function () {
+  if (typeof gtag !== 'function') return;
+  var fired = false;
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a.cta') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var where = a.closest('.fv') ? 'fv'
+              : a.closest('.sticky') ? 'sticky'
+              : a.closest('#entry') ? 'entry' : 'middle';
+
+    /* ページ内リンク（#entry）は「CTAへの関心」として記録するだけ */
+    if (href.charAt(0) === '#') {
+      gtag('event', 'cta_click', { cta_position: where, link_url: href });
+      return;
+    }
+
+    /* 外部（LINE友だち追加）へ出るクリック＝コンバージョン */
+    gtag('event', 'generate_lead', {
+      method: 'LINE',
+      cta_position: where,
+      link_url: href
+    });
+
+    if (window.ADS_ID && window.ADS_LABEL && !fired) {
+      fired = true;
+      gtag('event', 'conversion', {
+        send_to: window.ADS_ID + '/' + window.ADS_LABEL
+      });
+    }
+  }, true);
+
+  /* 読了率（マンガをどこまで読んだか）も記録する */
+  var marks = [25, 50, 75, 100], sent = {};
+  window.addEventListener('scroll', function () {
+    var d = document.documentElement;
+    var pct = (d.scrollTop + window.innerHeight) / d.scrollHeight * 100;
+    marks.forEach(function (m) {
+      if (pct >= m && !sent[m]) {
+        sent[m] = true;
+        gtag('event', 'scroll_depth', { percent: m });
+      }
+    });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
