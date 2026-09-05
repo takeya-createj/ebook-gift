@@ -61,10 +61,14 @@ img{display:block;max-width:100%;height:auto;}
 .tagline b{color:#ffd45e;}
 .fvfig{width:100%;max-width:560px;margin:0 auto 18px;border-radius:12px;background:#fff;
   box-shadow:0 14px 34px rgba(0,0,0,.38);}
-.fvbook{display:flex;align-items:center;gap:13px;justify-content:center;
-  max-width:430px;margin:20px auto 0;text-align:left;}
-.fvbook img{width:80px;flex:none;border-radius:5px;box-shadow:0 6px 16px rgba(0,0,0,.45);}
-.fvbook span{font-size:13px;line-height:1.65;color:#cfdcee;font-weight:700;}
+.fvbook{margin:26px auto 4px;text-align:center;}
+.fvbook .tag{display:inline-block;background:#ffd45e;color:#23324a;
+  font-size:12px;font-weight:900;letter-spacing:.04em;
+  border-radius:999px;padding:4px 14px;margin-bottom:12px;}
+.fvbook img{width:min(66%,260px);margin:0 auto;border-radius:8px;
+  box-shadow:0 16px 38px rgba(0,0,0,.5);}
+.fvbook .cap{display:block;font-size:13.5px;line-height:1.7;color:#cfdcee;
+  font-weight:700;margin-top:13px;}
 .fvbook b{color:#ffd45e;}
 .fvdisc{font-size:11px;line-height:1.6;color:#a9bcd4;margin:-4px 0 0;}
 .gates{font-size:11.5px;line-height:1.7;color:#bfd0e6;font-weight:700;
@@ -206,6 +210,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     background-size:cover,cover,cover;
     background-position:center,center,left center;}
   .fvhero .eyebrow,.fvhero .kicker{margin-left:auto;margin-right:0;}
+  .fvbook img{width:300px;}
   .fvfig{max-width:640px;}
   .benefits{grid-template-columns:1fr 1fr;}
   /* 広い画面では横長ヒーローを幅いっぱいに */
@@ -273,8 +278,9 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     </p>
     <p class="fvdisc">※ 受講生の一例です。結果には個人差があり、期間をお約束するものではありません。</p>
     <div class="fvbook">
+      <span class="tag">LINE登録でプレゼント</span>
       <img src="images/cover.webp" width="700" height="1119" alt="マンガ「マイル旅のススメ」表紙">
-      <span>マンガ<b>『マイル旅のススメ』</b><br>全33ページを、LINEで無料でお渡しします。</span>
+      <span class="cap">マンガ<b>『マイル旅のススメ』</b><br>全33ページを、無料でお渡しします。</span>
     </div>
     <p class="fvbenefit">このページで分かること</p>
     <ul class="benefits">
@@ -534,7 +540,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <li class="gift" data-n="3"><b>無料の個別相談会（希望者のみ）</b>
       「一般論」ではなく、<b style="display:inline;">あなたの場合</b>をその場で一緒に計算します。
       <ul>
-        <li>あなたに合うクレジットカードのご提案</li>
+        <li>あなたにおすすめのカード<b>1枚</b>のご提案</li>
         <li>あなたの場合、年間で何マイル貯まりそうか</li>
         <li>そのマイルが、生涯でどれだけの価値になるか</li>
         <li>1年で貯まるマイルで、どんな旅ができるか（具体例）</li>
@@ -599,7 +605,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <p>このページに載せているのはマンガのページだけです。お渡しする完全版には、マンガでは描ききれなかった本文（読み物パート）が加わります。あわせて、実際の手順を解説した動画講座 全5回もお送りします。</p></details>
 
   <details><summary>無料の個別相談会では、何をしてもらえるのですか？</summary>
-    <p>あなたの状況をうかがったうえで、①合うクレジットカードのご提案、②年間で貯まりそうなマイル数、③そのマイルの生涯価値、④1年で貯まるマイルで行ける旅の具体例、この4つをその場で一緒に出します。あわせて「ANA特典航空券 必要マイル数 計算アプリ」をお渡しし、その場で一緒に使いながらプランを立てます。ここまでが無料です。ご希望の方だけにご案内していますので、「まず動画だけ見たい」という進め方でも構いません。</p></details>
+    <p>あなたの状況をうかがったうえで、①あなたにおすすめのカード1枚のご提案、②年間で貯まりそうなマイル数、③そのマイルの生涯価値、④1年で貯まるマイルで行ける旅の具体例、この4つをその場で一緒に出します。あわせて「ANA特典航空券 必要マイル数 計算アプリ」をお渡しし、その場で一緒に使いながらプランを立てます。ここまでが無料です。ご希望の方だけにご案内していますので、「まず動画だけ見たい」という進め方でも構いません。</p></details>
 
   <details><summary>LINEを追加すると、通知がたくさん来ませんか？</summary>
     <p>来ません。お役に立つ内容だけをお送りしています。合わないと感じられたら、いつでもブロックしていただいて構いません。こちらに通知は届きませんのでご安心ください。</p></details>
@@ -607,11 +613,11 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
   <details><summary>マイルのことを何も知らなくても大丈夫ですか？</summary>
     <p>大丈夫です。「マイルとは何か」から順番に解説します。むしろ、変なクセがついていない方のほうがスムーズに進みます。</p></details>
 
-  <details><summary>いま持っているカードを解約する必要がありますか？</summary>
-    <p>ありません。まずはお手持ちのカードのまま、生活費の「通り道」を変えるところから始められます。</p></details>
+  <details><summary>いま持っているカードは、そのままで大丈夫ですか？</summary>
+    <p>解約の必要はありませんが、カードを変える必要は出てくる可能性があります。たとえば電子マネーを使って、通常のマイラーの3倍ほどのマイルを獲得する方法もあり、そのために新たに作るカードは出てくると思います。おすすめのカード1枚を、無料の個別相談会でお伝えしています。</p></details>
 
   <details><summary>年収が高くないと無理ではありませんか？</summary>
-    <p>いいえ。作中の夫婦も年間の生活費は120万円ほどで、金額そのものは変えていません。違いは仕組みを知っているかどうかだけです。</p></details>
+    <p>いいえ。マンガに出てくるマキさんは調理師として働く普通の会社員で、年間の生活費は120万円ほど。それを聞いた夫婦のほうが「うちのほうが多いくらい」と驚いていました。違いは収入の多さではなく、同じ支払いをどこに通すかという仕組みを知っているかどうかだけです。</p></details>
 
   <details><summary>どのくらいの期間で旅行に行けますか？</summary>
     <p>目的地・人数・生活スタイルによって、貯まるペースは大きく変わります。決まった期間をお約束することはできません。まずは動画講座と個別相談会で、あなたの場合に必要なマイル数と、貯まるペースの目安をご確認ください。</p></details>
