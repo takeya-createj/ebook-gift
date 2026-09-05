@@ -41,11 +41,25 @@ img{display:block;max-width:100%;height:auto;}
 .kicker{display:block;width:fit-content;font-size:15px;font-weight:900;margin:0 auto 8px;
   background:#c0392b;color:#fff;padding:4px 20px;border-radius:4px;
   letter-spacing:.06em;box-shadow:0 3px 10px rgba(0,0,0,.28);}
-.fv h1{font-size:38px;font-weight:900;line-height:1.3;margin:0 0 12px;
+.fv h1 .big5{display:block;font-size:1.35em;line-height:1.1;margin-top:2px;
+  letter-spacing:.06em;}
+.fv h1{font-size:clamp(30px,9vw,40px);font-weight:900;line-height:1.28;margin:0 0 12px;
   letter-spacing:.02em;color:#ffd45e;
   text-shadow:0 2px 14px rgba(0,0,0,.42),0 0 1px rgba(0,0,0,.5);}
 .tagline{font-size:16px;font-weight:700;line-height:1.75;margin:0 0 14px;color:#fff;}
 .tagline b{color:#ffd45e;}
+.fvfig{width:100%;max-width:560px;margin:0 auto 18px;border-radius:12px;
+  box-shadow:0 14px 34px rgba(0,0,0,.38);}
+.fvbook{display:flex;align-items:center;gap:13px;justify-content:center;
+  max-width:430px;margin:20px auto 0;text-align:left;}
+.fvbook img{width:80px;flex:none;border-radius:5px;box-shadow:0 6px 16px rgba(0,0,0,.45);}
+.fvbook span{font-size:13px;line-height:1.65;color:#cfdcee;font-weight:700;}
+.fvbook b{color:#ffd45e;}
+.fvdisc{font-size:11px;line-height:1.6;color:#a9bcd4;margin:-4px 0 0;}
+.gates{font-size:11.5px;line-height:1.7;color:#bfd0e6;font-weight:700;
+  margin:-8px auto 16px;max-width:560px;letter-spacing:.01em;}
+.sidenote{font-size:13.5px;line-height:1.9;color:#6f675c;background:#fffdf8;
+  border-left:3px solid #d9c48a;border-radius:0 7px 7px 0;padding:12px 15px;margin:22px 0 6px;}
 .fvbenefit{font-size:13px;font-weight:700;color:#cfdcee;margin:20px 0 8px;}
 .benefits{list-style:none;padding:0;margin:0 0 4px;display:grid;
   grid-template-columns:1fr;gap:6px;text-align:left;}
@@ -169,6 +183,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
 
 @media(min-width:600px){
   .fv h1{font-size:46px;}
+  .fvfig{max-width:640px;}
   .benefits{grid-template-columns:1fr 1fr;}
   /* 広い画面では横長ヒーローを幅いっぱいに */
   .fvcover{width:100%;max-width:none;border-radius:14px;
@@ -217,27 +232,31 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
   <div class="wrap">
     <span class="eyebrow">マイル旅 未経験者＆初心者の方へ</span>
     <p class="kicker">マンガでわかる</p>
-    <h1>マイル旅のススメ</h1>
+    <h1>マイルの貯め方<br><span class="big5">5選</span></h1>
     <p class="tagline">
-      「いつか行きたい」で終わらせない、<br>
-      人生を<b>豊か</b>にする<b>旅のはじめ方</b>。
+      夢のマイル旅へ。<br>
+      <b>はじめの一歩</b>を踏み出そう！
     </p>
+    <img class="fvfig" src="images/fig_14.webp" width="1000" height="667"
+         alt="マイルを貯める5つの入り口：ポイントサイト・公共料金の支払い・クレカ/電子決済・キャンペーン・ネットショッピング">
+    <p class="gates">ポイントサイト／公共料金の支払い／クレカ・電子決済／キャンペーン／ネットショッピング</p>
+    <a class="cta" href="https://w5x3gyli.autosns.app/addfriend/s/RaTEDqnCcv/@793lofvx" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
+      <span class="s">まず何から始めるかが分かる動画講座つき／登録30秒</span></a>
     <p class="sub">
       普通の会社員が、生活費はそのままで4か国へ。<br>
-      <strong>マイル旅のはじめの一歩</strong>を、マンガ33ページで公開しています。
+      <strong>その順番</strong>を、マンガ33ページで公開しています。
     </p>
-    <picture>
-      <source media="(min-width:600px)" srcset="images/hero.webp" width="1200" height="615">
-      <img class="fvcover" src="images/cover.webp" alt="マンガでわかる マイル旅のススメ" width="700" height="1119">
-    </picture>
-    <a class="cta" href="#entry"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
-      <span class="s">全33ページ＋無料動画講座つき／登録30秒</span></a>
-    <p class="fvbenefit">マイルを味方にすれば、</p>
+    <p class="fvdisc">※ 受講生の一例です。結果には個人差があり、期間をお約束するものではありません。</p>
+    <div class="fvbook">
+      <img src="images/cover.webp" width="700" height="1119" alt="マンガ「マイル旅のススメ」表紙">
+      <span>マンガ<b>『マイル旅のススメ』</b><br>全33ページを、LINEで無料でお渡しします。</span>
+    </div>
+    <p class="fvbenefit">このページで分かること</p>
     <ul class="benefits">
-      <li>憧れの旅行が、ぐっと<b>近づく</b></li>
-      <li>お金の不安を、<b>ワクワク</b>に</li>
-      <li>普通の会社員でも、<b>始められる</b></li>
-      <li>ホテルの特典も、もっと<b>自由</b>に</li>
+      <li>5つのうち、<b>最初にやる1つ</b></li>
+      <li>貯めたマイルを<b>特典航空券</b>に変えるまで</li>
+      <li><b>年会費4万円</b>は高いのか、安いのか</li>
+      <li><b>家族4人ぶん</b>の座席のそろえ方</li>
     </ul>
     <p class="fvnote">※ 続きは、このページでもそのまま読めます</p>
   </div>
@@ -326,7 +345,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <span class="free">無料</span>
     <h3>その「道」のつくり方は、<br>マンガの続きと動画で。</h3>
     <p>マンガ本編まるごと＋動画講座を、LINEでお渡ししています</p>
-    <a class="cta" href="#entry"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
+    <a class="cta" href="https://w5x3gyli.autosns.app/addfriend/s/RaTEDqnCcv/@793lofvx" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
       <span class="s">登録30秒／いつでもブロックできます</span></a>
   </div>
 </div>
@@ -413,7 +432,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
       <img loading="lazy" src="images/photo_09.webp" alt="ホテルのアフタヌーンティー" width="1000" height="1250">
     </div>
     <figcaption>左から、<b>空港ラウンジ</b>／<b>憧れのホテル</b>／<b>特別な日のレストラン</b>。<br>
-      年に<b>4万円弱</b>の年会費が連れてくるもの。<br>「消えていく出費」ではなく、投資でした。</figcaption>
+      年に<b>4万円弱</b>の年会費が連れてくるもの。<br>「消えていく出費」ではなく、わが家にとっては投資でした。</figcaption>
   </figure>
 </div>
 
@@ -423,7 +442,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <span class="free">無料</span>
     <h3>「で、自分は何から始めれば?」<br>その答えもお渡しします。</h3>
     <p>あなたに合うカードと、最初の1歩がわかります</p>
-    <a class="cta" href="#entry"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
+    <a class="cta" href="https://w5x3gyli.autosns.app/addfriend/s/RaTEDqnCcv/@793lofvx" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
       <span class="s">登録30秒／費用は一切かかりません</span></a>
   </div>
 </div>
@@ -450,10 +469,14 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
 
 <div class="wrap sec">
   <div class="figs">
-    <img loading="lazy" src="images/fig_14.webp" alt="マイルを貯める、5つの入り口：ポイントサイト・公共料金の支払い・クレジットカード・キャンペーン・ネットショッピング。今ぜんぶ覚えなくて大丈夫" width="1000" height="667">
+    <img loading="lazy" src="images/fig_14.webp" alt="マイルを貯める、5つの入り口：ポイントサイト・公共料金の支払い・クレカ/電子決済・キャンペーン・ネットショッピング。今ぜんぶ覚えなくて大丈夫" width="1000" height="667">
     <img loading="lazy" src="images/fig_15.webp" alt="まずは「1つ」だけ。当たり前になる→次の1つを足す→がんばらなくても貯まっていく" width="1000" height="667">
     <img loading="lazy" src="images/fig_17.webp" alt="変わったのは、収入ではなかった。「自分には無理」という思い込みを手放し、まずひとつだけと一歩踏み出した" width="1000" height="667">
   </div>
+
+  <p class="sidenote">なお、事業をされている方は、仕入れ・外注費・納税といった大きな支払いがあるぶん、
+  同じ入り口でも動く金額が変わります。カードの入会特典にある決済条件も、無理なく満たせることが多いはずです。
+  （私自身も経営者です）</p>
 
   <p class="shotlead">そして、あの日の景色へ。</p>
   <figure class="shot">
@@ -509,7 +532,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <li data-n="1"><b>「貯め方」より先に決めること</b>
       同じ1マイルの価値が何十倍にも変わる、使い道の設計から始めます。</li>
     <li data-n="2"><b>マイルが貯まる5つの入り口</b>
-      ポイントサイト／公共料金／クレジットカード／キャンペーン／ネットショッピング。あなたが最初に手をつけるべき1つがわかります。</li>
+      ポイントサイト／公共料金／クレカ・電子決済／キャンペーン／ネットショッピング。あなたが最初に手をつけるべき1つがわかります。</li>
     <li data-n="3"><b>年会費のほんとうの考え方</b>
       「高い＝損」ではありません。年会費が連れてくるものを金額で見える化します。</li>
     <li data-n="4"><b>あなたに合うカードの選び方</b>
@@ -575,7 +598,7 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
 <!-- ============ sticky CTA ============ -->
 <div class="sticky">
   <div class="inner">
-    <a class="cta" href="#entry"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
+    <a class="cta" href="https://w5x3gyli.autosns.app/addfriend/s/RaTEDqnCcv/@793lofvx" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 5.6 2 10c0 3.9 3.5 7.2 8.2 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6C21.3 13.2 22 11.7 22 10c0-4.4-4.5-8-10-8z"/></svg>LINEでマンガを受け取る
       <span class="s">登録30秒／完全無料</span></a>
   </div>
 </div>
