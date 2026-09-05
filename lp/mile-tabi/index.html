@@ -51,8 +51,15 @@ img{display:block;max-width:100%;height:auto;}
 .kicker{display:block;width:fit-content;font-size:15px;font-weight:900;margin:0 auto 8px;
   background:#c0392b;color:#fff;padding:4px 20px;border-radius:4px;
   letter-spacing:.06em;box-shadow:0 3px 10px rgba(0,0,0,.28);}
-.fv h1 .big5{display:block;font-size:1.35em;line-height:1.1;margin-top:2px;
-  letter-spacing:.06em;}
+.subttl{display:inline-block;font-size:clamp(20px,5.6vw,27px);font-weight:900;
+  color:#fff;margin:12px 0 0;letter-spacing:.02em;line-height:1.35;
+  text-shadow:0 2px 7px rgba(10,25,50,.85);}
+.subttl .big5{display:inline-block;font-size:1.45em;color:#ffd45e;
+  margin:0 3px;letter-spacing:.03em;vertical-align:-2px;}
+.callout{font-size:clamp(16px,4.6vw,21px);font-weight:900;line-height:1.6;
+  color:#fff;margin:2px 0 16px;letter-spacing:.01em;
+  text-shadow:0 2px 8px rgba(10,25,50,.55);}
+.callout b{color:#ffd45e;}
 .fv h1{font-size:clamp(30px,9vw,40px);font-weight:900;line-height:1.28;margin:0 0 12px;
   letter-spacing:.02em;color:#ffd45e;
   text-shadow:0 2px 6px rgba(10,25,50,.75),0 4px 20px rgba(10,25,50,.6);}
@@ -261,12 +268,10 @@ hr.sep{border:0;border-top:1px dashed var(--line);margin:40px 0;}
     <div class="fvhero">
       <span class="eyebrow">マイル旅 未経験者＆初心者の方へ</span>
       <p class="kicker">マンガでわかる</p>
-      <h1>マイルの貯め方<br><span class="big5">5選</span></h1>
-      <p class="tagline">
-        夢のマイル旅へ。<br>
-        <b>はじめの一歩</b>を踏み出そう！
-      </p>
+      <h1>マイル旅のススメ</h1>
+      <p class="subttl">マイルの貯め方<span class="big5">5選</span>紹介</p>
     </div>
+    <p class="callout">夢のマイル旅へ！<br>さあ、<b>はじめの一歩</b>を踏み出そう！</p>
     <img class="fvfig" src="images/fig_14.webp" width="1000" height="667"
          alt="マイルを貯める5つの入り口：ポイントサイト・公共料金の支払い・クレカ/電子決済・キャンペーン・ネットショッピング">
     <p class="gates">ポイントサイト／公共料金の支払い／クレカ・電子決済／キャンペーン／ネットショッピング</p>
